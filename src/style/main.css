@@ -1,0 +1,10 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.red{
+	background: red;
+	height: 500px;
+	width: 500px;
+}
