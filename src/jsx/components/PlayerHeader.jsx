@@ -5,7 +5,7 @@ export class PlayerHeader extends Component{
     return (
       <div>
         <span className={'player-header--name-performer'}>Lykke Li</span>
-        <span className={'player-header--name-track'}>Название</span>
+        <span className={'player-header--name-track'}>I Follow Rivers (The Magician Remix)</span>
       </div>
     )
   }

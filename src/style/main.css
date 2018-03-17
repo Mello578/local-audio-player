@@ -75,11 +75,11 @@ body {
 }
 
 .player {
-	width: 360px;
+	width: 275px;
 	background: linear-gradient(to bottom, #71b3e626, #572c80);
 	text-align: center;
 	opacity: 0.99;
-	padding: 45px 40px;
+	padding: 37px 40px 187px;
 }
 
 .player-header--name-performer,
@@ -88,24 +88,24 @@ body {
 }
 
 .player-header--name-performer {
-	font-size: 36pt;
+	font-size: 24pt;
 	font-weight: bold;
 }
 
 .player-header--name-track {
-	margin-top: 15px;
-	font-size: 18pt;
+	margin-top: 12px;
+	font-size: 12pt;
 }
 
-.player-body{
+.player-body {
 	margin-top: 40px;
 }
 
 .player-body--center-vinyl {
 	background: url("../img/t.png") no-repeat center;
-	background-size: 37%;
+	background-size: 50%;
 	height: 275px;
-	transform: rotate(18deg);
+	transform: rotate(14deg);
 }
 
 .player-body--vinyl {
@@ -113,6 +113,74 @@ body {
 	width: 275px;
 }
 
-.player--panel-controls {
+.player--panel-control{
+	position: absolute;
+	width: 275px;
+}
+
+.player--buttons-control {
 	margin-top: 45px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.button {
+	border: none;
+	height: 60px;
+	width: 60px;
+}
+
+.button-play {
+	background: url('../img/panelsControls.png') 202px -20px;
+}
+
+.button-previous {
+	background: url('../img/panelsControls.png') -77px -20px;
+}
+
+.button-following {
+	background: url('../img/panelsControls.png') 117px -20px;
+}
+
+.button-previous,
+.button-following {
+	width: 40px;
+}
+
+.button-revert,
+.button-shuffle,
+.button-volume-small{
+	width: 20px;
+}
+
+
+.button-revert {
+	background: url('../img/panelsControls.png') -37px -20px;
+}
+
+.button-shuffle {
+	background: url('../img/panelsControls.png') 58px -20px;
+}
+
+.player--volume-controls{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.button-volume-small{
+	background: url('../img/panelsControls.png') -30px -104px;
+}
+
+.button-volume-big{
+	background: url('../img/panelsControls.png') -100px -114px;
+	margin-right: 20px;
+}
+
+.button-pause{
+	background: url('../img/panelsControls.png') -179px -114px;
+}
+
+.player--additionally-panel{
+	margin-top: 55px;
 }
