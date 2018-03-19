@@ -111,6 +111,7 @@ body {
 .player-body--vinyl {
 	height: 275px;
 	width: 275px;
+	transform: rotate(-14deg);
 }
 
 .player--panel-control{
