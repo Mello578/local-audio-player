@@ -7,6 +7,11 @@ const MUSIC_DIRECTORY = path.resolve(__dirname, '../../audio/');
 const musicExpansion = '.mp3';
 const imageExpansion = '.png';
 
+function getPlayList() {
+  return (req, res) =>
+    generatedPlayList().then((playList) => res.send(playList))
+}
+
 function generatedPlayList() {
   return checkDirectory(MUSIC_DIRECTORY, 'directory')
     .then(arrayDirectory => {
@@ -35,4 +40,4 @@ function checkDirectory(directory, mode) {
   });
 }
 
-module.exports = generatedPlayList();
+module.exports = getPlayList();
