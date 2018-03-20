@@ -5,7 +5,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
-	entry: './src/jsx/index.jsx',
+	entry: './src/js/index.jsx',
 	output: {
 		path:  __dirname + '/dist/js/',
 		publicPath: __dirname + '/dist/',

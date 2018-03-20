@@ -1,9 +1,8 @@
 const {PlayList} = require('../classes/PlayList');
 
 const fs = require('fs');
-const path = require('path');
 
-const MUSIC_DIRECTORY = path.resolve(__dirname, '../../audio/');
+const MUSIC_DIRECTORY = './audio/';
 const musicExpansion = '.mp3';
 const imageExpansion = '.png';
 
@@ -29,13 +28,13 @@ function generatedPlayList() {
 }
 
 function checkDirectory(directory, mode) {
-  let pathName = mode === 'directory' ? path.resolve(__dirname, '../../audio/') : directory;
+  let pathName = mode === 'directory' ? './audio' : directory;
   return new Promise((resolve) => {
     fs.readdir(directory, (err, files) => {
       if (err) {
         return console.error(err)
       }
-      resolve(files.map(file => path.resolve(pathName, file)));
+      resolve(files.map(file => pathName + '/' + file));
     });
   });
 }

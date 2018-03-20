@@ -71,6 +71,8 @@ body {
 }
 
 .container {
+	display: flex;
+	justify-content: flex-start;
 	padding: 80px;
 }
 
@@ -102,8 +104,8 @@ body {
 }
 
 .player-body--center-vinyl {
-	background: url("../img/t.png") no-repeat center;
-	background-size: 50%;
+	background: url(../img/default.png) no-repeat 67px 62px;
+	background-size: 61%;
 	height: 275px;
 	transform: rotate(14deg);
 }
@@ -123,6 +125,11 @@ body {
 	margin-top: 45px;
 	display: flex;
 	justify-content: space-between;
+}
+
+.playlist {
+	margin-left: 80px;
+	height: 50px;
 }
 
 .button {
@@ -184,4 +191,9 @@ body {
 
 .player--additionally-panel{
 	margin-top: 55px;
+}
+
+.playlist--one-image {
+	position: relative;
+	margin: 0 50px 50px 0;
 }
