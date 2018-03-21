@@ -1,12 +1,14 @@
-import {VISIBLE_IMG_PLAYLIST} from '../../constants/playListConst';
+import {MOVIE_IMGS_PLAYLIST} from '../../constants/playListConst';
+import {AllData} from '../classes/ClassImagesPlaylist';
 
 export function imgsPlaylistActions(data) {
-  const dataImages = {
-    id: data.id,
-    images: data.images
-  };
+  const id = data.map(item => item.id);
+  const img = data.map(item => item.img);
+  const tracks = data.map(item => item.music);
+  const trackName = data.map(item => item.trackName);
+  const dataImages = new AllData(id, img, tracks, trackName);
   return {
-    type: VISIBLE_IMG_PLAYLIST,
+    type: MOVIE_IMGS_PLAYLIST,
     dataImages
   };
 }

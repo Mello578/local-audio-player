@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {ImagesForPlaylist} from '../Components/ImagesForPlaylist';
-
+import {PlaylistImages} from '../Components/PlaylistImages';
+import {PlaylistTracks} from '../Components/PlaylistTracks';
 
 export class Playlist extends Component {
   render() {
     return (
       <div className={'playlist'}>
-        <ImagesForPlaylist/>
+        <PlaylistImages/>
+        <PlaylistTracks/>
       </div>
     )
   }

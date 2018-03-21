@@ -11,6 +11,12 @@ function getPlayList() {
     generatedPlayList().then((playList) => res.send(playList))
 }
 
+function getName(path){
+  const indexName = path.lastIndexOf('/');
+  const indexExpansion = path.lastIndexOf('.');
+  return path.slice(indexName + 1, indexExpansion);
+}
+
 function generatedPlayList() {
   return checkDirectory(MUSIC_DIRECTORY, 'directory')
     .then(arrayDirectory => {
@@ -20,9 +26,10 @@ function generatedPlayList() {
     })
     .then((filesArrays) => {
       return filesArrays.map((files, key) => {
-        let image = files.find(data => data.slice(-4).localeCompare(imageExpansion) === 0);
-        let music = files.filter(data => data.slice(-4).localeCompare(musicExpansion) === 0);
-        return new PlayList(key, image, music)
+        const image = files.find(data => data.slice(-4).localeCompare(imageExpansion) === 0);
+        const music = files.filter(data => data.slice(-4).localeCompare(musicExpansion) === 0);
+        const trackName = music.map(data => getName(data));
+        return new PlayList(key, image, music, trackName)
       });
     });
 }

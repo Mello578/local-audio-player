@@ -5,7 +5,6 @@ import {PanelsControl} from './PanelsControl';
 
 export class Player extends Component {
   render() {
-    console.log('wdwddwdwd');
     return (
       <div className={'player'}>
         <PlayerHeader/>

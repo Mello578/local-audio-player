@@ -4,7 +4,7 @@
  * @returns {Promise<any>}
  */
 export async function fetchPlaylist(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, {cache: 'no-cache'});
   try {
     if (response.status !== 200) {
       throw new Error('Looks like there was a problem. Status Code: ' + response.status);

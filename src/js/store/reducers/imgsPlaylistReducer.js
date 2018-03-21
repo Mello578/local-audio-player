@@ -1,12 +1,22 @@
 import {initialState} from '../initionalState';
-import {VISIBLE_IMG_PLAYLIST} from '../../constants/playListConst';
+import {HIDE_IMG_PLAYLIST, MOVIE_IMGS_PLAYLIST, SHOW_IMG_PLAYLIST} from '../../constants/playListConst';
 
 export function imgsPlaylistReducer(state = initialState.imagesPlaylist, action) {
   switch (action.type) {
-    case VISIBLE_IMG_PLAYLIST:
+    case MOVIE_IMGS_PLAYLIST:
       return {
         data: action.payload,
         visible: true
+      };
+    case HIDE_IMG_PLAYLIST:
+      return {
+        data: state.data,
+        visible: action.payload
+      };
+    case SHOW_IMG_PLAYLIST:
+      return {
+        data: state.data,
+        visible: action.payload
       };
     default:
       return state;

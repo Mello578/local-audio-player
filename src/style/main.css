@@ -104,7 +104,6 @@ body {
 }
 
 .player-body--center-vinyl {
-	background: url(../img/default.png) no-repeat 67px 62px;
 	background-size: 61%;
 	height: 275px;
 	transform: rotate(14deg);
@@ -116,7 +115,7 @@ body {
 	transform: rotate(-14deg);
 }
 
-.player--panel-control{
+.player--panel-control {
 	position: absolute;
 	width: 275px;
 }
@@ -130,6 +129,7 @@ body {
 .playlist {
 	margin-left: 80px;
 	height: 50px;
+	width: 100%;
 }
 
 .button {
@@ -157,10 +157,9 @@ body {
 
 .button-revert,
 .button-shuffle,
-.button-volume-small{
+.button-volume-small {
 	width: 20px;
 }
-
 
 .button-revert {
 	background: url('../img/panelsControls.png') -37px -20px;
@@ -170,30 +169,60 @@ body {
 	background: url('../img/panelsControls.png') 58px -20px;
 }
 
-.player--volume-controls{
+.player--volume-controls {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.button-volume-small{
+.button-volume-small {
 	background: url('../img/panelsControls.png') -30px -104px;
 }
 
-.button-volume-big{
+.button-volume-big {
 	background: url('../img/panelsControls.png') -100px -114px;
 	margin-right: 20px;
 }
 
-.button-pause{
+.button-pause {
 	background: url('../img/panelsControls.png') -179px -114px;
 }
 
-.player--additionally-panel{
+.player--additionally-panel {
 	margin-top: 55px;
 }
 
 .playlist--one-image {
-	position: relative;
 	margin: 0 50px 50px 0;
+}
+
+.playlist--one-image,
+.playlist--tracks {
+	position: relative;
+}
+
+.playlist--tracks {
+	font-size: 15pt;
+}
+
+.playlist--one-track {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ffffff45;
+	padding: 10px 0;
+}
+
+.playlist--track-name {
+	margin-left: 20px;
+	width: 100%;
+}
+
+.playlist--duration span {
+	float: right;
+}
+
+.playlist--one-image:hover,
+.button:hover {
+	cursor: pointer;
 }

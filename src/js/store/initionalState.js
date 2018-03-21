@@ -1,10 +1,8 @@
+import {BACKGROUND_VINYL_DEFAUL} from '../constants/playerConst';
+
 export const initialState = {
   playlist: {
-    data: {
-      id: null,
-      tracks: [],
-      imgPlaylist: ''
-    },
+    data: [],
     visible: false
   },
   imagesPlaylist: {
@@ -13,5 +11,9 @@ export const initialState = {
       images: []
     },
     visible: true
+  },
+  playerVinyl: {
+    background: BACKGROUND_VINYL_DEFAUL
   }
+
 };

@@ -1,11 +1,17 @@
 import {initialState} from '../initionalState';
-import {ADD_PLAYLIST} from '../../constants/playListConst';
+import {HIDE_PLAYLIST, SELECT_PLAYLIST} from '../../constants/playListConst';
 
 export function playlistReducer(state = initialState.playlist, action) {
   switch (action.type) {
-    case ADD_PLAYLIST:
+    case SELECT_PLAYLIST:
       return {
-        ...state
+        data: action.payload,
+        visible: true
+      };
+    case HIDE_PLAYLIST:
+      return {
+        data: state.data,
+        visible: action.payload
       };
 
     default:
