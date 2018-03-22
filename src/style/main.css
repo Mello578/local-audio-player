@@ -223,6 +223,8 @@ body {
 }
 
 .playlist--one-image:hover,
-.button:hover {
+.button:hover,
+.player-body--center-vinyl:hover,
+.playlist--one-track img:hover {
 	cursor: pointer;
 }

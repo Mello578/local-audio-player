@@ -2,10 +2,12 @@ import {combineReducers} from 'redux';
 
 import {playlistReducer} from './playlistReducer';
 import {imgsPlaylistReducer} from './imgsPlaylistReducer';
-import {playerVinylReducer} from './playerVinylReducer';
+import {vinylBackgroundReducer} from './playerVinylReducer';
+import {playerControlReducer} from './playerControlReduser';
 
 export default combineReducers({
   playlistReducer,
   imgsPlaylistReducer,
-  playerVinylReducer
+  vinylBackgroundReducer,
+  playerControlReducer
 })

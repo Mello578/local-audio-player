@@ -1,20 +1,49 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {secondsFormat} from '../../utils/secondsFormat';
+import {playTrack} from '../../store/actions/playerControlAction';
+import {startPauseStopPlay} from '../../utils/startStopPlay';
+import {TRACK_PLAY, TRACK_STOP} from '../../constants/playerConst';
 
-export class TracksOfPlaylist extends Component {
 
-  timeDuration(seconds) {
-    return seconds > 3600
-      ? Math.floor(seconds / 3600) + ":" + (Math.floor(seconds / 60) - (Math.floor(seconds / 3600) * 60)) + ":" + (Math.floor(seconds % 60) < 10 ? '0' + Math.floor(seconds % 60) : Math.floor(seconds % 60))
-      : (Math.floor(seconds / 60) - (Math.floor(seconds / 3600) * 60)) + ":" + (Math.floor(seconds % 60) < 10 ? '0' + Math.floor(seconds % 60) : Math.floor(seconds % 60));
-  }
+class TracksOfPlaylist extends Component {
 
   trackDuration(track, id) {
-    return track.addEventListener('loadedmetadata', () => {
-      id = 'track-duration_' + id;
+    id = 'track-duration_' + id;
+    const currentElement = document.getElementById(id);
+    if (track.readyState >= 2) {
+      currentElement.innerText = secondsFormat(track.duration);
+    } else {
+      track.addEventListener('loadedmetadata', () => {
+        currentElement.innerText = secondsFormat(track.duration);
+      });
+    }
+  }
 
-      document.getElementById(id).innerText = this.timeDuration(track.duration);
+  componentDidUpdate() {
+    this.props.data.forEach((item) => {
+      this.trackDuration(item.track, item.id)
     });
+  }
+
+  setPlayTrack(e) {
+    const numbTrack = e.target.id.replace(/\D+/g, "");
+    const dataTrack = {
+      idTrack: numbTrack,
+      currentTrack: this.props.data.find(item => (item.id === parseInt(numbTrack))).track
+    };
+    const track = dataTrack.currentTrack;
+    if (track) {
+      const playedTrack = this.props.dataPlay.currentTrack;
+      if (playedTrack && track !== playedTrack) {
+        startPauseStopPlay(playedTrack, TRACK_STOP);
+      }
+      startPauseStopPlay(track, TRACK_PLAY)
+    }
+
+    const playTrackAction = playTrack(dataTrack);
+    this.props.played(playTrackAction);
+
   }
 
   render() {
@@ -23,11 +52,12 @@ export class TracksOfPlaylist extends Component {
         {
           this.props.data.map((item, key) => {
             return (
-              <div key={key} id={item.id} className={'playlist--one-track'}>
-                <img src='src/img/smallPlay.png' alt='play'/>
+              <div key={key} className={'playlist--one-track'}>
+                <img src='src/img/smallPlay.png' alt='play' id={'play' + item.id}
+                     onClick={(e) => this.setPlayTrack(e)}/>
                 <span className={'playlist--track-name'}>{item.trackName}</span>
                 <div className={'playlist--duration'}>
-                  <span id={'track-duration_' + key}>{this.trackDuration(item.track, key)}</span>
+                  <span id={'track-duration_' + item.id}></span>
                 </div>
               </div>
             )
@@ -38,18 +68,15 @@ export class TracksOfPlaylist extends Component {
   }
 }
 
-export const PlaylistTracks = connect(({playlistReducer}) =>
+export const PlaylistTracks = connect(({playlistReducer, playerControlReducer}) =>
     ({
       data: playlistReducer.data,
-      visible: playlistReducer.visible
-    })
-  ,
+      visible: playlistReducer.visible,
+      dataPlay: playerControlReducer.data
+    }),
   dispatch => ({
-    // moviePlaylist(playlist) {
-    //   dispatch({type: playlist.type, payload: playlist.data})
-    // },
-    // hideImgsPlaylist(mode){
-    //   dispatch({type: mode.type, payload: mode.data})
-    // }
+    played(track) {
+      dispatch({type: track.type, payload: track.data})
+    }
   })
 )(TracksOfPlaylist);

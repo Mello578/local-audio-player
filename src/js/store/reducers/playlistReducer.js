@@ -1,5 +1,5 @@
-import {initialState} from '../initionalState';
-import {HIDE_PLAYLIST, SELECT_PLAYLIST} from '../../constants/playListConst';
+import {initialState} from './initionalState';
+import {HIDE_PLAYLIST, SELECT_PLAYLIST, SHUFFLE_PLAYLIST} from '../../constants/playListConst';
 
 export function playlistReducer(state = initialState.playlist, action) {
   switch (action.type) {
@@ -13,7 +13,11 @@ export function playlistReducer(state = initialState.playlist, action) {
         data: state.data,
         visible: action.payload
       };
-
+    case SHUFFLE_PLAYLIST:
+      return {
+        data: action.payload,
+        visible: true
+      };
     default:
       return state;
   }

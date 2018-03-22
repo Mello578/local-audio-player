@@ -1,7 +1,7 @@
-import {initialState} from '../initionalState';
+import {initialState} from './initionalState';
 import {SET_BACKGROUND} from '../../constants/playerConst';
 
-export function playerVinylReducer(state = initialState.playerVinyl, action) {
+export function vinylBackgroundReducer(state = initialState.playerVinyl, action) {
   switch (action.type) {
     case SET_BACKGROUND:
       return {

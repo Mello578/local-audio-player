@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {playlist} from '../../store/actions/playlistActions';
-import {hideImgsPlaylistAction} from '../../store/actions/hideImgsPlaylistAction';
+import {hideImgsPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
 
 export class ImagesOfPlaylist extends Component {

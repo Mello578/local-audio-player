@@ -1,1 +1,1 @@
-export const URL = 'http://localhost:3000/playlist';
+export const URL = window.location.href + 'playlist';

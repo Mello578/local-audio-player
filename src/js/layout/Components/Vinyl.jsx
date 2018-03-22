@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {showImgsPlaylistAction} from '../../store/actions/showImgsPlaylistAction';
+import {showImgsPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
-import {BACKGROUND_VINYL_DEFAUL} from '../../constants/playerConst';
-import {hidePlaylistAction} from '../../store/actions/hidePlaylistAction';
+import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
+import {hidePlaylist} from '../../store/actions/playlistActions';
 
 export class VinylData extends Component {
   showImagesPlaylist() {
     const showImagesAction = showImgsPlaylistAction(true);
-    const imagesVinylAction = backgroundVinilAction(BACKGROUND_VINYL_DEFAUL);
-    const hidePlayListAction = hidePlaylistAction(false);
+    const imagesVinylAction = backgroundVinilAction(BACKGROUND_VINYL_DEFAULT);
+    const hidePlayListAction = hidePlaylist(false);
     this.props.showImages(showImagesAction);
     this.props.setBackgroundVinyl(imagesVinylAction);
     this.props.hidePlaylist(hidePlayListAction);
@@ -27,9 +27,9 @@ export class VinylData extends Component {
   }
 }
 
-export const Vinyl = connect(({playerVinylReducer}) =>
+export const Vinyl = connect(({vinylBackgroundReducer}) =>
     ({
-      background: playerVinylReducer.background
+      background: vinylBackgroundReducer.background
     })
   ,
   dispatch => ({
