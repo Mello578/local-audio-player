@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-export class Revert extends Component{
-  render(){
-    return(
-      <button className={'button button-revert'}></button>
+class RevertButton extends Component {
+
+  revert() {
+    let repeatedTrack =  this.props.dataPlay.currentTrack.loop;
+    this.props.dataPlay.currentTrack.loop = !repeatedTrack;
+  }
+
+  render() {
+    return (
+      <button className={'button button-revert'} onClick={() => this.revert()}></button>
     )
   }
 }
+
+export const Revert = connect(
+  ({playerControlReducer}) =>
+    ({
+      dataPlay: playerControlReducer.data
+    })
+)(RevertButton);

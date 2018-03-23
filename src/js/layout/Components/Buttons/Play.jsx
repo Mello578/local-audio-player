@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {startPauseStopPlay} from '../../../utils/startStopPlay';
 import {TRACK_PLAY} from '../../../constants/playerConst';
 import {playTrack} from '../../../store/actions/playerControlAction';
+import {getName} from '../../../utils/getNameArtistAndNameTrack';
 
 export class PlayButton extends Component {
 
@@ -16,7 +17,8 @@ export class PlayButton extends Component {
       if (currentTrack === null) {
         const dataTrack = {
           idTrack: firstTrack.id,
-          currentTrack: track
+          currentTrack: track,
+          ...getName(tracksPlaylist[0].trackName)
         };
         const playTrackAction = playTrack(dataTrack);
         this.props.played(playTrackAction);

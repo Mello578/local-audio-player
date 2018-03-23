@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-export class PlayerHeader extends Component{
+class Player extends Component{
   render(){
     return (
       <div>
-        <span className={'player-header--name-performer'}>Lykke Li</span>
-        <span className={'player-header--name-track'}>I Follow Rivers (The Magician Remix)</span>
+        <span className={'player-header--name-performer'}>{this.props.dataPlay.artist}</span>
+        <span className={'player-header--name-track'}>{this.props.dataPlay.trackName}</span>
       </div>
     )
   }
 }
+
+export const PlayerHeader = connect(
+  ({playerControlReducer}) =>
+    ({
+      dataPlay: playerControlReducer.data
+    })
+)(Player);

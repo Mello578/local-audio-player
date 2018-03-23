@@ -4,7 +4,7 @@ import {secondsFormat} from '../../utils/secondsFormat';
 import {playTrack} from '../../store/actions/playerControlAction';
 import {startPauseStopPlay} from '../../utils/startStopPlay';
 import {TRACK_PLAY, TRACK_STOP} from '../../constants/playerConst';
-
+import {getName} from '../../utils/getNameArtistAndNameTrack';
 
 class TracksOfPlaylist extends Component {
 
@@ -28,22 +28,24 @@ class TracksOfPlaylist extends Component {
 
   setPlayTrack(e) {
     const numbTrack = e.target.id.replace(/\D+/g, "");
+    const selectedTrack = this.props.data.find(item => (item.id === parseInt(numbTrack)));
     const dataTrack = {
-      idTrack: numbTrack,
-      currentTrack: this.props.data.find(item => (item.id === parseInt(numbTrack))).track
+      idTrack: selectedTrack.id,
+      currentTrack: selectedTrack.track,
+      ...getName(selectedTrack.trackName)
     };
     const track = dataTrack.currentTrack;
     if (track) {
       const playedTrack = this.props.dataPlay.currentTrack;
+
       if (playedTrack && track !== playedTrack) {
         startPauseStopPlay(playedTrack, TRACK_STOP);
       }
       startPauseStopPlay(track, TRACK_PLAY)
     }
-
+    console.log(this.props.dataPlay)
     const playTrackAction = playTrack(dataTrack);
     this.props.played(playTrackAction);
-
   }
 
   render() {
@@ -55,7 +57,8 @@ class TracksOfPlaylist extends Component {
               <div key={key} className={'playlist--one-track'}>
                 <img src='src/img/smallPlay.png' alt='play' id={'play' + item.id}
                      onClick={(e) => this.setPlayTrack(e)}/>
-                <span className={'playlist--track-name'}>{item.trackName}</span>
+                <span className={'playlist--track-name'}  id={'track-name' + item.id}
+                      onClick={(e) => this.setPlayTrack(e)}>{item.trackName}</span>
                 <div className={'playlist--duration'}>
                   <span id={'track-duration_' + item.id}></span>
                 </div>

@@ -12,6 +12,11 @@ body {
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+button,
+button:focus {
+	outline: none;
+}
+
 .is_overlay {
 	display: block;
 	width: 100%;
@@ -92,6 +97,7 @@ body {
 .player-header--name-performer {
 	font-size: 24pt;
 	font-weight: bold;
+	height: 36px;
 }
 
 .player-header--name-track {
@@ -225,6 +231,7 @@ body {
 .playlist--one-image:hover,
 .button:hover,
 .player-body--center-vinyl:hover,
-.playlist--one-track img:hover {
+.playlist--one-track img:hover,
+.playlist--track-name:hover{
 	cursor: pointer;
 }

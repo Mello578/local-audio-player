@@ -15,10 +15,12 @@ export const initialState = {
   playerVinyl: {
     background: BACKGROUND_VINYL_DEFAULT
   },
-  startPlay: {
+  playControl: {
     data: {
       idTrack: null,
-      currentTrack: null
+      currentTrack: null,
+      artist: 'Исполнитель',
+      trackName: 'Трек'
     },
     repeated: false,
   }
