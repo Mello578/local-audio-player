@@ -23,5 +23,9 @@ export const initialState = {
       trackName: 'Трек'
     },
     repeated: false,
+  },
+  soundLevel: {
+    level: 1
   }
+
 };

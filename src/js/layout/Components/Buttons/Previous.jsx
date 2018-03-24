@@ -20,6 +20,7 @@ class PreviousButton extends Component{
       };
       const playTrackAction = playTrack(dataTrack);
       this.props.played(playTrackAction);
+      nextTrack.track.volume = this.props.volume;
       startPauseStopPlay(nextTrack.track, TRACK_PLAY);
     }
   }
@@ -32,10 +33,11 @@ class PreviousButton extends Component{
 }
 
 export const Previous = connect(
-  ({playerControlReducer, playlistReducer}) =>
+  ({playerControlReducer, playlistReducer, soundControlReducer}) =>
     ({
       dataPlay: playerControlReducer.data,
-      tracksPlaylist: playlistReducer.data
+      tracksPlaylist: playlistReducer.data,
+      volume: soundControlReducer.level
     }),
   dispatch => ({
     played(track) {

@@ -8,3 +8,8 @@ export const TRACK_STOP = 'trackStop';
 export const TRACK_PAUSE = 'trackPause';
 export const TRACK_NEXT = 'trackPlayNext';
 export const TRACK_PREVIOUS = 'trackPlayPrevious';
+export const SOUND_LEVEL = 'soundLevel';
+export const WIDTH_SOUND_BAR = {
+  min: 0,
+  max: 190
+};

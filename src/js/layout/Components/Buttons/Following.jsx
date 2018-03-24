@@ -10,9 +10,7 @@ class FollowingButton extends Component {
 
   nextTrack() {
     const nextTrack = nextPreviousTrack(this.props.dataPlay, this.props.tracksPlaylist, TRACK_NEXT);
-    console.log(nextTrack)
-    if(nextTrack){
-
+    if (nextTrack) {
       const dataTrack = {
         idTrack: nextTrack.id,
         currentTrack: nextTrack.track,
@@ -20,6 +18,9 @@ class FollowingButton extends Component {
       };
       const playTrackAction = playTrack(dataTrack);
       this.props.played(playTrackAction);
+      if(this.props.track){
+        this.props.track.volume = this.props.volume;
+      }
       startPauseStopPlay(nextTrack.track, TRACK_PLAY);
     }
   }
@@ -33,10 +34,11 @@ class FollowingButton extends Component {
 
 
 export const Following = connect(
-  ({playerControlReducer, playlistReducer}) =>
+  ({playerControlReducer, playlistReducer, soundControlReducer}) =>
     ({
       dataPlay: playerControlReducer.data,
-      tracksPlaylist: playlistReducer.data
+      tracksPlaylist: playlistReducer.data,
+      volume: soundControlReducer.level
     }),
   dispatch => ({
     played(track) {

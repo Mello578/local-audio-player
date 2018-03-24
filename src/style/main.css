@@ -124,6 +124,11 @@ button:focus {
 .player--panel-control {
 	position: absolute;
 	width: 275px;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .player--buttons-control {
@@ -185,6 +190,21 @@ button:focus {
 	background: url('../img/panelsControls.png') -30px -104px;
 }
 
+.player--sound-bar {
+	width: 190px;
+	margin-left: 6px;
+	background: #636e80;
+}
+
+.sound-bar--slider-sound {
+	height: 7px;
+	background: linear-gradient(to right, #c12775, #7a36cf);
+}
+
+.volume-level {
+	width: 18px;
+}
+
 .button-volume-big {
 	background: url('../img/panelsControls.png') -100px -114px;
 	margin-right: 20px;
@@ -232,6 +252,7 @@ button:focus {
 .button:hover,
 .player-body--center-vinyl:hover,
 .playlist--one-track img:hover,
-.playlist--track-name:hover{
+.playlist--track-name:hover,
+.player--sound-bar:hover {
 	cursor: pointer;
 }
