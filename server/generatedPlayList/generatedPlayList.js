@@ -1,14 +1,17 @@
 const {PlayList} = require('../classes/PlayList');
 
 const fs = require('fs');
+const mime = require('mime');
+const audioMetaData = require('audio-metadata');
 
 const MUSIC_DIRECTORY = './audio/';
-const musicExpansion = '.mp3';
-const imageExpansion = '.png';
+const musicExpansion = 'audio';
+const imageExpansion = 'image';
 
 function getPlayList() {
-  return (req, res) =>
-    generatedPlayList().then((playList) => res.send(playList))
+  return (req, res) =>{
+   return generatedPlayList().then(data => Promise.all(data).then(playList => res.send(playList)))
+  }
 }
 
 function getName(path){
@@ -18,6 +21,7 @@ function getName(path){
 }
 
 function generatedPlayList() {
+
   return checkDirectory(MUSIC_DIRECTORY, 'directory')
     .then(arrayDirectory => {
       return Promise.all(arrayDirectory.map((item) => {
@@ -25,14 +29,21 @@ function generatedPlayList() {
       }));
     })
     .then((filesArrays) => {
-      return filesArrays.map((files, key) => {
-        const image = files.find(data => data.slice(-4).localeCompare(imageExpansion) === 0);
-        const music = files.filter(data => data.slice(-4).localeCompare(musicExpansion) === 0);
-        const trackName = music.map(data => getName(data));
-        return new PlayList(key, image, music, trackName)
+     return filesArrays.map((files, key) => {
+        let playlist = new PlayList();
+        playlist.id = key;
+        playlist.img = files.find(data =>  mime.getType(data).indexOf(imageExpansion) > -1);
+        playlist.music = files.filter((data) => mime.getType(data).indexOf(musicExpansion) > -1);
+        playlist.trackName = playlist.music.map(data => getName(data));
+        let meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
+        return Promise.all(meta).then(data => {
+          playlist.meta = data.map(item => audioMetaData.id3v2(item));
+          return playlist
+        });
       });
-    });
+    })
 }
+
 
 function checkDirectory(directory, mode) {
   let pathName = mode === 'directory' ? './audio' : directory;
@@ -41,6 +52,7 @@ function checkDirectory(directory, mode) {
       if (err) {
         return console.error(err)
       }
+
       resolve(files.map(file => pathName + '/' + file));
     });
   });

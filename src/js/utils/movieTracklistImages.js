@@ -9,6 +9,7 @@ export async function movieTracklistImages() {
   const img = data.map(item => item.img);
   const tracks = data.map(item => item.music);
   const trackName = data.map(item => item.trackName);
+  console.log('data  ', data)
   const dataImages = new AllData(id, img, tracks, trackName);
   let startDataImages = imgsPlaylistActions(dataImages);
   store.dispatch({type: startDataImages.type, payload: startDataImages.data});
