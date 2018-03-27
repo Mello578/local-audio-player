@@ -1,29 +1,34 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {playlist} from '../../store/actions/playlistActions';
-import {hideImgsPlaylistAction} from '../../store/actions/imagesPlaylistAction';
+import {hideImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
 
 export class ImagesOfPlaylist extends Component {
 
   async openPlaylist(e) {
     const idPlaylist = e.target.id;
-    const data = this.props.data;
-    const selectedPlayList = playlist(data.tracks[idPlaylist].map((item, key) =>
-      ({
-        id: key,
-        track: new Audio(item),
-        trackName: data.trackName[idPlaylist][key]
-      })
+    const allData = this.props.allData;
+    const selectedPlayList = playlist(allData.tracks[idPlaylist].map((item, key) => {
+      const meta = allData.meta[idPlaylist][key];
+        return {
+          id: key,
+          track: item,
+          trackName: meta && meta.artist && meta.title
+            ? `${meta.artist} - ${meta.title}`
+            : allData.trackName[idPlaylist][key],
+          tracksDuration: allData.duration[idPlaylist][key]
+        }
+      }
     ));
-    const actionImgsPlaylist = hideImgsPlaylistAction(false);
+    const hideImages = hideImagesPlaylistAction(false);
 
-    let pathImagesVinyl = data.images[idPlaylist].slice(2);
+    let pathImagesVinyl = allData.images[idPlaylist].slice(2);
     pathImagesVinyl = 'url(' + pathImagesVinyl + ') no-repeat 70px 66px /59%';
     const actionImagesVinyl = backgroundVinilAction(pathImagesVinyl);
 
     this.props.moviePlaylist(selectedPlayList);
-    this.props.hideImgsPlaylist(actionImgsPlaylist);
+    this.props.hideImgsPlaylist(hideImages);
     this.props.setBackgroundVinyl(actionImagesVinyl)
   }
 
@@ -43,10 +48,11 @@ export class ImagesOfPlaylist extends Component {
   }
 }
 
-export const PlaylistImages = connect(({imgsPlaylistReducer}) =>
+export const PlaylistImages = connect(({allDataReducer, imagesPlaylistReducer}) =>
     ({
-      data: imgsPlaylistReducer.data,
-      visible: imgsPlaylistReducer.visible
+      allData: allDataReducer.data,
+      data: imagesPlaylistReducer.data,
+      visible: imagesPlaylistReducer.visible
     })
   ,
   dispatch => ({

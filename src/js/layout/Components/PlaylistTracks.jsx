@@ -9,23 +9,6 @@ import {nextPreviousTrack} from '../../utils/nextPreviousTrack';
 
 class TracksOfPlaylist extends Component {
 
-  trackDuration(track, id) {
-    id = 'track-duration_' + id;
-    const currentElement = document.getElementById(id);
-    if (track.readyState >= 2) {
-      currentElement.innerText = secondsFormat(track.duration);
-    } else {
-      track.addEventListener('loadedmetadata', () => {
-        currentElement.innerText = secondsFormat(track.duration);
-      });
-    }
-  }
-
-  componentDidUpdate() {
-    this.props.data.forEach((item) => {
-      this.trackDuration(item.track, item.id)
-    });
-  }
 
   setPlayTrack(e) {
     const numbTrack = e.target.id.replace(/\D+/g, "");
@@ -75,7 +58,7 @@ class TracksOfPlaylist extends Component {
                 <span className={'playlist--track-name'} id={'track-name' + item.id}
                       onClick={(e) => this.setPlayTrack(e)}>{item.trackName}</span>
                 <div className={'playlist--duration'}>
-                  <span id={'track-duration_' + item.id}></span>
+                  <span id={'track-duration_' + item.id}>{secondsFormat(item.tracksDuration)}</span>
                 </div>
               </div>
             )

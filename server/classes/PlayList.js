@@ -1,10 +1,9 @@
 class PlayList{
-  constructor(id, img, music, trackName, meta){
+  constructor(id, img, music, trackName){
     this.id = id;
     this.img = img;
     this.music = music;
     this.trackName = trackName;
-    this.meta = meta;
   }
 }
 

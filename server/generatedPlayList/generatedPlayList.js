@@ -4,18 +4,34 @@ const fs = require('fs');
 const mime = require('mime');
 const audioMetaData = require('audio-metadata');
 const mp3Duration = require('mp3-duration');
+const watch = require('watch');
 
 const MUSIC_DIRECTORY = './audio/';
 const musicExpansion = 'audio';
 const imageExpansion = 'image';
 
+let allData = [];
+
+
+/**
+ * просматриваем за состоянием директории audio, при любом изменении запускаем парсинг внутри директории
+ */
+(()=>{
+  watch.watchTree(MUSIC_DIRECTORY, () => {
+    generatedPlayList().then(playList => allData = playList.map(item => item));
+  })
+})();
+
 function getPlayList() {
-  return (req, res) =>{
-    return generatedPlayList().then(playList => res.send(playList));
-  }
+  return (req, res) => res.send(allData);
 }
 
-function getName(path){
+
+/**
+ * резервное название на случай отсутствия метаданных
+ * @param path
+ */
+function getName(path) {
   const indexName = path.lastIndexOf('/');
   const indexExpansion = path.lastIndexOf('.');
   return path.slice(indexName + 1, indexExpansion);
@@ -29,20 +45,20 @@ function generatedPlayList() {
       }));
     })
     .then((filesArrays) => {
-     return filesArrays.map((files, key) => {
-        let playlist = new PlayList();
-        playlist.id = key;
-        playlist.img = files.find(data =>  mime.getType(data).indexOf(imageExpansion) > -1);
-        playlist.music = files.filter((data) => mime.getType(data).indexOf(musicExpansion) > -1);
-        playlist.trackName = playlist.music.map(data => getName(data));
-        let meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
+      return filesArrays.map((files, key) => {
+        const id = key;
+        const img = files.find(data => mime.getType(data).indexOf(imageExpansion) > -1);
+        const music = files.filter((data) => mime.getType(data).indexOf(musicExpansion) > -1);
+        const trackName = music.map(data => getName(data));
+        const playlist = new PlayList(id, img, music, trackName);
+        const meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
         return Promise.all(meta).then(data => {
-         playlist.meta = data.map(item => audioMetaData.id3v2(item));
-         playlist.duration = data.map(item => mp3Duration(item));
-         return playlist
+          playlist.meta = data.map(item => audioMetaData.id3v2(item));
+          playlist.duration = data.map(item => mp3Duration(item)._settledValue);
+          return playlist
         });
       });
-    }).then((data)=>{
+    }).then((data) => {
       return Promise.all(data);
     }).then(arrayPlaylist => arrayPlaylist)
 }

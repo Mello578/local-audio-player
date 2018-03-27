@@ -6,11 +6,11 @@ import 'babel-polyfill';
 
 import {Application} from './layout/Containers/Application';
 import reducer from './store/reducers/'
-import {movieTracklistImages} from './utils/movieTracklistImages';
+import {addAllData} from './utils/addAllData';
 
 export const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-movieTracklistImages();
+addAllData();
 
 render(
   <Provider store={store}>

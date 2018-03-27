@@ -1,6 +1,9 @@
 import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
 
 export const initialState = {
+  allData: {
+    data: []
+  },
   playlist: {
     data: [],
     visible: false

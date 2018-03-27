@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {showImgsPlaylistAction} from '../../store/actions/imagesPlaylistAction';
+import {showImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
 import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
 import {hidePlaylist} from '../../store/actions/playlistActions';
 
 export class VinylData extends Component {
   showImagesPlaylist() {
-    const showImagesAction = showImgsPlaylistAction(true);
+    const showImagesAction = showImagesPlaylistAction(true);
     const imagesVinylAction = backgroundVinilAction(BACKGROUND_VINYL_DEFAULT);
     const hidePlayListAction = hidePlaylist(false);
     this.props.showImages(showImagesAction);
