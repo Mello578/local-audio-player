@@ -29,7 +29,8 @@ export const initialState = {
     repeated: false,
   },
   soundLevel: {
-    level: 1
+    level: 1,
+    muted: false
   }
 
 };

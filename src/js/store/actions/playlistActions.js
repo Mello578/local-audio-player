@@ -1,5 +1,5 @@
 import {SELECT_PLAYLIST, HIDE_PLAYLIST, SHUFFLE_PLAYLIST} from '../../constants/playListConst';
-import {SOUND_LEVEL} from '../../constants/playerConst';
+import {SOUND_LEVEL, SOUND_MUTED} from '../../constants/playerConst';
 
 export function playlist(data) {
   return {
@@ -25,6 +25,13 @@ export function shufflePlaylist(data) {
 export function soundLevel(data) {
   return {
     type: SOUND_LEVEL,
+    data
+  }
+}
+
+export function soundMuted(data) {
+  return {
+    type: SOUND_MUTED,
     data
   }
 }

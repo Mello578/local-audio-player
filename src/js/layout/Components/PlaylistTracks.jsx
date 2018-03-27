@@ -23,7 +23,7 @@ class TracksOfPlaylist extends Component {
       if (playedTrack && track !== playedTrack) {
         startPauseStopPlay(this.props.dataPlay, TRACK_STOP);
       }
-      startPauseStopPlay(dataTrack, TRACK_PLAY, this.props.volume, this.props.data)
+      startPauseStopPlay(dataTrack, TRACK_PLAY, this.props.data)
     }
     const playTrackAction = playTrack(dataTrack);
     this.props.played(playTrackAction);
@@ -57,7 +57,7 @@ export const PlaylistTracks = connect(({playlistReducer, playerControlReducer, s
       data: playlistReducer.data,
       visible: playlistReducer.visible,
       dataPlay: playerControlReducer.data,
-      volume: soundControlReducer.level
+      volume: soundControlReducer
     }),
   dispatch => ({
     played(track) {

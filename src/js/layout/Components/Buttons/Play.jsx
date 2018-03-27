@@ -14,9 +14,9 @@ export class PlayButton extends Component {
 
     const firstTrack = tracksPlaylist.length ? tracksPlaylist[0].track : false;
     const track = currentTrack !== null ? currentTrack : new Audio(firstTrack);
-    //проверка есть ли первый трек
-    if (firstTrack) {
-      //проверка нужно ли менять стейт
+    //проверка на плейлист
+    if (tracksPlaylist.length) {
+      //проверка нужно ли менять стейт. Запуск либо ттекущего, либо первого трека
       if (currentTrack === null) {
         const dataTrack = {
           idTrack: firstTrack.id,
@@ -27,7 +27,7 @@ export class PlayButton extends Component {
         const playTrackAction = playTrack(dataTrack);
         this.props.played(playTrackAction);
       }
-      startPauseStopPlay(dataPlay, TRACK_PLAY, this.props.volume, tracksPlaylist);
+      startPauseStopPlay(dataPlay, TRACK_PLAY, tracksPlaylist);
     }
   }
 
@@ -43,7 +43,7 @@ export const Play = connect(
     ({
       dataPlay: playerControlReducer.data,
       tracksPlaylist: playlistReducer.data,
-      volume: soundControlReducer.level
+      volume: soundControlReducer
     }),
   dispatch => ({
     played(track) {
