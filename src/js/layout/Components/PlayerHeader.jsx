@@ -5,8 +5,8 @@ class Player extends Component{
   render(){
     return (
       <div>
-        <span className={'player-header--name-performer'}>{this.props.dataPlay.artist}</span>
-        <span className={'player-header--name-track'}>{this.props.dataPlay.trackName}</span>
+        <span className={'player-header--name-performer'}>{this.props.dataPlay.trackArtist}</span>
+        <span className={'player-header--name-track'}>{this.props.dataPlay.trackTitle ||  this.props.dataPlay.trackName}</span>
       </div>
     )
   }

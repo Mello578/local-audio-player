@@ -22,8 +22,9 @@ export const initialState = {
     data: {
       idTrack: null,
       currentTrack: null,
-      artist: 'Исполнитель',
-      trackName: 'Трек'
+      trackArtist: 'Performer',
+      trackTitle: 'Track name',
+      trackName: ''
     },
     repeated: false,
   },

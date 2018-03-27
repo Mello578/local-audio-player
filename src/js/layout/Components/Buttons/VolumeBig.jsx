@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {PlayButton} from './Play';
 import {soundMute} from '../../../utils/soundMute';
 
 

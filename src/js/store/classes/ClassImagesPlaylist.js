@@ -1,5 +1,3 @@
-import {secondsFormat} from '../../utils/secondsFormat';
-
 export class AllData {
   constructor(id, images, tracks, trackName, meta, duration) {
     this.id = id;

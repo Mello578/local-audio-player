@@ -9,8 +9,7 @@ class PauseButton extends Component {
   pause() {
     const track = this.props.dataPlay.currentTrack;
     if (track) {
-      console.log('label  ', track.attributes)
-      startPauseStopPlay(track, TRACK_PAUSE);
+      startPauseStopPlay(this.props.dataPlay, TRACK_PAUSE);
     }
   }
 

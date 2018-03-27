@@ -5,7 +5,6 @@ export function nextPreviousTrack(currentTrackData, playlist, mode) {
   let nextTrack = false;
   let indexCurrentTrack = '';
 
-
   playlist.forEach((item, key) => {
     if (currentTrackData.idTrack === item.id) {
       indexCurrentTrack = key;
@@ -14,11 +13,11 @@ export function nextPreviousTrack(currentTrackData, playlist, mode) {
 
   if ((indexCurrentTrack > 0 && mode === TRACK_PREVIOUS)
     || (indexCurrentTrack < playlist.length - 1 && mode === TRACK_NEXT)) {
-    startPauseStopPlay(currentTrackData.currentTrack, TRACK_STOP);
+    startPauseStopPlay(currentTrackData, TRACK_STOP);
     nextTrack = mode === TRACK_NEXT
       ? playlist[indexCurrentTrack + 1]
       : playlist[indexCurrentTrack - 1]
   }
 
-  return nextTrack
+  return nextTrack;
 }

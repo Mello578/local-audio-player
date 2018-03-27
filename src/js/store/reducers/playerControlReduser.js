@@ -1,5 +1,5 @@
 import {initialState} from './initionalState';
-import {SOUND_LEVEL, TRACK_PAUSE, TRACK_PLAY, TRACK_PLAYED} from '../../constants/playerConst';
+import {SET_REPEAT, SOUND_LEVEL, TRACK_PAUSE, TRACK_PLAY, TRACK_PLAYED} from '../../constants/playerConst';
 
 export function playerControlReducer(state = initialState.playControl, action) {
   switch (action.type) {
@@ -8,7 +8,11 @@ export function playerControlReducer(state = initialState.playControl, action) {
         ...state,
         data: action.payload,
       };
-
+    case SET_REPEAT:
+      return {
+        ...state,
+        repeated: action.payload
+      };
     default:
       return state;
   }

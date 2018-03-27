@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {setRepeat} from '../../../store/actions/playerControlAction';
 
 class RevertButton extends Component {
 
   revert() {
-    let repeatedTrack =  this.props.dataPlay.currentTrack.loop;
-    this.props.dataPlay.currentTrack.loop = !repeatedTrack;
+    const repeatedTrack = !this.props.dataPlay.currentTrack.loop;
+    this.props.dataPlay.currentTrack.loop = repeatedTrack;
+    const repeated = !this.props.repeat;
+    const repeatAction = setRepeat(repeated);
+    this.props.setRepeat(repeatAction);
   }
 
   render() {
@@ -18,6 +22,12 @@ class RevertButton extends Component {
 export const Revert = connect(
   ({playerControlReducer}) =>
     ({
-      dataPlay: playerControlReducer.data
-    })
+      dataPlay: playerControlReducer.data,
+      repeat: playerControlReducer.repeated
+    }),
+  dispatch => ({
+    setRepeat(mode) {
+      dispatch({type: mode.type, payload: mode.data})
+    }
+  })
 )(RevertButton);

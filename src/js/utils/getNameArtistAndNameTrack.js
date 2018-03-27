@@ -1,8 +1,9 @@
-export function getName(trackData) {
-const separator = ' - ';
-const index = trackData.indexOf(separator);
-return {
-  artist: index !== -1 ? trackData.slice(0, index) : '',
-  trackName: index !== -1 ? trackData.slice(index + 3) : trackData
-}
+export function getName(meta, trackName) {
+  return {
+    trackName: meta && meta.artist && meta.title
+      ? `${meta.artist} - ${meta.title}`
+      : trackName,
+    trackArtist: meta && meta.artist ? meta.artist : '',
+    trackTitle: meta && meta.title ? meta.title : '',
+  }
 }

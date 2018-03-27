@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {playlist} from '../../store/actions/playlistActions';
 import {hideImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
+import {getName} from '../../utils/getNameArtistAndNameTrack';
 
 export class ImagesOfPlaylist extends Component {
 
@@ -14,10 +15,8 @@ export class ImagesOfPlaylist extends Component {
         return {
           id: key,
           track: item,
-          trackName: meta && meta.artist && meta.title
-            ? `${meta.artist} - ${meta.title}`
-            : allData.trackName[idPlaylist][key],
-          tracksDuration: allData.duration[idPlaylist][key]
+          tracksDuration: allData.duration[idPlaylist][key],
+          ...getName(meta, allData.trackName[idPlaylist][key])
         }
       }
     ));
@@ -28,7 +27,7 @@ export class ImagesOfPlaylist extends Component {
     const actionImagesVinyl = backgroundVinilAction(pathImagesVinyl);
 
     this.props.moviePlaylist(selectedPlayList);
-    this.props.hideImgsPlaylist(hideImages);
+    this.props.hideImagesPlaylist(hideImages);
     this.props.setBackgroundVinyl(actionImagesVinyl)
   }
 
@@ -59,7 +58,7 @@ export const PlaylistImages = connect(({allDataReducer, imagesPlaylistReducer}) 
     moviePlaylist(playlist) {
       dispatch({type: playlist.type, payload: playlist.data})
     },
-    hideImgsPlaylist(mode) {
+    hideImagesPlaylist(mode) {
       dispatch({type: mode.type, payload: mode.data})
     },
     setBackgroundVinyl(img) {

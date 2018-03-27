@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {clamp} from '../../../utils/clamp';
 import {soundLevel} from '../../../store/actions/playlistActions';
-import {store} from '../../../index';
 import {WIDTH_SOUND_BAR} from '../../../constants/playerConst';
 import {connect} from 'react-redux';
 
@@ -22,7 +21,6 @@ class Volume extends Component {
       if(this.props.track){
         this.props.track.volume = this.props.volume;
       }
-
     };
 
     function scrollSound(event) {

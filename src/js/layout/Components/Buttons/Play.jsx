@@ -8,23 +8,26 @@ import {getName} from '../../../utils/getNameArtistAndNameTrack';
 export class PlayButton extends Component {
 
   play() {
-    const {currentTrack} = this.props.dataPlay;
+    let dataPlay = this.props.dataPlay;
+    const {currentTrack} = dataPlay;
     const {tracksPlaylist} = this.props;
 
     const firstTrack = tracksPlaylist.length ? tracksPlaylist[0].track : false;
-    const track = currentTrack !== null ? currentTrack : firstTrack;
+    const track = currentTrack !== null ? currentTrack : new Audio(firstTrack);
+    //проверка есть ли первый трек
     if (firstTrack) {
+      //проверка нужно ли менять стейт
       if (currentTrack === null) {
         const dataTrack = {
           idTrack: firstTrack.id,
           currentTrack: track,
           ...getName(tracksPlaylist[0].trackName)
         };
+        dataPlay = dataTrack;
         const playTrackAction = playTrack(dataTrack);
         this.props.played(playTrackAction);
       }
-      track.volume = this.props.volume;
-      startPauseStopPlay(track, TRACK_PLAY);
+      startPauseStopPlay(dataPlay, TRACK_PLAY, this.props.volume, tracksPlaylist);
     }
   }
 

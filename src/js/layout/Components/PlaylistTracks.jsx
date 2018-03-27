@@ -3,9 +3,7 @@ import {connect} from 'react-redux';
 import {secondsFormat} from '../../utils/secondsFormat';
 import {playTrack} from '../../store/actions/playerControlAction';
 import {startPauseStopPlay} from '../../utils/startStopPlay';
-import {TRACK_NEXT, TRACK_PLAY, TRACK_STOP} from '../../constants/playerConst';
-import {getName} from '../../utils/getNameArtistAndNameTrack';
-import {nextPreviousTrack} from '../../utils/nextPreviousTrack';
+import {TRACK_PLAY, TRACK_STOP} from '../../constants/playerConst';
 
 class TracksOfPlaylist extends Component {
 
@@ -15,32 +13,17 @@ class TracksOfPlaylist extends Component {
     const selectedTrack = this.props.data.find(item => (item.id === parseInt(numbTrack)));
     const dataTrack = {
       idTrack: selectedTrack.id,
-      currentTrack: selectedTrack.track,
-      ...getName(selectedTrack.trackName)
+      currentTrack: new Audio(selectedTrack.track),
+      ...selectedTrack
     };
+    //остановка текущего трека при включении следующего трека
     const track = dataTrack.currentTrack;
     if (track) {
       const playedTrack = this.props.dataPlay.currentTrack;
-
       if (playedTrack && track !== playedTrack) {
-        startPauseStopPlay(playedTrack, TRACK_STOP);
+        startPauseStopPlay(this.props.dataPlay, TRACK_STOP);
       }
-      track.addEventListener('ended', () => {
-        const nextTrack = nextPreviousTrack(dataTrack, this.props.data, TRACK_NEXT);
-        if (nextTrack) {
-          const dataTrack = {
-            idTrack: nextTrack.id,
-            currentTrack: nextTrack.track,
-            ...getName(nextTrack.trackName)
-          };
-          const playTrackAction = playTrack(dataTrack);
-          this.props.played(playTrackAction);
-          nextTrack.track = this.props.volume;
-          setTimeout(() => startPauseStopPlay(nextTrack.track, TRACK_PLAY), 1000);
-        }
-      });
-      track.volume = this.props.volume;
-      startPauseStopPlay(track, TRACK_PLAY)
+      startPauseStopPlay(dataTrack, TRACK_PLAY, this.props.volume, this.props.data)
     }
     const playTrackAction = playTrack(dataTrack);
     this.props.played(playTrackAction);
