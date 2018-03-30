@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {startPauseStopPlay} from '../../../utils/startStopPlay';
+import {audioController, startPauseStopPlay} from '../../../utils/startStopPlay';
 import {TRACK_PLAY} from '../../../constants/playerConst';
 import {playTrack} from '../../../store/actions/playerControlAction';
 import {getName} from '../../../utils/getNameArtistAndNameTrack';
@@ -8,27 +8,17 @@ import {getName} from '../../../utils/getNameArtistAndNameTrack';
 export class PlayButton extends Component {
 
   play() {
-    let dataPlay = this.props.dataPlay;
-    const {currentTrack} = dataPlay;
-    const {tracksPlaylist} = this.props;
-
-    const firstTrack = tracksPlaylist.length ? tracksPlaylist[0].track : false;
-    const track = currentTrack !== null ? currentTrack : new Audio(firstTrack);
-    //проверка на плейлист
-    if (tracksPlaylist.length) {
-      //проверка нужно ли менять стейт. Запуск либо ттекущего, либо первого трека
-      if (currentTrack === null) {
-        const dataTrack = {
-          idTrack: firstTrack.id,
-          currentTrack: track,
-          ...getName(tracksPlaylist[0].trackName)
-        };
-        dataPlay = dataTrack;
-        const playTrackAction = playTrack(dataTrack);
-        this.props.played(playTrackAction);
-      }
-      startPauseStopPlay(dataPlay, TRACK_PLAY, tracksPlaylist);
+    let track = audioController
+      ? audioController.characteristic
+      : this.props.tracksPlaylist
+        ? this.props.tracksPlaylist[0]
+        : false;
+    console.log('track', track)
+    if (track) {
+      const playTrackAction = playTrack(track);
+      this.props.played(playTrackAction);
     }
+    startPauseStopPlay(track, TRACK_PLAY, this.props.tracksPlaylist);
   }
 
   render() {
@@ -39,11 +29,9 @@ export class PlayButton extends Component {
 }
 
 export const Play = connect(
-  ({playerControlReducer, playlistReducer, soundControlReducer}) =>
+  ({playlistReducer}) =>
     ({
-      dataPlay: playerControlReducer.data,
-      tracksPlaylist: playlistReducer.data,
-      volume: soundControlReducer
+      tracksPlaylist: playlistReducer.data
     }),
   dispatch => ({
     played(track) {

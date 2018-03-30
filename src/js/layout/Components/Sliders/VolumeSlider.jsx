@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {clamp} from '../../../utils/clamp';
-import {soundLevel} from '../../../store/actions/playlistActions';
+import {soundLevel} from '../../../store/actions/audioControlAction';
 import {WIDTH_SOUND_BAR} from '../../../constants/playerConst';
 import {connect} from 'react-redux';
-import {setVolumeNextTrack} from '../../../utils/startStopPlay';
+import {audioController, setVolumeForFirstTrack} from '../../../utils/startStopPlay';
 
 class Volume extends Component {
 
@@ -20,10 +20,11 @@ class Volume extends Component {
       volumeAction = soundLevel(soundNumb);
       this.props.setVolume(volumeAction);
 
-      if(this.props.track){
-        this.props.track.volume = soundNumb;
+      if (audioController) {
+        audioController.setVolumesParams({volume: soundNumb, muted: this.props.soundControl.muted});
+      } else {
+        setVolumeForFirstTrack({volume: this.props.soundControl.volume, muted: this.props.soundControl.muted});
       }
-     setVolumeNextTrack({volume: this.props.volume.level, mute: this.props.volume.muted});
     };
 
     function scrollSound(event) {
@@ -56,8 +57,8 @@ class Volume extends Component {
 
 export const VolumeSlider = connect(({playerControlReducer, soundControlReducer}) =>
     ({
-      track: playerControlReducer.data.currentTrack,
-      volume: soundControlReducer
+      track: playerControlReducer.data.track,
+      soundControl: soundControlReducer
     }),
   dispatch => ({
     setVolume(volume) {

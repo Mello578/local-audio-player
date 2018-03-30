@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setRepeat} from '../../../store/actions/playerControlAction';
+import {audioController} from '../../../utils/startStopPlay';
+import {store} from '../../../index';
 
-class RevertButton extends Component {
+export class Revert extends Component {
 
   revert() {
-    const repeatedTrack = !this.props.dataPlay.currentTrack.loop;
-    this.props.dataPlay.currentTrack.loop = repeatedTrack;
-    const repeated = !this.props.repeat;
-    const repeatAction = setRepeat(repeated);
-    this.props.setRepeat(repeatAction);
+    const repeatedTrack = !audioController.audio.loop;
+    audioController.audio.loop = repeatedTrack;
+
+    const repeatAction = setRepeat(repeatedTrack);
+    store.dispatch({type: repeatAction.type, payload: repeatAction.data});
   }
 
   render() {
@@ -18,16 +20,3 @@ class RevertButton extends Component {
     )
   }
 }
-
-export const Revert = connect(
-  ({playerControlReducer}) =>
-    ({
-      dataPlay: playerControlReducer.data,
-      repeat: playerControlReducer.repeated
-    }),
-  dispatch => ({
-    setRepeat(mode) {
-      dispatch({type: mode.type, payload: mode.data})
-    }
-  })
-)(RevertButton);

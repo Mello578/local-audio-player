@@ -4,20 +4,19 @@ import {TRACK_NEXT, TRACK_PREVIOUS, TRACK_STOP} from '../constants/playerConst';
 export function nextPreviousTrack(currentTrackData, playlist, mode) {
   let nextTrack = false;
   let indexCurrentTrack = '';
-
-  playlist.forEach((item, key) => {
-    if (currentTrackData.idTrack === item.id) {
-      indexCurrentTrack = key;
+  for (let key in playlist) {
+    if (currentTrackData.id === playlist[key].id) {
+      indexCurrentTrack = parseInt(key);
+      break;
     }
-  });
+  }
 
-  if ((indexCurrentTrack > 0 && mode === TRACK_PREVIOUS)
-    || (indexCurrentTrack < playlist.length - 1 && mode === TRACK_NEXT)) {
+  if (mode === TRACK_PREVIOUS && indexCurrentTrack > 0
+    || mode === TRACK_NEXT && indexCurrentTrack < playlist.length - 1) {
     startPauseStopPlay(currentTrackData, TRACK_STOP);
     nextTrack = mode === TRACK_NEXT
       ? playlist[indexCurrentTrack + 1]
       : playlist[indexCurrentTrack - 1]
   }
-
-  return nextTrack;
+  return nextTrack
 }

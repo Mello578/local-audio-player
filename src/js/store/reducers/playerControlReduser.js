@@ -1,5 +1,5 @@
 import {initialState} from './initionalState';
-import {SET_REPEAT, SOUND_LEVEL, SOUND_MUTED, TRACK_PAUSE, TRACK_PLAY, TRACK_PLAYED} from '../../constants/playerConst';
+import {SET_BUFFERED, SET_CURRENT_TIME, SET_REPEAT, TRACK_PLAY} from '../../constants/playerConst';
 
 export function playerControlReducer(state = initialState.playControl, action) {
   switch (action.type) {
@@ -13,22 +13,15 @@ export function playerControlReducer(state = initialState.playControl, action) {
         ...state,
         repeated: action.payload
       };
-    default:
-      return state;
-  }
-}
-
-export function soundControlReducer(state = initialState.soundLevel, action) {
-  switch (action.type) {
-    case SOUND_LEVEL:
+    case SET_BUFFERED:
       return {
         ...state,
-        level: action.payload,
+        buffered: action.payload
       };
-    case SOUND_MUTED:
+    case SET_CURRENT_TIME:
       return {
         ...state,
-        muted: action.payload
+        currentTime: action.payload
       };
     default:
       return state;

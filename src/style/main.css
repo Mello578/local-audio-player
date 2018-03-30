@@ -83,7 +83,7 @@ button:focus {
 
 .player {
 	width: 275px;
-	background: linear-gradient(to bottom, #71b3e626, #572c80);
+	background: linear-gradient(to bottom, rgba(97, 165, 201, 0.26), rgba(87, 44, 128, 0.25));
 	text-align: center;
 	opacity: 0.99;
 	padding: 37px 40px 187px;
@@ -232,11 +232,37 @@ button:focus {
 }
 
 .playlist--one-track {
-	display: flex;
-	align-items: center;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #ffffff45;
-	padding: 10px 0;
+	padding: 10px 0 0;
+}
+
+.one-track--content {
+	display: flex;
+	align-items: center;
+}
+
+.one-track--slider-box {
+	width: 100%;
+	height: 7px;
+	margin-top: 10px;
+}
+
+.one-track--slider-box div {
+	height: 7px;
+}
+
+.slider-buffering {
+	background: linear-gradient(to right, #4e88b3, #41ac73);
+}
+
+.slider-currentTime {
+	background: linear-gradient(to right, #c12775, #7a36cf);
+}
+
+.slider-buffering,
+.slider-currentTime {
+	width: 0;
 }
 
 .playlist--track-name {

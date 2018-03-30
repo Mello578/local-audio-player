@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {soundMuted} from '../../../store/actions/playlistActions';
-import {setVolumeNextTrack} from '../../../utils/startStopPlay';
-
+import {soundMuted} from '../../../store/actions/audioControlAction';
+import {setVolumeForFirstTrack} from '../../../utils/startStopPlay';
+import {audioController} from '../../../utils/startStopPlay';
 
 class VolumeSmallButton extends Component {
 
   muted() {
-    const {soundData, currentTrack} = this.props;
-    currentTrack.muted = !soundData.muted;
-    setVolumeNextTrack({volume: soundData.level, mute: currentTrack.muted})
-    const mutedAction = soundMuted(!soundData.muted);
+    const {soundControl} = this.props;
+
+    if (audioController) {
+      audioController.setVolumesParams({volume: soundControl.volume, muted: !audioController.audio.muted});
+    } else {
+      setVolumeForFirstTrack({volume: soundControl.volume, muted: !soundControl.muted});
+    }
+
+    const mutedAction = soundMuted(!soundControl.muted);
     this.props.setMute(mutedAction);
   }
 
@@ -22,14 +27,13 @@ class VolumeSmallButton extends Component {
 }
 
 export const VolumeSmall = connect(
-  ({soundControlReducer, playerControlReducer}) =>
+  ({soundControlReducer}) =>
     ({
-      soundData: soundControlReducer,
-      currentTrack: playerControlReducer.data.currentTrack
+      soundControl: soundControlReducer
     }),
   dispatch => ({
-    setMute(mute) {
-      dispatch({type: mute.type, payload: mute.data})
+    setMute(muted) {
+      dispatch({type: muted.type, payload: muted.data})
     }
   })
 )(VolumeSmallButton);

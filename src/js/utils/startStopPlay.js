@@ -1,46 +1,56 @@
-import {TRACK_NEXT, TRACK_PAUSE, TRACK_PLAY, TRACK_STOP} from '../constants/playerConst';
-import {nextPreviousTrack} from './nextPreviousTrack';
-import {playTrack} from '../store/actions/playerControlAction';
+import {TRACK_PAUSE, TRACK_PLAY, TRACK_STOP} from '../constants/playerConst';
+import {AudioController} from '../store/classes/AudioController';
+import {initialState} from '../store/reducers/initionalState';
 import {store} from '../index';
+import {setBuffered} from '../store/actions/playerControlAction';
 
-let volumeMute = {volume: 1,
-  mute: false};
+export let audioController = null;
 
-export function setVolumeNextTrack(mode) {
-  volumeMute = {
-    volume: mode.volume,
-    mute: mode.mute
+let volumeMute = {
+  ...initialState.audioControl
+};
+
+export function setVolumeForFirstTrack(mode) {
+  volumeMute = {...mode};
+}
+
+/**
+ * проверка на наличие аудиоконтроллера при первом запуске и установка параметров и обновление параметров если были изменения
+ * @param dataTrack
+ * @param playlist
+ */
+function setAudioController(dataTrack, playlist) {
+  if (!audioController) {
+    audioController = new AudioController(dataTrack, playlist);
+    audioController.setVolumesParams(volumeMute);
+  } else if (audioController.characteristic.track !== dataTrack.track) {
+    audioController.setNewAudioData(dataTrack, playlist);
   }
 }
 
 export function startPauseStopPlay(dataTrack, mode, playlist) {
-   const track = dataTrack.currentTrack;
   if (mode === TRACK_PLAY) {
-    track.volume = volumeMute.volume;
-    track.muted = volumeMute.mute;
-    track.play();
-    nextTrack(dataTrack, playlist);
+    if (audioController && audioController.audio.paused && audioController.characteristic.id === dataTrack.id) {
+      audioController.audio.play()
+    } else {
+      setAudioController(dataTrack, playlist);
+      audioController.playCurrentTrack();
+    }
+    audioController.audio.addEventListener('progress', bufferHandler);
   } else if (mode === TRACK_PAUSE) {
-    track.pause();
+    audioController.audio.pause();
   } else if (mode === TRACK_STOP) {
-    track.pause();
-    track.currentTime = 0.0;
+    audioController.audio.removeEventListener('progress', bufferHandler);
+    audioController.audio.pause();
+    audioController.audio.currentTime = 0.0;
   }
 }
 
-function nextTrack(dataTrack, playlist) {
-  const track = dataTrack.currentTrack;
-  track.addEventListener('ended', () => {
-    const nextTrack = nextPreviousTrack(dataTrack, playlist, TRACK_NEXT);
-    if (nextTrack) {
-      const dataNextTrack = {
-        idTrack: nextTrack.id,
-        currentTrack: new Audio(nextTrack.track),
-        ...nextTrack
-      };
-      const playTrackAction = playTrack(dataNextTrack);
-      store.dispatch({type: playTrackAction.type, payload: playTrackAction.data});
-      setTimeout(() => startPauseStopPlay(dataNextTrack, TRACK_PLAY, playlist), 1000);
-    }
-  });
+function bufferHandler() {
+  if (audioController.audio.buffered && audioController.audio.buffered.length > 0 && audioController.audio.buffered.end) {
+    const buffered = audioController.audio.buffered.end(0);
+    const duration = audioController.characteristic.tracksDuration;
+    const buffered_percentage = Math.round(buffered / duration * 100);
+    store.dispatch({type: setBuffered(buffered_percentage).type, payload: setBuffered(buffered_percentage).data});
+  }
 }

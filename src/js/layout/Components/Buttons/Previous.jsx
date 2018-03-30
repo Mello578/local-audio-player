@@ -2,24 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {TRACK_PLAY, TRACK_PREVIOUS} from '../../../constants/playerConst';
 import {playTrack} from '../../../store/actions/playerControlAction';
-import {nextPreviousTrack} from '../../../utils/nextPreviousTrack';
-import {startPauseStopPlay} from '../../../utils/startStopPlay';
+import {audioController, startPauseStopPlay} from '../../../utils/startStopPlay';
 
 class PreviousButton extends Component{
 
   previous() {
-    const nextTrack = nextPreviousTrack(this.props.dataPlay, this.props.tracksPlaylist, TRACK_PREVIOUS);
-    let dataTrack;
-    if(nextTrack){
+    const nextTrack = audioController.nextTrack(TRACK_PREVIOUS);
+    if (nextTrack) {
 
-      dataTrack = {
-        idTrack: nextTrack.id,
-        currentTrack: new Audio(nextTrack.track),
-        ...nextTrack
-      };
-      const playTrackAction = playTrack(dataTrack);
+      const playTrackAction = playTrack(nextTrack);
       this.props.played(playTrackAction);
-      startPauseStopPlay(dataTrack, TRACK_PLAY, this.props.tracksPlaylist);
+
+      startPauseStopPlay(nextTrack, TRACK_PLAY, this.props.tracksPlaylist);
     }
   }
 
@@ -31,11 +25,9 @@ class PreviousButton extends Component{
 }
 
 export const Previous = connect(
-  ({playerControlReducer, playlistReducer, soundControlReducer}) =>
+  ({playlistReducer}) =>
     ({
-      dataPlay: playerControlReducer.data,
-      tracksPlaylist: playlistReducer.data,
-      volume: soundControlReducer
+      tracksPlaylist: playlistReducer.data
     }),
   dispatch => ({
     played(track) {
