@@ -11,7 +11,7 @@ export const SOUND_LEVEL = 'audioControl';
 export const SOUND_MUTED = 'soundMuted';
 export const SET_REPEAT = 'repeated';
 export const CURRENT_AUDIO = 'currentAudio';
-export const SET_BUFFERED = 'setBuffered';
+export const SET_BUFFERED = 'setBufferedAndCurrentTime';
 export const SET_CURRENT_TIME = 'setCurrentTime';
 export const WIDTH_SOUND_BAR = {
   min: 0,

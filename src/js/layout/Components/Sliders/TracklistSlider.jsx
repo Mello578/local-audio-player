@@ -1,17 +1,26 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {audioController} from '../../../utils/startStopPlay';
 
 class TrackSlider extends Component {
 
-  dataPlay(state){
-    console.log('state ', state)
-
+  setBufferedAndCurrentTime() {
+    const trackData = audioController ? audioController.characteristic : null;
+    // slider-box у всех одинаковый, берем нулевой элемент
+    const maxWidth = document.getElementById('slider-box0')
+      ? document.getElementById('slider-box0').offsetWidth
+      : null;
+      if (trackData && maxWidth){
+        const bufferElement = document.getElementById('slider-buffering' + audioController.characteristic.id);
+        const buffering = maxWidth * this.props.playData.buffered / 100 + 'px';
+        bufferElement.style.width = buffering;
+      }
   }
 
   render() {
-    // this.mapStateToProps(this.props.dataPlay);
+    this.setBufferedAndCurrentTime();
     return (
-      <div className={'one-track--slider-box'}>
+      <div className={'one-track--slider-box'} id={'slider-box' + this.props.id}>
         <div className={'slider-buffering'} id={'slider-buffering' + this.props.id}>
           <div className={'slider-currentTime'} id={'slider-currentTime' + this.props.id}></div>
         </div>
@@ -22,11 +31,8 @@ class TrackSlider extends Component {
 
 export const TracklistSlider = connect(({playerControlReducer, mergeProps}) =>
     ({
-      dataPlay: playerControlReducer,
-      mergeProps
+      playData: playerControlReducer,
+      mergeProps: mergeProps
     }),
-  dispatch => ({
-
-
-  })
+  dispatch => ({})
 )(TrackSlider);
