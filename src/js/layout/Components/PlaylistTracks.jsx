@@ -37,7 +37,7 @@ class TracksOfPlaylist extends Component {
                     <span id={'track-duration_' + item.id}>{secondsFormat(item.tracksDuration)}</span>
                   </div>
                 </div>
-                <TracklistSlider id={item.id}/>
+                <TracklistSlider trackName={item.trackName} id={item.id}/>
               </div>
             )
           })

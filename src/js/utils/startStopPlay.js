@@ -2,7 +2,7 @@ import {TRACK_PAUSE, TRACK_PLAY, TRACK_STOP} from '../constants/playerConst';
 import {AudioController} from '../store/classes/AudioController';
 import {initialState} from '../store/reducers/initionalState';
 import {store} from '../index';
-import {setBuffered} from '../store/actions/playerControlAction';
+import {setBuffered, setCurrentTime} from '../store/actions/playerControlAction';
 
 export let audioController = null;
 
@@ -31,16 +31,20 @@ function setAudioController(dataTrack, playlist) {
 export function startPauseStopPlay(dataTrack, mode, playlist) {
   if (mode === TRACK_PLAY) {
     if (audioController && audioController.audio.paused && audioController.characteristic.id === dataTrack.id) {
-      audioController.audio.play()
+      //небольшая задержка для более приятного воспроизведения
+      setTimeout(() => audioController.audio.play(), 1000);
     } else {
       setAudioController(dataTrack, playlist);
       audioController.playCurrentTrack();
     }
-    audioController.audio.addEventListener('progress', bufferHandler);
+    // audioController.audio.addEventListener('progress', bufferHandler);
+    audioController.audio.addEventListener('timeupdate', bufferHandler);
+    audioController.audio.addEventListener('timeupdate', currentTimeUpdate);
   } else if (mode === TRACK_PAUSE) {
     audioController.audio.pause();
   } else if (mode === TRACK_STOP) {
-    audioController.audio.removeEventListener('progress', bufferHandler);
+    audioController.audio.removeEventListener('timeupdate', bufferHandler);
+    audioController.audio.removeEventListener('timeupdate', currentTimeUpdate);
     audioController.audio.pause();
     audioController.audio.currentTime = 0.0;
   }
@@ -53,4 +57,9 @@ function bufferHandler() {
     const buffered_percentage = Math.round(buffered / duration * 100);
     store.dispatch({type: setBuffered(buffered_percentage).type, payload: setBuffered(buffered_percentage).data});
   }
+}
+
+export function currentTimeUpdate() {
+  const currentTime = Math.round(this.currentTime);
+  store.dispatch({type: setCurrentTime(currentTime).type, payload: setCurrentTime(currentTime).data});
 }

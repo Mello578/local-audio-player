@@ -1,6 +1,6 @@
 import {nextPreviousTrack} from '../../utils/nextPreviousTrack';
 import {TRACK_NEXT, TRACK_PLAY} from '../../constants/playerConst';
-import {playTrack} from '../actions/playerControlAction';
+import {playTrack, setBuffered} from '../actions/playerControlAction';
 import {store} from '../../index';
 import {startPauseStopPlay} from '../../utils/startStopPlay';
 
@@ -9,7 +9,7 @@ export class AudioController {
     this.characteristic = characteristic;
     this.trackList = trackList;
     this.audio = new Audio();
-    this.audio.src = characteristic.track
+    this.audio.src = characteristic.track;
   }
 
   /**
@@ -63,13 +63,15 @@ export class AudioController {
       this.audio.addEventListener('ended', () => {
         const playTrackAction = playTrack(nextTrack);
         store.dispatch({type: playTrackAction.type, payload: playTrackAction.data});
-        setTimeout(() => startPauseStopPlay(nextTrack, TRACK_PLAY, this.trackList), 1000);
+        startPauseStopPlay(nextTrack, TRACK_PLAY, this.trackList)
       }, {once: true})
     }
   }
 
   playAudio() {
-    this.play();
+    //обнуляем данные буфера для кооректного отображения
+    store.dispatch({type: setBuffered(0).type, payload: setBuffered(0).data});
+    setTimeout(() => this.play(), 1000);
     this.removeEventListener('canplay', this.playAudio, {once: true});
   }
 

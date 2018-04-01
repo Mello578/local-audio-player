@@ -233,7 +233,7 @@ button:focus {
 
 .playlist--one-track {
 	margin-bottom: 20px;
-	border-bottom: 1px solid #ffffff45;
+	border-bottom: 1px solid #ffffff0d;
 	padding: 10px 0 0;
 }
 
@@ -254,6 +254,7 @@ button:focus {
 
 .slider-buffering {
 	background: linear-gradient(to right, #4e88b3, #41ac73);
+	transition: width 2s ease-in-out 0ms;
 }
 
 .slider-currentTime {
