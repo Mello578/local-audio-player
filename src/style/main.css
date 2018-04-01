@@ -248,6 +248,11 @@ button:focus {
 	margin-top: 10px;
 }
 
+.one-track--slider-box:hover{
+	background: #ffffff0a;
+	cursor: pointer;
+}
+
 .one-track--slider-box div {
 	height: 7px;
 }

@@ -1,49 +1,36 @@
 import React, {Component} from 'react';
-import {clamp} from '../../../utils/clamp';
 import {soundLevel} from '../../../store/actions/audioControlAction';
-import {WIDTH_SOUND_BAR} from '../../../constants/playerConst';
 import {connect} from 'react-redux';
 import {audioController, setVolumeForFirstTrack} from '../../../utils/startStopPlay';
+import {setWidthSlider} from '../../../utils/sliderWidth';
+import {WIDTH_SOUND_BAR} from '../../../constants/playerConst';
+import {setStyleWidthElement} from '../../../utils/setWidthElement';
 
 class Volume extends Component {
 
   coordinates(e) {
-    const soundBar = e.target;
-    const sliderSound = document.getElementById('slider-sound');
-    const indentElementX = Math.floor(soundBar.getBoundingClientRect().left);
-    let widthElement;
-    let indentClickX = e.clientX;
-    let volumeAction;
 
-    let setLevelSound = () => {
-      let soundNumb = widthElement / (190 / 100) / 100;
-      volumeAction = soundLevel(soundNumb);
-      this.props.setVolume(volumeAction);
+    /**
+     * Если есть аудиоконтролер, то устанавливаем звуковые параметры в него, иначе устанавлмваем новые параметры для
+     * первого трека
+     * @param soundNumb
+     * @param props
+     */
+    function setLevelSound(widthElement, slider, props) {
+      setStyleWidthElement(slider, widthElement);
 
+      const soundNumb = widthElement / (slider.parentNode.offsetWidth / 100) / 100;
+      let volumeAction = soundLevel(soundNumb);
+      props.setVolume(volumeAction);
       if (audioController) {
-        audioController.setVolumesParams({volume: soundNumb, muted: this.props.soundControl.muted});
+        audioController.setVolumesParams({volume: soundNumb, muted: props.soundControl.muted});
       } else {
-        setVolumeForFirstTrack({volume: this.props.soundControl.volume, muted: this.props.soundControl.muted});
+        setVolumeForFirstTrack({volume: props.soundControl.volume, muted: props.soundControl.muted});
       }
-    };
-
-    function scrollSound(event) {
-      indentClickX = event.clientX;
-      widthElement = indentClickX - indentElementX;
-      widthElement = clamp(widthElement, WIDTH_SOUND_BAR.min, WIDTH_SOUND_BAR.max);
-      sliderSound.style.width = clamp(widthElement, WIDTH_SOUND_BAR.min, WIDTH_SOUND_BAR.max) + 'px';
-      setLevelSound();
     }
 
-    document.addEventListener('mousemove', scrollSound);
-    document.addEventListener('mouseup', () => {
-      document.removeEventListener('mousemove', scrollSound);
-    });
-
-    widthElement = indentClickX - indentElementX;
-    sliderSound.style.width = widthElement + 'px';
-
-    setLevelSound();
+    const idSlider = 'slider-sound';
+    setWidthSlider(e, idSlider, setLevelSound, WIDTH_SOUND_BAR, this.props);
   }
 
   render() {
