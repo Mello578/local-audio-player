@@ -20,11 +20,21 @@ export class VinylData extends Component {
   render() {
     return (
       <div className={'player-body'}>
-        <div className={'player-body--center-vinyl'} style={{background: this.props.background}}>
-          <img src='/src/img/vinyl.png' alt='vinyl' className={'player-body--vinyl'}
-               onClick={() => this.showImagesPlaylist()}/>
-          <CircleSlider/>
+        <div>
+          <div className={'player-body--center-vinyl'} style={{background: this.props.background}}>
+
+          </div>
         </div>
+        <img src='/src/img/vinyl.png' alt='vinyl' className={'player-body--vinyl'}
+             onClick={() => this.showImagesPlaylist()}/>
+        <CircleSlider/>
+
+        {/*<div className={'player-body--center-vinyl'} style={{background: this.props.background}}>*/}
+          {/*<img src='/src/img/vinyl.png' alt='vinyl' className={'player-body--vinyl'}*/}
+               {/*onClick={() => this.showImagesPlaylist()}/>*/}
+          {/*<CircleSlider/>*/}
+        {/*</div>*/}
+
         <PlayerTime/>
       </div>
     )
