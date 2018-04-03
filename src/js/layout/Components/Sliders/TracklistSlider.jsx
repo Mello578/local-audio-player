@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {audioController, startPauseStopPlay} from '../../../utils/startStopPlay';
+import {audioController} from '../../../utils/startStopPlay';
 import {currentTimeUpdate} from '../../../utils/startStopPlay';
-import {clamp} from '../../../utils/clamp';
 import {getElem} from '../../../utils/getElementById';
 import {setStyleWidthElement} from '../../../utils/setWidthElement';
 import {setWidthSlider} from '../../../utils/sliderWidth';
-import {TRACK_PLAY, TRACK_STOP} from '../../../constants/playerConst';
-import {playTrack} from '../../../store/actions/playerControlAction';
+import {getCurrentWidth} from '../../../utils/currentWidth';
 
 class TrackSlider extends Component {
 
@@ -50,18 +48,15 @@ class TrackSlider extends Component {
       : null;
     if (trackData && maxWidth) {
       const bufferElement = getElem('slider-buffering' + audioController.characteristic.trackName);
-      const bufferingWidth = maxWidth * this.props.playData.buffered / 100;
-
       const currentTimeElement = getElem('slider-currentTime' + audioController.characteristic.trackName);
-      const trackDuration = audioController.characteristic.tracksDuration;
-      const trackCurrentTime = this.props.playData.currentTime;
-      let currentTimeWidth = trackCurrentTime / (trackDuration / 100) * (maxWidth / 100);
-      currentTimeWidth = clamp(currentTimeWidth, 0, maxWidth);
+
+
+      const {buffered, currentTime} = this.props.playData;
+      const {bufferingWidth, currentTimeWidth} = getCurrentWidth(buffered, currentTime, maxWidth);
 
       if (audioController.characteristic.trackName === this.props.playData.data.trackName) {
         setStyleWidthElement(bufferElement, bufferingWidth);
         setStyleWidthElement(currentTimeElement, currentTimeWidth);
-        console.log('currentTimeWidth ', trackCurrentTime)
       }
 
       if (currentTimeWidth === maxWidth) {
@@ -86,10 +81,5 @@ class TrackSlider extends Component {
 export const TracklistSlider = connect(({playerControlReducer}) =>
     ({
       playData: playerControlReducer
-    }),
-  dispatch => ({
-    played(track) {
-      dispatch({type: track.type, payload: track.data})
-    }
-  })
+    })
 )(TrackSlider);

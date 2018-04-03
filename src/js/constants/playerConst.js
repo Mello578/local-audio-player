@@ -13,6 +13,9 @@ export const SET_REPEAT = 'repeated';
 export const CURRENT_AUDIO = 'currentAudio';
 export const SET_BUFFERED = 'setBufferedAndCurrentTime';
 export const SET_CURRENT_TIME = 'setCurrentTime';
+export const CIRCLE_RADIUS = 135;
+export const CIRCLE_LENGTH_RADIUS = 2 * 3.14 * CIRCLE_RADIUS;   // 2π * r - длинна окружности
+export const CIRCLE_INDICATOR_OFFSET = -318;
 export const WIDTH_SOUND_BAR = {
   min: 0,
   max: 190

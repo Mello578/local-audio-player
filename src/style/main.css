@@ -113,12 +113,60 @@ button:focus {
 	background-size: 61%;
 	height: 275px;
 	transform: rotate(14deg);
+	box-shadow: inset 0px 0px 5px 2px #000;
+	border-radius: 100%;
 }
 
 .player-body--vinyl {
+	box-shadow: 0 10px 46px 10px rgba(0, 0, 0, 0.52);
+	border-radius: 100%;
 	height: 275px;
 	width: 275px;
 	transform: rotate(-14deg);
+}
+
+.player-body--vinyl-svg {
+	position: relative;
+	top: -297px;
+	left: -10px;
+	transform: rotate(-14deg);
+}
+
+/*длина окружности индикатора 847*/
+.vinyl-svg-circle-buffer {
+	transition: stroke-dasharray 2s ease-in-out 0ms;
+}
+
+.vinyl-svg-circle-buffer,
+.vinyl-svg-circle-currentTime,
+.vinyl-svg-circle-start {
+	fill: hsla(0, 0%, 0%, 0);
+	stroke-width: 7px;
+	stroke-dasharray: 0 847px;
+	stroke-dashoffset: -318px;
+}
+
+.vinyl-svg-circle-start {
+	stroke-dashoffset: -332px;
+	stroke-width: 20px;
+	stroke-dasharray: 2px 883px;
+	stroke: #C12775;
+}
+
+.vinyl-svg-circle-currentTime-indicator {
+	fill: hsla(0, 0%, 0%, 0);
+	stroke-dashoffset: -318px;
+	stroke-width: 20px;
+	stroke-linecap: round;
+	stroke-dasharray: 0px 847px;
+}
+
+.player-time-manager{
+	display: flex;
+}
+
+.player-time__gap{
+	width: 100%;
 }
 
 .player--panel-control {
@@ -248,7 +296,7 @@ button:focus {
 	margin-top: 10px;
 }
 
-.one-track--slider-box:hover{
+.one-track--slider-box:hover {
 	background: #ffffff0a;
 	cursor: pointer;
 }

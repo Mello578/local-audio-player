@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {VinylData} from './Vinyl';
 import {connect} from 'react-redux';
 
 class Volume extends Component {

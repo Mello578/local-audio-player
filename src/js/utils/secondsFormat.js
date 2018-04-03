@@ -5,5 +5,5 @@ export function secondsFormat(seconds) {
       ? '0' + Math.floor(seconds % 60)
       : Math.floor(seconds % 60);
 
-  return h + m + s
+  return h + m + s;
 }

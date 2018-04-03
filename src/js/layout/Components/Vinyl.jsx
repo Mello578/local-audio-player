@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {showImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
 import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
+import {PlayerTime} from './PlayerTime';
 import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
 import {hidePlaylist} from '../../store/actions/playlistActions';
+import {CircleSlider} from './Sliders/CircleSlider';
 
 export class VinylData extends Component {
   showImagesPlaylist() {
@@ -21,7 +23,9 @@ export class VinylData extends Component {
         <div className={'player-body--center-vinyl'} style={{background: this.props.background}}>
           <img src='/src/img/vinyl.png' alt='vinyl' className={'player-body--vinyl'}
                onClick={() => this.showImagesPlaylist()}/>
+          <CircleSlider/>
         </div>
+        <PlayerTime/>
       </div>
     )
   }

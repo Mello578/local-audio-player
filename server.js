@@ -9,5 +9,4 @@ app.use('/', pagesRoutes);
 
 app.get('/playlist', getPlayList);
 
-app.listen(3000);
-// , () => console.log('Express app listening on localhost:3000'));
+app.listen(3000, () => console.log('Express app listening on localhost:3000'));
