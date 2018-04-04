@@ -37,6 +37,12 @@ function getName(path) {
   return path.slice(indexName + 1, indexExpansion);
 }
 
+function getNamePlaylist(path) {
+  const indexName = path.lastIndexOf('audio/');
+  const indexExpansion = path.lastIndexOf('/');
+  return path.slice(indexName + 6, indexExpansion);
+}
+
 function generatedPlayList() {
   return checkDirectory(MUSIC_DIRECTORY, 'directory')
     .then(arrayDirectory => {
@@ -47,10 +53,11 @@ function generatedPlayList() {
     .then((filesArrays) => {
       return filesArrays.map((files, key) => {
         const id = key;
+        const namePlaylist = getNamePlaylist(files[0]);
         const img = files.find(data => mime.getType(data).indexOf(imageExpansion) > -1);
         const music = files.filter((data) => mime.getType(data).indexOf(musicExpansion) > -1);
         const trackName = music.map(data => getName(data));
-        const playlist = new PlayList(id, img, music, trackName);
+        const playlist = new PlayList(id, namePlaylist, img, music, trackName);
         const meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
         return Promise.all(meta).then(data => {
           playlist.meta = data.map(item => audioMetaData.id3v2(item));

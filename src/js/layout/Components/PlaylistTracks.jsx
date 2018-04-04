@@ -23,7 +23,7 @@ class TracksOfPlaylist extends Component {
 
   render() {
     return (
-      <div className={'playlist--tracks'} style={{display: this.props.visible ? 'block' : 'none'}}>
+      <div className={'playlist--tracks'} id={'playlistTracks'} style={{display: this.props.visible ? 'block' : 'none'}}>
         {
           this.props.data.map((item, key) => {
             return (

@@ -13,7 +13,6 @@ export class PlayButton extends Component {
       : this.props.tracksPlaylist
         ? this.props.tracksPlaylist[0]
         : false;
-    console.log('track', track)
     if (track) {
       const playTrackAction = playTrack(track);
       this.props.played(playTrackAction);

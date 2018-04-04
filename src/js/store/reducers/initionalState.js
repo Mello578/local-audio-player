@@ -16,7 +16,9 @@ export const initialState = {
     visible: true
   },
   playerVinyl: {
-    background: BACKGROUND_VINYL_DEFAULT
+    background: BACKGROUND_VINYL_DEFAULT,
+    rotate: 0,
+    pauseRotate: 'initial'
   },
   playControl: {
     data: {

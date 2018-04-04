@@ -1,6 +1,9 @@
-export const BACKGROUND_VINYL_DEFAULT = 'url(src/img/default.png) no-repeat 67px 62px /61%';
+export const BACKGROUND_VINYL_DEFAULT = 'url(src/img/default.png) no-repeat 12px 10px / 99%';
 
 export const SET_BACKGROUND = 'setBackground';
+export const START_ROTATE = 'startRotate';
+export const STOP_ROTATE = 'stopRotate';
+export const PAUSE_ROTATE = 'pauseRotate';
 
 export const TRACK_PLAY = 'trackPlay';
 export const TRACK_STOP = 'trackStop';

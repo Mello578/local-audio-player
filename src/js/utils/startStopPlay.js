@@ -3,6 +3,7 @@ import {AudioController} from '../store/classes/AudioController';
 import {initialState} from '../store/reducers/initionalState';
 import {store} from '../index';
 import {setBuffered, setCurrentTime} from '../store/actions/playerControlAction';
+import {pauseRotate, startRotate, stopRotate} from '../store/actions/backgroundVinylAction';
 
 export let audioController = null;
 
@@ -40,13 +41,23 @@ export function startPauseStopPlay(dataTrack, mode, playlist) {
     // audioController.audio.addEventListener('progress', bufferHandler);
     audioController.audio.addEventListener('timeupdate', bufferHandler);
     audioController.audio.addEventListener('timeupdate', currentTimeUpdate);
+
+    const rotate = startRotate(4);
+    store.dispatch({type: rotate.type, payload: rotate.data});
+
+    const rotatePause = pauseRotate('initial');
+    store.dispatch({type: rotatePause.type, payload: rotatePause.data});
   } else if (mode === TRACK_PAUSE) {
     audioController.audio.pause();
+    const rotate = pauseRotate('paused');
+    store.dispatch({type: rotate.type, payload: rotate.data})
   } else if (mode === TRACK_STOP) {
     audioController.audio.removeEventListener('timeupdate', bufferHandler);
     audioController.audio.removeEventListener('timeupdate', currentTimeUpdate);
     audioController.audio.pause();
     audioController.audio.currentTime = 0.0;
+    const rotate = stopRotate(0);
+    store.dispatch({type: rotate.type, payload: rotate.data})
   }
 }
 

@@ -6,6 +6,7 @@ import {getElem} from '../../../utils/getElementById';
 import {setStyleWidthElement} from '../../../utils/setWidthElement';
 import {setWidthSlider} from '../../../utils/sliderWidth';
 import {getCurrentWidth} from '../../../utils/currentWidth';
+import {imagesPlaylistReducer} from '../../../store/reducers/imagesPlaylistReducer';
 
 class TrackSlider extends Component {
 
@@ -47,14 +48,13 @@ class TrackSlider extends Component {
       ? getElem('slider-box0').offsetWidth
       : null;
     if (trackData && maxWidth) {
-      const bufferElement = getElem('slider-buffering' + audioController.characteristic.trackName);
-      const currentTimeElement = getElem('slider-currentTime' + audioController.characteristic.trackName);
-
+      const bufferElement = getElem('slider-buffering' + this.props.playData.data.trackName);
+      const currentTimeElement = getElem('slider-currentTime' + this.props.playData.data.trackName);
 
       const {buffered, currentTime} = this.props.playData;
       const {bufferingWidth, currentTimeWidth} = getCurrentWidth(buffered, currentTime, maxWidth);
 
-      if (audioController.characteristic.trackName === this.props.playData.data.trackName) {
+      if (audioController.characteristic.namePlaylist === this.props.namePlaylist) {
         setStyleWidthElement(bufferElement, bufferingWidth);
         setStyleWidthElement(currentTimeElement, currentTimeWidth);
       }
@@ -65,8 +65,11 @@ class TrackSlider extends Component {
     }
   }
 
-  render() {
+  componentDidUpdate(){
     this.setBufferedAndCurrentTime();
+  }
+
+  render() {
     return (
       <div className={'one-track--slider-box'} id={'slider-box' + this.props.id}
            onMouseDown={(e) => this.setWidthSlider(e)}>
@@ -78,8 +81,9 @@ class TrackSlider extends Component {
   }
 }
 
-export const TracklistSlider = connect(({playerControlReducer}) =>
+export const TracklistSlider = connect(({playerControlReducer, playlistReducer}) =>
     ({
-      playData: playerControlReducer
+      playData: playerControlReducer,
+      namePlaylist: playlistReducer.data[0].namePlaylist
     })
 )(TrackSlider);

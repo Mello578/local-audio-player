@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {playlist} from '../../store/actions/playlistActions';
 import {hideImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
-import {backgroundVinilAction} from '../../store/actions/backgroundVinylAction';
+import {backgroundVinylAction} from '../../store/actions/backgroundVinylAction';
 import {getName} from '../../utils/getNameArtistAndNameTrack';
 
 export class ImagesOfPlaylist extends Component {
@@ -14,6 +14,7 @@ export class ImagesOfPlaylist extends Component {
       const meta = allData.meta[idPlaylist][key];
         return {
           id: key,
+          namePlaylist: allData.namePlaylist[idPlaylist],
           track: item,
           tracksDuration: allData.duration[idPlaylist][key],
           ...getName(meta, allData.trackName[idPlaylist][key])
@@ -23,8 +24,8 @@ export class ImagesOfPlaylist extends Component {
     const hideImages = hideImagesPlaylistAction(false);
 
     let pathImagesVinyl = allData.images[idPlaylist].slice(2);
-    pathImagesVinyl = 'url(' + pathImagesVinyl + ') no-repeat 70px 66px /59%';
-    const actionImagesVinyl = backgroundVinilAction(pathImagesVinyl);
+    pathImagesVinyl = 'url(' + pathImagesVinyl + ') no-repeat 12px 10px / 99%';
+    const actionImagesVinyl = backgroundVinylAction(pathImagesVinyl);
 
     this.props.moviePlaylist(selectedPlayList);
     this.props.hideImagesPlaylist(hideImages);
