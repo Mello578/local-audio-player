@@ -1,4 +1,6 @@
-export const BACKGROUND_VINYL_DEFAULT = 'url(src/img/default.png) no-repeat 12px 10px / 99%';
+export const BACKGROUND_VINYL_DEFAULT = 'url(src/img/default.png) no-repeat 13px 10px / 99%';
+export const SOUND_LOW_BACKGROUND = 'url("src/img/panelsControls.png") -50px -104px';
+export const SOUND_LOUD_BACKGROUND = 'url("src/img/panelsControls.png") -59px -104px';
 
 export const SET_BACKGROUND = 'setBackground';
 export const START_ROTATE = 'startRotate';

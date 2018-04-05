@@ -113,7 +113,7 @@ button:focus {
 	height: 276px;
 }
 
-.player-body--playlist-container{
+.player-body--playlist-container {
 	display: flex;
 	width: 100%;
 	height: 100%;
@@ -205,14 +205,14 @@ button:focus {
 	cursor: pointer;
 }
 
-.player-time-manager{
+.player-time-manager {
 	display: flex;
 	/**/
 	top: -323px;
 	position: relative;
 }
 
-.player-time__gap{
+.player-time__gap {
 	width: 100%;
 }
 
@@ -277,7 +277,6 @@ button:focus {
 
 .player--volume-controls {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
 
@@ -285,9 +284,24 @@ button:focus {
 	background: url('../img/panelsControls.png') -30px -104px;
 }
 
+.player--volume-controls--phone-level1,
+.player--volume-controls--phone-level2 {
+	height: 60px;
+	width: 4px;
+}
+
+.player--volume-controls--phone-level1 {
+	/*background: url('../img/panelsControls.png') -50px -104px;*/
+	margin: 0 1px;
+}
+
+/*.player--volume-controls--phone-level2 {*/
+	/*background: url('../img/panelsControls.png') -59px -104px;*/
+/*}*/
+
 .player--sound-bar {
 	width: 190px;
-	margin-left: 6px;
+	margin: 0 auto;
 	background: #636e80;
 }
 

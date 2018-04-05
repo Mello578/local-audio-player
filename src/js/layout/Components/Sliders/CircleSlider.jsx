@@ -112,14 +112,14 @@ class Circle extends Component {
           </linearGradient>
         </defs>
         {/*стартовый индикатор*/}
-        <circle cx='148' cy='159' r='141' className='vinyl-svg-circle-start'></circle>
+        <circle cx='148' cy='159' r='141' className='vinyl-svg-circle-start' style={{display: this.props.playData.currentTime ? 'block' : 'none'}}></circle>
         <circle cx='148' cy='159' r='135' className='vinyl-svg-circle-buffer' stroke='url(#gradientBuffer)'
                 id={'circleBuffer'}></circle>
         <circle cx='148' cy='159' r='135' className='vinyl-svg-circle-currentTime' stroke='url(#gradientCurrentTime)'
                 id={'circleCurrent'}></circle>
         {/*индикатор (кружочек) на слайдере*/}
         <circle cx='148' cy='159' r='135' className='vinyl-svg-circle-currentTime-indicator'
-                stroke='url(#gradientCurrentTime)' id={'circleIndicator'}></circle>
+                stroke='url(#gradientCurrentTime)' id={'circleIndicator'}  style={{display: this.props.playData.currentTime ? 'block' : 'none'}}></circle>
       </svg>
     )
   }

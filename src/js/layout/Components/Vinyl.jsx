@@ -6,7 +6,6 @@ import {PlayerTime} from './PlayerTime';
 import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
 import {hidePlaylist} from '../../store/actions/playlistActions';
 import {CircleSlider} from './Sliders/CircleSlider';
-import {getElem} from '../../utils/getElementById';
 
 export class VinylData extends Component {
   showImagesPlaylist(e) {

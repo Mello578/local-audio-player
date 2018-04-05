@@ -5,6 +5,7 @@ import {Previous} from '../Components/Buttons/Previous';
 import {Play} from '../Components/Buttons/Play';
 import {Following} from '../Components/Buttons/Following';
 import {VolumeSmall} from '../Components/Buttons/VolumeSmall';
+import {VolumeIndicator} from '../Components/VolumeIndicator';
 import {VolumeSlider} from '../Components/Sliders/VolumeSlider';
 import {VolumeLevel} from '../Components/VolumeLevel';
 import {VolumeBig} from '../Components/Buttons/VolumeBig';
@@ -23,6 +24,7 @@ export class PanelsControl extends Component {
         </div>
         <div className={'player--volume-controls'}>
           <VolumeSmall/>
+          <VolumeIndicator/>
           <VolumeSlider/>
           <VolumeLevel/>
         </div>
