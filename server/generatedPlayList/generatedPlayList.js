@@ -1,6 +1,7 @@
 const {PlayList} = require('../classes/PlayList');
 
 const fs = require('fs');
+const os = require('os');
 const mime = require('mime');
 const audioMetaData = require('audio-metadata');
 const mp3Duration = require('mp3-duration');
@@ -61,7 +62,12 @@ function generatedPlayList() {
         const meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
         return Promise.all(meta).then(data => {
           playlist.meta = data.map(item => audioMetaData.id3v2(item));
-          playlist.duration = data.map(item => mp3Duration(item)._settledValue);
+          if(os.platform() === 'linux'){
+            playlist.duration = data.map(item => mp3Duration(item)._settledValue);
+          }else{
+            playlist.duration = data.map(item => mp3Duration(item)._settledValue());
+          }
+
           return playlist
         });
       });

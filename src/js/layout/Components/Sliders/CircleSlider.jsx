@@ -49,10 +49,10 @@ class Circle extends Component {
   }
 
   setGradient(dataElement) {
-    return {
-      y1: dataElement < 20 ? 88 - dataElement + '%' : 100 - dataElement + '%',
-      x2: dataElement < 20 ? '0%' : dataElement + '%'
-    }
+      return {
+        y1: dataElement ? dataElement < 20 ? 88 - dataElement + '%' : 100 - dataElement + '%' : 0 + '%',
+        x2: dataElement ? dataElement < 20 ? '0%' : dataElement + '%' : 0 + '%'
+      }
   }
 
   shiftGradient() {
