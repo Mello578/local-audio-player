@@ -1,5 +1,4 @@
 'use strict';
-const ExtractTextPlugin = require ('extract-text-webpack-plugin');
 
 module.exports = {
 	resolve: {
@@ -19,21 +18,6 @@ module.exports = {
 				exclude: [/node_modules/, /public/]
 			},
 			{
-				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-					{
-						loader: 'css-loader',
-						options: {
-							url: false,
-							minimize: true
-						}
-					}
-					]
-				})
-			},
-			{
 				test: /\.(png|jpg|gif)$/,
 				loader: 'file-loader'
 			},
@@ -43,8 +27,5 @@ module.exports = {
         loader: 'file-loader'
       }
 		]
-	},
-	plugins: [
-		new ExtractTextPlugin('../style/main.css'),
-	]
+	}
 };

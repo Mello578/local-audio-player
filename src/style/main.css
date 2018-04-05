@@ -57,12 +57,13 @@ button:focus {
 }
 
 /* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
-@supports (object-fit: cover) {
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
 	#trailer > video {
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
+		-o-object-fit: cover;
 		object-fit: cover;
 	}
 }
@@ -76,13 +77,21 @@ button:focus {
 }
 
 .container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
 	justify-content: flex-start;
+	-webkit-justify-content: flex-start;
 	padding: 80px;
 }
 
 .player {
 	width: 275px;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(97, 165, 201, 0.26)), to(rgba(87, 44, 128, 0.25)));
+	background: -webkit-linear-gradient(top, rgba(97, 165, 201, 0.26), rgba(87, 44, 128, 0.25));
+	background: -o-linear-gradient(top, rgba(97, 165, 201, 0.26), rgba(87, 44, 128, 0.25));
 	background: linear-gradient(to bottom, rgba(97, 165, 201, 0.26), rgba(87, 44, 128, 0.25));
 	text-align: center;
 	opacity: 0.99;
@@ -114,41 +123,77 @@ button:focus {
 }
 
 .player-body--playlist-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
 	height: 100%;
+	-webkit-box-shadow: inset 0px 0px 5px 2px #000;
 	box-shadow: inset 0px 0px 5px 2px #000;
 	border-radius: 100%;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
 .player-body--playlist-vinyl {
 	background-size: 61%;
+	-webkit-transform: rotate(14deg);
+	-ms-transform: rotate(14deg);
 	transform: rotate(14deg);
 	width: 60%;
 	height: 60%;
 }
 
-@keyframes spin {
+@-webkit-keyframes spin {
 	0% {
+		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
 	}
 	100% {
+		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin2 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg);
+		transform: rotate(-360deg);
 	}
 }
 
 @keyframes spin2 {
 	0% {
+		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
 	}
 	100% {
+		-webkit-transform: rotate(-360deg);
 		transform: rotate(-360deg);
 	}
 }
 
 .player-body--vinyl {
+	-webkit-box-shadow: 0 10px 46px 10px rgba(0, 0, 0, 0.52);
 	box-shadow: 0 10px 46px 10px rgba(0, 0, 0, 0.52);
 	border-radius: 100%;
 	height: 275px;
@@ -168,6 +213,8 @@ button:focus {
 
 /*длина окружности индикатора 847*/
 .vinyl-svg-circle-buffer {
+	-webkit-transition: stroke-dasharray 2s ease-in-out 0ms;
+	-o-transition: stroke-dasharray 2s ease-in-out 0ms;
 	transition: stroke-dasharray 2s ease-in-out 0ms;
 }
 
@@ -206,6 +253,8 @@ button:focus {
 }
 
 .player-time-manager {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	/**/
 	top: -323px;
@@ -221,14 +270,17 @@ button:focus {
 	width: 275px;
 	-ms-user-select: none;
 	-moz-user-select: none;
-	-khtml-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
 }
 
 .player--buttons-control {
 	margin-top: 45px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
 
@@ -276,7 +328,11 @@ button:focus {
 }
 
 .player--volume-controls {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
@@ -296,7 +352,7 @@ button:focus {
 }
 
 /*.player--volume-controls--phone-level2 {*/
-	/*background: url('../img/panelsControls.png') -59px -104px;*/
+/*background: url('../img/panelsControls.png') -59px -104px;*/
 /*}*/
 
 .player--sound-bar {
@@ -307,6 +363,9 @@ button:focus {
 
 .sound-bar--slider-sound {
 	height: 7px;
+	background: -webkit-gradient(linear, left top, right top, from(#c12775), to(#7a36cf));
+	background: -webkit-linear-gradient(left, #c12775, #7a36cf);
+	background: -o-linear-gradient(left, #c12775, #7a36cf);
 	background: linear-gradient(to right, #c12775, #7a36cf);
 }
 
@@ -347,7 +406,11 @@ button:focus {
 }
 
 .one-track--content {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
@@ -367,11 +430,19 @@ button:focus {
 }
 
 .slider-buffering {
+	background: -webkit-gradient(linear, left top, right top, from(#4e88b3), to(#41ac73));
+	background: -webkit-linear-gradient(left, #4e88b3, #41ac73);
+	background: -o-linear-gradient(left, #4e88b3, #41ac73);
 	background: linear-gradient(to right, #4e88b3, #41ac73);
+	-webkit-transition: width 2s ease-in-out 0ms;
+	-o-transition: width 2s ease-in-out 0ms;
 	transition: width 2s ease-in-out 0ms;
 }
 
 .slider-currentTime {
+	background: -webkit-gradient(linear, left top, right top, from(#c12775), to(#7a36cf));
+	background: -webkit-linear-gradient(left, #c12775, #7a36cf);
+	background: -o-linear-gradient(left, #c12775, #7a36cf);
 	background: linear-gradient(to right, #c12775, #7a36cf);
 }
 
