@@ -4,6 +4,7 @@
   "description": "This is a local audio player",
   "main": "index.js",
   "scripts": {
+    "web": "webpack",
     "build": "webpack --watch",
     "dev": "nodemon server.js",
     "debug": "node-debug server.js"
