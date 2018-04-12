@@ -9,7 +9,8 @@ module.exports.index = function (req, res) {
 <body>
 <div id="trailer" class="is_overlay">
 	<video id="video" width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto">
-		<source src= "./src/img/bcg.mp4">
+		<source src= "./src/img/bcg.mp4"  type="video/mp4">
+		<source src= "./src/img/bcg.webm"  type="video/webm">
 	</video>
 	<div class="bckg-darken">
 	</div>
