@@ -198,13 +198,13 @@ button:focus {
 	border-radius: 100%;
 	height: 275px;
 	width: 275px;
-	position: absolute;
-	top: 0px;
+	position: relative;
+	top: -275px;
 }
 
 .player-body--vinyl-svg {
 	position: relative;
-	top: -297px;
+	top: -572px;
 	left: -10px;
 	cursor: pointer;
 
@@ -257,7 +257,7 @@ button:focus {
 	display: -ms-flexbox;
 	display: flex;
 	/**/
-	top: -323px;
+	top: -598px;
 	position: relative;
 }
 
