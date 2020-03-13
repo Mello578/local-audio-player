@@ -2,27 +2,28 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+
 const helpers = require('./helpers.js');
 
 const nodeModules = helpers.root('node_modules');
 const src = helpers.root('src');
 
 const queryString = require('query-string');
-const tsconfig = require('../tsconfig.json');
 
+const tsconfig = require('../tsconfig.json');
 const TSConfigFile = helpers.root('tsconfig.json');
 
 const tsPaths = {};
 Object.keys(tsconfig.compilerOptions.paths).forEach(t => {
     const value = tsconfig.compilerOptions.paths[t][0];
-    tsPaths[t.replace(/\/\*$/g,'')] = helpers.root(value.replace(/\/\*$/g,''));
+    tsPaths[t.replace(/\/\*$/g, '')] = helpers.root(value.replace(/\/\*$/g, ''));
 });
 
-module.exports = (devMode) => {
-    const publicPath =`${devMode ? 'http://localhost:8081' : ''}/dist`;
+module.exports = devMode => {
+    const publicPath = `${devMode ? 'http://localhost:8081' : ''}/dist`;
 
     const fileLoaderSettings = {
-        name: devMode ? "[name].[ext]" : "[name]-[hash].[ext]",
+        name: devMode ? '[name].[ext]' : '[name]-[hash].[ext]',
         publicPath: `${publicPath}/file-loader`,
         outputPath: 'file-loader/'
     };
@@ -77,7 +78,7 @@ module.exports = (devMode) => {
                         ...(devMode ? ['cache-loader'] : []),
                         {
                             loader: 'css-loader',
-                            options: {modules: 'global'}
+                            options: { modules: 'global' }
                         },
                         'less-loader'
                     ]
@@ -118,7 +119,7 @@ module.exports = (devMode) => {
                         MiniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader',
-                            options: {modules: 'global'}
+                            options: { modules: 'global' }
                         }
                     ],
                     include: [src, nodeModules]
@@ -137,10 +138,10 @@ module.exports = (devMode) => {
         },
         optimization: {
             splitChunks: {
-                chunks: "all",
-                name: "common",
-                filename: devMode ? "common.js" : "common-[hash].js"
-            },
+                chunks: 'all',
+                name: 'common',
+                filename: devMode ? 'common.js' : 'common-[hash].js'
+            }
         },
         plugins: [
             new MiniCssExtractPlugin({

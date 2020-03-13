@@ -1,0 +1,1 @@
+export { setAllData } from './setAllData';

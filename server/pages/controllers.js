@@ -1,5 +1,5 @@
-module.exports.index = function (req, res) {
-	res.send(`
+module.exports.index = function(req, res) {
+    res.send(`
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
