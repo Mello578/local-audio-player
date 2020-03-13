@@ -16,7 +16,8 @@ module.exports.index = function (req, res) {
 	</div>
 </div>
 <div id="content"></div>
-<script type="text/javascript" src="./dist/js/bundle.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8081/dist/common.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8081/dist/main.js"></script>
 </body>
 </html>
     `);

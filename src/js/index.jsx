@@ -1,20 +1,23 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import * as ReactDOM from "react-dom";
 import {createStore} from 'redux';
 import 'babel-polyfill';
 
 import {Application} from './layout/Containers/Application';
 import reducer from './store/reducers/'
 import {addAllData} from './utils/addAllData';
+import {Provider} from "react-redux";
 
-export const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export const store = createStore(
+    reducer,
+    window.devToolsExtension && window.devToolsExtension()
+);
 
 addAllData();
 
-render(
-  <Provider store={store}>
-    <Application/>
-  </Provider>,
-  document.getElementById('content')
+ReactDOM.render(
+    <Provider store={store}>
+        <Application/>
+    </Provider>,
+    document.getElementById('content')
 );
