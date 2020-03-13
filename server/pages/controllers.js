@@ -4,7 +4,7 @@ module.exports.index = function (req, res) {
 <head>
 	<meta charset="UTF-8">
 	<title>audio-player</title>
-	<link type="text/css" rel="stylesheet" href="./src/style/main.css">
+	<link type="text/css" rel="stylesheet" href="http://127.0.0.1:8081/dist/common.css">
 </head>
 <body>
 <div id="trailer" class="is_overlay">

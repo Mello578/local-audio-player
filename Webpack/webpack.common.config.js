@@ -8,6 +8,15 @@ const nodeModules = helpers.root('node_modules');
 const src = helpers.root('src');
 
 const queryString = require('query-string');
+const tsconfig = require('../tsconfig.json');
+
+const TSConfigFile = helpers.root('tsconfig.json');
+
+const tsPaths = {};
+Object.keys(tsconfig.compilerOptions.paths).forEach(t => {
+    const value = tsconfig.compilerOptions.paths[t][0];
+    tsPaths[t.replace(/\/\*$/g,'')] = helpers.root(value.replace(/\/\*$/g,''));
+});
 
 module.exports = (devMode) => {
     const publicPath =`${devMode ? 'http://localhost:8081' : ''}/dist`;
@@ -26,10 +35,27 @@ module.exports = (devMode) => {
         },
         resolve: {
             modules: [nodeModules],
-            extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
+            extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+            alias: {
+                ...tsPaths
+            }
         },
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: [
+                        ...(devMode ? ['cache-loader'] : []),
+                        {
+                            loader: 'ts-loader',
+                            options: {
+                                configFile: TSConfigFile,
+                                transpileOnly: true
+                            }
+                        }
+                    ],
+                    include: [src]
+                },
                 {
                     test: /\.jsx?$/,
                     use: [
@@ -47,7 +73,7 @@ module.exports = (devMode) => {
                     include: [src],
                     exclude: /module\.less$/,
                     use: [
-                        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        MiniCssExtractPlugin.loader,
                         ...(devMode ? ['cache-loader'] : []),
                         {
                             loader: 'css-loader',
@@ -60,7 +86,7 @@ module.exports = (devMode) => {
                     test: /\.less$/,
                     include: /module\.less$/,
                     use: [
-                        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        MiniCssExtractPlugin.loader,
                         ...(devMode ? ['cache-loader'] : []),
                         {
                             loader: 'css-loader',
@@ -89,7 +115,7 @@ module.exports = (devMode) => {
                 {
                     test: /\.css$/,
                     use: [
-                        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        MiniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader',
                             options: {modules: 'global'}
