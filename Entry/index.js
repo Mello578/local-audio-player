@@ -1,3 +1,3 @@
 import '../src/js';
 
-import '../src/style/main.css';
+import '../src/static/style/main.css';

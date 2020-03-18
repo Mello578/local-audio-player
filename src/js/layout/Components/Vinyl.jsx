@@ -35,7 +35,7 @@ export class VinylData extends Component {
           <div className={'player-body--playlist-vinyl'} style={{background: background, animation: `spin ${rotate}s linear infinite`, animationPlayState: pauseRotate}}>
           </div>
         </div>
-        <img src='/src/img/vinyl.png' alt='vinyl' className={'player-body--vinyl'}/>
+        <img src='/src/static/images/vinyl.png' alt='vinyl' className={'player-body--vinyl'}/>
         <CircleSlider/>
         <div className={'player-body--select-playlist'}
              onClick={(e) => this.showImagesPlaylist(e)}></div>

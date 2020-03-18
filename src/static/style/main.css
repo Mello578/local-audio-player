@@ -10,7 +10,7 @@ span {
 
 body {
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	background: fixed url('../img/bcg.png') no-repeat;
+	background: fixed url('../images/bcg.png') no-repeat;
 	background-size: cover;
 }
 
@@ -298,15 +298,15 @@ button:focus {
 }
 
 .button-play {
-	background: url('../img/panelsControls.png') 202px -20px;
+	background: url('../images/panelsControls.png') 202px -20px;
 }
 
 .button-previous {
-	background: url('../img/panelsControls.png') -77px -20px;
+	background: url('../images/panelsControls.png') -77px -20px;
 }
 
 .button-following {
-	background: url('../img/panelsControls.png') 117px -20px;
+	background: url('../images/panelsControls.png') 117px -20px;
 }
 
 .button-previous,
@@ -321,11 +321,11 @@ button:focus {
 }
 
 .button-revert {
-	background: url('../img/panelsControls.png') -37px -20px;
+	background: url('../images/panelsControls.png') -37px -20px;
 }
 
 .button-shuffle {
-	background: url('../img/panelsControls.png') 58px -20px;
+	background: url('../images/panelsControls.png') 58px -20px;
 }
 
 .player--volume-controls {
@@ -338,7 +338,7 @@ button:focus {
 }
 
 .button-volume-small {
-	background: url('../img/panelsControls.png') -30px -104px;
+	background: url('../images/panelsControls.png') -30px -104px;
 }
 
 .player--volume-controls--phone-level1,
@@ -348,12 +348,12 @@ button:focus {
 }
 
 .player--volume-controls--phone-level1 {
-	/*background: url('../img/panelsControls.png') -50px -104px;*/
+	/*background: url('../images/panelsControls.png') -50px -104px;*/
 	margin: 0 1px;
 }
 
 /*.player--volume-controls--phone-level2 {*/
-/*background: url('../img/panelsControls.png') -59px -104px;*/
+/*background: url('../images/panelsControls.png') -59px -104px;*/
 /*}*/
 
 .player--sound-bar {
@@ -375,12 +375,12 @@ button:focus {
 }
 
 .button-volume-big {
-	background: url('../img/panelsControls.png') -100px -114px;
+	background: url('../images/panelsControls.png') -100px -114px;
 	margin-right: 20px;
 }
 
 .button-pause {
-	background: url('../img/panelsControls.png') -179px -114px;
+	background: url('../images/panelsControls.png') -179px -114px;
 }
 
 .player--additionally-panel {
