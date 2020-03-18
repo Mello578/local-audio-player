@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { playlist } from '../../store/actions/playlistActions';
-import { hideImagesPlaylistAction } from '../../store/actions/imagesPlaylistAction';
-import { backgroundVinylAction } from '../../store/actions/backgroundVinylAction';
-import { getName } from '../../utils/getNameArtistAndNameTrack';
+import { playlist } from '../../js/store/actions/playlistActions';
+import { hideImagesPlaylistAction } from '../../js/store/actions/imagesPlaylistAction';
+import { backgroundVinylAction } from '../../js/store/actions/backgroundVinylAction';
+import { getName } from '../../js/utils/getNameArtistAndNameTrack';
 
 export class ImagesOfPlaylist extends Component {
     async openPlaylist(e) {

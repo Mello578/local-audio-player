@@ -1,7 +1,7 @@
 import {nextPreviousTrack} from '../../utils/nextPreviousTrack';
 import {TRACK_NEXT, TRACK_PLAY} from '../../constants/playerConst';
 import {playTrack, setBuffered} from '../actions/playerControlAction';
-import {store} from '../../index';
+import {store} from '../../../Components';
 import {startPauseStopPlay} from '../../utils/startStopPlay';
 
 export class AudioController {

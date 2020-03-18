@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {showImagesPlaylistAction} from '../../store/actions/imagesPlaylistAction';
-import {backgroundVinylAction} from '../../store/actions/backgroundVinylAction';
+import {showImagesPlaylistAction} from '../../js/store/actions/imagesPlaylistAction';
+import {backgroundVinylAction} from '../../js/store/actions/backgroundVinylAction';
 import {PlayerTime} from './PlayerTime';
-import {BACKGROUND_VINYL_DEFAULT} from '../../constants/playerConst';
-import {hidePlaylist} from '../../store/actions/playlistActions';
+import {BACKGROUND_VINYL_DEFAULT} from '../../js/constants/playerConst';
+import {hidePlaylist} from '../../js/store/actions/playlistActions';
 import {CircleSlider} from './Sliders/CircleSlider';
 
 export class VinylData extends Component {

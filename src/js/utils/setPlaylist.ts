@@ -1,4 +1,4 @@
-import { store } from 'src/js';
+import { store } from 'src/Components';
 import { setImagesPlaylistActions } from 'actions/imagesPlaylistAction';
 import { setPlaylistAction } from 'actions/setPlaylistAction';
 

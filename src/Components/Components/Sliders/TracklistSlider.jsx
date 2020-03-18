@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {audioController} from '../../../utils/startStopPlay';
-import {currentTimeUpdate} from '../../../utils/startStopPlay';
-import {getElem} from '../../../utils/getElementById';
-import {setStyleWidthElement} from '../../../utils/setWidthElement';
-import {setWidthSlider} from '../../../utils/sliderWidth';
-import {getCurrentWidth} from '../../../utils/currentWidth';
-import {imagesPlaylistReducer} from '../../../store/reducers/imagesPlaylistReducer';
+import {audioController} from '../../../js/utils/startStopPlay';
+import {currentTimeUpdate} from '../../../js/utils/startStopPlay';
+import {getElem} from '../../../js/utils/getElementById';
+import {setStyleWidthElement} from '../../../js/utils/setWidthElement';
+import {setWidthSlider} from '../../../js/utils/sliderWidth';
+import {getCurrentWidth} from '../../../js/utils/currentWidth';
+import {imagesPlaylistReducer} from '../../../js/store/reducers/imagesPlaylistReducer';
 
 class TrackSlider extends Component {
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {SOUND_LOUD_BACKGROUND, SOUND_LOW_BACKGROUND} from '../../constants/playerConst';
+import {SOUND_LOUD_BACKGROUND, SOUND_LOW_BACKGROUND} from '../../js/constants/playerConst';
 
 class Indicator extends Component {
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {audioController, startPauseStopPlay} from '../../../utils/startStopPlay';
-import {TRACK_PAUSE} from '../../../constants/playerConst';
-import {pauseTrack} from '../../../store/actions/playerControlAction';
+import {audioController, startPauseStopPlay} from '../../../js/utils/startStopPlay';
+import {TRACK_PAUSE} from '../../../js/constants/playerConst';
+import {pauseTrack} from '../../../js/store/actions/playerControlAction';
 
 export class Pause extends Component {
 

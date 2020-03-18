@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {audioController} from '../../../utils/startStopPlay';
-import {getElem} from '../../../utils/getElementById';
-import {getCurrentWidth} from '../../../utils/currentWidth';
-import {CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS} from '../../../constants/playerConst';
-import {clamp} from '../../../utils/clamp';
+import {audioController} from '../../../js/utils/startStopPlay';
+import {getElem} from '../../../js/utils/getElementById';
+import {getCurrentWidth} from '../../../js/utils/currentWidth';
+import {CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS} from '../../../js/constants/playerConst';
+import {clamp} from '../../../js/utils/clamp';
 
 class Circle extends Component {
 
