@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {soundLevel} from '../../../js/store/actions/audioControlAction';
+import {soundLevel} from '../../../store/actions/audioControlAction';
 import {connect} from 'react-redux';
-import {audioController, setVolumeForFirstTrack} from '../../../js/utils/startStopPlay';
-import {setWidthSlider} from '../../../js/utils/sliderWidth';
+import {audioController, setVolumeForFirstTrack} from '../../../utils/startStopPlay';
+import {setWidthSlider} from '../../../utils/sliderWidth';
 import {WIDTH_SOUND_BAR} from '../../../js/constants/playerConst';
-import {setStyleWidthElement} from '../../../js/utils/setWidthElement';
+import {setStyleWidthElement} from '../../../utils/setWidthElement';
 
 class Volume extends Component {
 

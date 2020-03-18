@@ -1,7 +1,7 @@
 import { store } from 'src/Components';
-import { setImagesPlaylistActions } from 'actions/imagesPlaylistAction';
-import { setPlaylistAction } from 'actions/setPlaylistAction';
-import { getPlaylist, MetaData } from 'src/js/utils/getPlaylist';
+import { setImagesPlaylistActions } from 'src/store/actions/imagesPlaylistAction';
+import { setPlaylistAction } from 'src/store/actions/setPlaylistAction';
+import { getPlaylist, MetaData } from 'src/utils/getPlaylist';
 
 export interface AllPlaylist {
     id: number[];

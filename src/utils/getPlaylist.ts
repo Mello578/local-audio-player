@@ -1,4 +1,4 @@
-import { dataRequest } from 'src/js/utils/dataRequest';
+import { dataRequest } from 'src/utils/dataRequest';
 
 import { URL } from '../constants/urlConst';
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {soundMuted} from '../../../js/store/actions/audioControlAction';
-import {setVolumeForFirstTrack} from '../../../js/utils/startStopPlay';
-import {audioController} from '../../../js/utils/startStopPlay';
+import {soundMuted} from '../../../store/actions/audioControlAction';
+import {setVolumeForFirstTrack} from '../../../utils/startStopPlay';
+import {audioController} from '../../../utils/startStopPlay';
 
 class VolumeSmallButton extends Component {
 

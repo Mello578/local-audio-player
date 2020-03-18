@@ -1,7 +1,7 @@
 import {TRACK_PAUSE, TRACK_PLAY, TRACK_STOP} from '../constants/playerConst';
-import {AudioController} from '../store/classes/AudioController';
+import {AudioController} from './AudioController';
 import {initialState} from '../store/reducers/initionalState';
-import {store} from '../../Components';
+import {store} from '../Components';
 import {setBuffered, setCurrentTime} from '../store/actions/playerControlAction';
 import {pauseRotate, startRotate, stopRotate} from '../store/actions/backgroundVinylAction';
 
