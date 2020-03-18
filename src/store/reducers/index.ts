@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { RootState } from 'src/store/initionalState/models';
 
 import { playlistReducer } from './playlistReducer';
 import { imagesPlaylistReducer } from './imagesPlaylistReducer';
@@ -7,7 +8,7 @@ import { playerControlReducer } from './playerControlReduser';
 import { allInfoPlaylistReducer } from './allInfoPlaylistReducer';
 import { soundControlReducer } from './audioControlReducer';
 
-export default combineReducers({
+export default combineReducers<Partial<RootState>>({
     allInfoPlaylistReducer,
     playlistReducer,
     imagesPlaylistReducer,

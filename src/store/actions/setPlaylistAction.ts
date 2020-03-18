@@ -1,8 +1,11 @@
-import { ALL_INFO_PLAYLIST } from '../constants';
+import { AllInfoPlaylist } from 'store';
+import { AllInfoPlaylistModel } from 'src/store/reducers/allInfoPlaylistReducer';
 
-export function setPlaylistAction<T>(data: T): { type: string; payload: T } {
+import { TypeKeys } from '../enums';
+
+export function setPlaylistAction(data: AllInfoPlaylist[]): AllInfoPlaylistModel {
     return {
-        type: ALL_INFO_PLAYLIST,
+        type: TypeKeys.ALL_INFO_PLAYLIST,
         payload: data
     };
 }

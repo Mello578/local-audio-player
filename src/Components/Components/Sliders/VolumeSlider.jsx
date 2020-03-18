@@ -19,8 +19,7 @@ class Volume extends Component {
             setStyleWidthElement(slider, widthElement);
 
             const soundNumb = widthElement / (slider.parentNode.offsetWidth / 100) / 100;
-            const volumeAction = soundLevel(soundNumb);
-            props.setVolume(volumeAction);
+            props.setVolume(soundNumb);
             if (audioController) {
                 audioController.setVolumesParams({ volume: soundNumb, muted: props.soundControl.muted });
             } else {
@@ -48,7 +47,7 @@ export const VolumeSlider = connect(
     }),
     dispatch => ({
         setVolume(volume) {
-            dispatch({ type: volume.type, payload: volume.data });
+            dispatch(soundLevel(volume));
         }
     })
 )(Volume);

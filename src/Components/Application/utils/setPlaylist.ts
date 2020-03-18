@@ -21,7 +21,7 @@ export async function setPlaylist(): Promise<void> {
 }
 
 function setAllPlaylist(dataFormat: AllInfoPlaylist): void {
-    store.dispatch(setPlaylistAction<AllInfoPlaylist>(dataFormat));
+    store.dispatch(setPlaylistAction(dataFormat));
 }
 
 function setImagesPlaylist(id, images): void {
