@@ -9,7 +9,7 @@ import { getName } from '../../utils/getNameArtistAndNameTrack';
 export class ImagesOfPlaylist extends Component {
     async openPlaylist(e) {
         const idPlaylist = e.target.id;
-        const allData = this.props.allData;
+        const allData = this.props.allInfoPlaylist;
         const selectedPlayList = playlist(
             allData.tracks[idPlaylist].map((item, key) => {
                 const meta = allData.meta[idPlaylist][key];
@@ -54,8 +54,8 @@ export class ImagesOfPlaylist extends Component {
 }
 
 export const PlaylistImages = connect(
-    ({ allDataReducer, imagesPlaylistReducer }) => ({
-        allData: allDataReducer.data,
+    ({ allInfoPlaylistReducer, imagesPlaylistReducer }) => ({
+        allInfoPlaylist: allInfoPlaylistReducer,
         data: imagesPlaylistReducer.data,
         visible: imagesPlaylistReducer.visible
     }),

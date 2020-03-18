@@ -1,4 +1,4 @@
-import {initialState} from './initionalState';
+import {initialState} from '../initionalState/initionalState';
 import {SET_BUFFERED, SET_CURRENT_TIME, SET_REPEAT, TRACK_PLAY} from '../../constants/playerConst';
 
 export function playerControlReducer(state = initialState.playControl, action) {

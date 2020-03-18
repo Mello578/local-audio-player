@@ -1,8 +1,8 @@
-import { ALL_DATA } from '../../constants/allData';
+import { ALL_INFO_PLAYLIST } from '../constants';
 
-export function setPlaylistAction(data) {
+export function setPlaylistAction<T>(data: T): { type: string; payload: T } {
     return {
-        type: ALL_DATA,
+        type: ALL_INFO_PLAYLIST,
         payload: data
     };
 }

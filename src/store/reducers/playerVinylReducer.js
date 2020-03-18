@@ -1,4 +1,4 @@
-import {initialState} from './initionalState';
+import {initialState} from '../initionalState/initionalState';
 import {PAUSE_ROTATE, SET_BACKGROUND, START_ROTATE, STOP_ROTATE} from '../../constants/playerConst';
 
 export function vinylBackgroundReducer(state = initialState.playerVinyl, action) {

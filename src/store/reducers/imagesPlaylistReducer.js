@@ -1,4 +1,4 @@
-import {initialState} from './initionalState';
+import {initialState} from '../initionalState/initionalState';
 import {HIDE_IMG_PLAYLIST, MOVIE_IMGS_PLAYLIST, SHOW_IMG_PLAYLIST} from '../../constants/playListConst';
 
 export function imagesPlaylistReducer(state = initialState.imagesPlaylist, action) {

@@ -1,4 +1,4 @@
-import {initialState} from './initionalState';
+import {initialState} from '../initionalState/initionalState';
 import {HIDE_PLAYLIST, SELECT_PLAYLIST, SHUFFLE_PLAYLIST} from '../../constants/playListConst';
 
 export function playlistReducer(state = initialState.playlist, action) {

@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import 'babel-polyfill';
 
-import reducer from '../store/reducers/index';
+import reducer from '../store/reducers';
 
 import { Application } from './Application';
 

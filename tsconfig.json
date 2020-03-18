@@ -15,7 +15,7 @@
     "paths": {
       "utils": ["./src/js/utils"],
       "src/*": ["./src/*"],
-      "actions/*": ["./src/js/store/actions/*"]
+      "store": ["./src/store"]
     }
   }
 }

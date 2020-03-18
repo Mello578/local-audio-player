@@ -27,7 +27,7 @@ module.exports = devMode => {
     };
 
     return {
-        entry: './Entry/index.js',
+        entry: './Entry/index.ts',
         output: {
             filename: devMode ? '[name].js' : '[name]-[hash].js',
             publicPath: publicPath

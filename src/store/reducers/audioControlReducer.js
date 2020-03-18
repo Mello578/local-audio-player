@@ -1,4 +1,4 @@
-import {initialState} from './initionalState';
+import {initialState} from '../initionalState/initionalState';
 import {CURRENT_AUDIO, SOUND_LEVEL, SOUND_MUTED} from '../../constants/playerConst';
 
 export function soundControlReducer(state = initialState.audioControl, action) {
