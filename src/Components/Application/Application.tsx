@@ -1,7 +1,6 @@
 import React from 'react';
-import { setPlaylist } from 'src/Components/Application/utils/setPlaylist';
 
-import { Player } from '../Containers/Player';
+import { Player } from '../Player';
 import { Playlist } from '../Containers/Playlist';
 
 import { setPlaylist } from './utils/setPlaylist';
