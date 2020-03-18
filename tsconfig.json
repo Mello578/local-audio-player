@@ -14,7 +14,8 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "utils": ["./src/js/utils"],
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "actions/*": ["./src/js/store/actions/*"]
     }
   }
 }

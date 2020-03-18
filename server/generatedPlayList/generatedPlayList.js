@@ -1,12 +1,10 @@
+const fs = require('fs');
+const os = require('os');
+
 const mime = require('mime');
 const audioMetaData = require('audio-metadata');
 const mp3Duration = require('mp3-duration');
 const watch = require('watch');
-
-const fs = require('fs');
-const os = require('os');
-
-const { PlayList } = require('../classes/PlayList');
 
 const MUSIC_DIRECTORY = './audio/';
 const musicExpansion = 'audio';
@@ -47,20 +45,20 @@ function generatedPlayList() {
     return checkDirectory(MUSIC_DIRECTORY, 'directory')
         .then(arrayDirectory => {
             return Promise.all(
-                arrayDirectory.map(item => {
-                    return checkDirectory(item, 'data');
-                })
+                arrayDirectory.map(item => checkDirectory(item, 'data'))
             );
         })
         .then(filesArrays => {
             return filesArrays.map((files, key) => {
-                const id = key;
-                const namePlaylist = getNamePlaylist(files[0]);
-                const img = files.find(data => mime.getType(data).indexOf(imageExpansion) > -1);
                 const tracks = files.filter(data => mime.getType(data).indexOf(musicExpansion) > -1);
-                const trackName = tracks.map(data => getName(data));
-                const playlist = new PlayList(id, namePlaylist, img, tracks, trackName);
-                const meta = playlist.music.map(data => Promise.resolve(fs.readFileSync(data)));
+                const playlist = {
+                    id: key,
+                    namePlaylist: getNamePlaylist(files[0]),
+                    images: files.find(data => mime.getType(data).indexOf(imageExpansion) > -1),
+                    trackName: tracks.map(data => getName(data)),
+                    tracks
+                };
+                const meta = playlist.tracks.map(data => Promise.resolve(fs.readFileSync(data)));
                 return Promise.all(meta).then(data => {
                     playlist.meta = data.map(item => audioMetaData.id3v2(item));
                     if (os.platform() === 'linux') {

@@ -1,26 +1,25 @@
 import { store } from 'src/js';
-
-import { imagesPlaylistActions } from '../store/actions/imagesPlaylistAction';
-import { addAllDataAction } from '../store/actions/addAllDataAction';
+import { setImagesPlaylistActions } from 'actions/imagesPlaylistAction';
+import { setPlaylistAction } from 'actions/setPlaylistAction';
 
 import { getPlaylist, MetaData } from './getPlaylist';
 
 export interface AllPlaylist {
     id: number[];
     namePlaylist: string[];
-    img: string[];
+    images: string[];
     tracks: string[][];
     trackName: string[][];
     meta: MetaData[][];
     duration: number[];
 }
 
-export async function setAllData(): Promise<void> {
+export async function setPlaylist(): Promise<void> {
     const dataRequest = await getPlaylist();
     const dataFormat = {
         id: dataRequest.map(item => item.id),
         namePlaylist: dataRequest.map(item => item.namePlaylist),
-        img: dataRequest.map(item => item.img),
+        images: dataRequest.map(item => item.images),
         tracks: dataRequest.map(item => item.tracks),
         trackName: dataRequest.map(item => item.trackName),
         meta: dataRequest.map(item => item.meta),
@@ -28,13 +27,13 @@ export async function setAllData(): Promise<void> {
     };
 
     setAllPlaylist(dataFormat);
-    setImagesPlaylist(dataFormat.id, dataFormat.img);
+    setImagesPlaylist(dataFormat.id, dataFormat.images);
 }
 
 function setAllPlaylist(dataFormat: AllPlaylist): void {
-    store.dispatch(addAllDataAction(dataFormat));
+    store.dispatch(setPlaylistAction(dataFormat));
 }
 
 function setImagesPlaylist(id, images): void {
-    store.dispatch(imagesPlaylistActions({ id, images }));
+    store.dispatch(setImagesPlaylistActions({ id, images }));
 }

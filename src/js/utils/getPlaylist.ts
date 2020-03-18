@@ -12,7 +12,7 @@ export interface MetaData {
 export interface PlaylistRequest {
     id: number;
     namePlaylist: string;
-    img: string;
+    images: string;
     tracks: string[];
     trackName: string[];
     meta: MetaData[];

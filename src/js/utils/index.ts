@@ -1,1 +1,1 @@
-export { setAllData } from './setAllData';
+export { setPlaylist } from './setPlaylist';
