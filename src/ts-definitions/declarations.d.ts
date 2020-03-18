@@ -1,12 +1,4 @@
 ﻿// declare module "*";
-import {compose} from "redux";
-
-declare global {
-    interface Window {
-        devToolsExtension?: typeof compose;
-    }
-}
-
 declare module '*.less' {
     const content: { [className: string]: string };
     export default content;

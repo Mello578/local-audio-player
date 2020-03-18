@@ -6,7 +6,7 @@
   "scripts": {
     "web": "webpack",
     "build": "webpack --watch",
-    "dev": "nodemon server.js",
+    "devServer": "nodemon server.js",
     "debug": "node-debug server.js",
     "build-webpack-prod": "webpack --config Webpack/webpack.prod.config.js --display=minimal --progress",
     "webpack-dev-server": "webpack-dev-server --config Webpack/webpack.dev.config.js --progress --color"
@@ -35,13 +35,9 @@
     "watch": "^1.0.2"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.8.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
-    "audio-metadata": "^0.3.0",
     "@babel/core": "^7.2.2",
-    "babel-loader": "^8.0.6",
     "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.8.3",
     "@babel/register": "^7.0.0",
     "@types/node": "^8.10.39",
     "@types/react": "^16.3.14",
@@ -49,6 +45,10 @@
     "@types/react-redux": "5.0.20",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
+    "audio-metadata": "^0.3.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "cache-loader": "^3.0.1",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "css-loader": "^3.1.0",
@@ -69,15 +69,17 @@
     "less-loader": "^4.1.0",
     "lint-staged": "^10.0.7",
     "mini-css-extract-plugin": "^0.5.0",
-    "ts-loader": "6.0.3",
-    "typescript": "^3.5.1",
+    "nodemon": "^2.0.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "1.14.3",
-    "nodemon": "^1.12.5",
+    "redux-devtools-extension": "^2.13.8",
+    "resolve-url-loader": "^3.0.1",
     "terser-webpack-plugin": "^2.1.0",
+    "ts-loader": "6.0.3",
+    "typescript": "^3.5.1",
     "webpack": "^4.29.0",
+    "webpack-cli": "3.3.0",
     "webpack-dev-server": "^3.1.14",
-    "webpack-merge": "^4.2.1",
-    "webpack-cli": "3.3.0"
+    "webpack-merge": "^4.2.1"
   }
 }

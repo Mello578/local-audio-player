@@ -8,8 +8,6 @@ const helpers = require('./helpers.js');
 const nodeModules = helpers.root('node_modules');
 const src = helpers.root('src');
 
-const queryString = require('query-string');
-
 const tsconfig = require('../tsconfig.json');
 const TSConfigFile = helpers.root('tsconfig.json');
 
@@ -126,13 +124,11 @@ module.exports = devMode => {
                 },
                 {
                     test: /\.(jpg|png|gif)$/,
-                    loader: 'file-loader',
-                    query: queryString.stringify(fileLoaderSettings)
+                    loader: 'file-loader'
                 },
                 {
                     test: /\.mp3$/,
-                    loader: 'file-loader',
-                    query: queryString.stringify(fileLoaderSettings)
+                    loader: 'file-loader'
                 }
             ]
         },
