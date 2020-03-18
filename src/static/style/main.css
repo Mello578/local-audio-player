@@ -78,22 +78,6 @@ button:focus {
 	opacity: 0.67;
 }
 
-.player-header--name-performer,
-.player-header--name-track {
-	display: block;
-}
-
-.player-header--name-performer {
-	font-size: 24pt;
-	font-weight: bold;
-	height: 36px;
-}
-
-.player-header--name-track {
-	margin-top: 12px;
-	font-size: 12pt;
-}
-
 .player-body {
 	margin-top: 40px;
 	/**/
