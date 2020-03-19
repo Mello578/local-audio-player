@@ -8,6 +8,8 @@
     "build": "webpack --watch",
     "devServer": "nodemon server.js",
     "debug": "node-debug server.js",
+    "eslint-ts": "eslint --fix src/**/*.ts?(x)",
+    "eslint-js": "eslint --fix src/**/*.js?(x)",
     "build-webpack-prod": "webpack --config Webpack/webpack.prod.config.js --display=minimal --progress",
     "webpack-dev-server": "webpack-dev-server --config Webpack/webpack.dev.config.js --progress --color"
   },

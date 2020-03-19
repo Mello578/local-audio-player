@@ -1,16 +1,16 @@
 import React from 'react';
 import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
-import { ImagesPlaylist } from 'src/store/initionalState/models';
+import { AllInfoPlaylist, ImagesPlaylist } from 'src/store/initionalState/models';
 import { playerVinylAction } from 'src/store/actions/playerVinylAction';
+import { playlist } from 'src/store/actions/playlistActions';
 
-import { playlist } from '../../store/actions/playlistActions';
 import { getName } from '../../utils/getNameArtistAndNameTrack';
 
 interface PlaylistImagesModel extends ImagesPlaylist {
-    moviePlaylist(t: any): void;
-    hideImagesPlaylist(t: any): void;
-    setBackgroundVinyl(t: any): void;
-    allInfoPlaylist: any;
+    moviePlaylist(moviePlaylist): void;
+    hideImagesPlaylist(hideImagesPlaylist): void;
+    setBackgroundVinyl(setBackgroundVinyl): void;
+    allInfoPlaylist: AllInfoPlaylist;
 }
 
 export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
@@ -39,11 +39,10 @@ export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
 
         let pathImagesVinyl = allInfoPlaylist.images[idPlaylist].slice(2);
         pathImagesVinyl = `url(${pathImagesVinyl}) no-repeat 12px 10px / 99%`;
-        const actionImagesVinyl = playerVinylAction(pathImagesVinyl);
 
         moviePlaylist(selectedPlayList);
         hideImagesPlaylist(hideImages);
-        setBackgroundVinyl(actionImagesVinyl);
+        setBackgroundVinyl(playerVinylAction(pathImagesVinyl));
     };
 
     return visible && imagesInfo ? (
@@ -57,6 +56,7 @@ export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
                         id={imagesInfo.id[key].toString()}
                         width={'200px'}
                         onClick={openPlaylist}
+                        alt={'Какая то картинка'}
                     />
                 );
             })}
