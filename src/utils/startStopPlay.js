@@ -67,11 +67,11 @@ function bufferHandler() {
         const buffered = audioController.audio.buffered.end(0);
         const duration = audioController.characteristic.tracksDuration;
         const buffered_percentage = Math.round((buffered / duration) * 100);
-        store.dispatch({ type: setBuffered(buffered_percentage).type, payload: setBuffered(buffered_percentage).data });
+        store.dispatch(setBuffered(buffered_percentage));
     }
 }
 
 export function currentTimeUpdate() {
     const currentTime = Math.round(this.currentTime);
-    store.dispatch({ type: setCurrentTime(currentTime).type, payload: setCurrentTime(currentTime).data });
+    store.dispatch(setCurrentTime(currentTime));
 }

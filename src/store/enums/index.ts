@@ -17,5 +17,10 @@ export enum TypeKeys {
     //for playlist
     SELECT_PLAYLIST = 'addPlaylist',
     HIDE_PLAYLIST = 'hidePlaylists',
-    SHUFFLE_PLAYLIST = 'shufflePlaylists'
+    SHUFFLE_PLAYLIST = 'shufflePlaylists',
+    //for playerControlReducer
+    SET__PLAY = 'play',
+    SET_REPEAT = 'repeated',
+    SET_BUFFERED = 'setBufferedAndCurrentTime',
+    SET_CURRENT_TIME = 'setCurrentTime'
 }

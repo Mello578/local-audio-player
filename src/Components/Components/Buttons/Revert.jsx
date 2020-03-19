@@ -1,22 +1,19 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {setRepeat} from '../../../store/actions/playerControlAction';
-import {audioController} from '../../../utils/startStopPlay';
-import {store} from '../../index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { setRepeat } from '../../../store/actions/playerControlAction';
+import { audioController } from '../../../utils/startStopPlay';
+import { store } from '../../index';
 
 export class Revert extends Component {
+    revert() {
+        const repeatedTrack = !audioController.audio.loop;
+        audioController.audio.loop = repeatedTrack;
 
-  revert() {
-    const repeatedTrack = !audioController.audio.loop;
-    audioController.audio.loop = repeatedTrack;
+        store.dispatch(setRepeat(repeatedTrack));
+    }
 
-    const repeatAction = setRepeat(repeatedTrack);
-    store.dispatch({type: repeatAction.type, payload: repeatAction.data});
-  }
-
-  render() {
-    return (
-      <button className={'button button-revert'} onClick={() => this.revert()}></button>
-    )
-  }
+    render() {
+        return <button className={'button button-revert'} onClick={() => this.revert()} />;
+    }
 }
