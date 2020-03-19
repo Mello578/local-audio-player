@@ -1,9 +1,9 @@
 import React from 'react';
 import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
 import { ImagesPlaylist } from 'src/store/initionalState/models';
+import { playerVinylAction } from 'src/store/actions/playerVinylAction';
 
 import { playlist } from '../../store/actions/playlistActions';
-import { backgroundVinylAction } from '../../store/actions/backgroundVinylAction';
 import { getName } from '../../utils/getNameArtistAndNameTrack';
 
 interface PlaylistImagesModel extends ImagesPlaylist {
@@ -39,7 +39,7 @@ export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
 
         let pathImagesVinyl = allInfoPlaylist.images[idPlaylist].slice(2);
         pathImagesVinyl = `url(${pathImagesVinyl}) no-repeat 12px 10px / 99%`;
-        const actionImagesVinyl = backgroundVinylAction(pathImagesVinyl);
+        const actionImagesVinyl = playerVinylAction(pathImagesVinyl);
 
         moviePlaylist(selectedPlayList);
         hideImagesPlaylist(hideImages);

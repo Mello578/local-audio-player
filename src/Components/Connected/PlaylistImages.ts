@@ -12,13 +12,13 @@ function mapStateToProps({ allInfoPlaylistReducer, imagesPlaylistReducer }) {
 function mapDispatchToProps(dispatch) {
     return {
         moviePlaylist(playlist) {
-            dispatch({ type: playlist.type, payload: playlist.data });
+            dispatch(playlist);
         },
         hideImagesPlaylist(mode) {
-            dispatch({ type: mode.type, payload: mode.data });
+            dispatch(mode);
         },
-        setBackgroundVinyl(img) {
-            dispatch({ type: img.type, payload: img.background });
+        setBackgroundVinyl(backgroundVinyl) {
+            dispatch(backgroundVinyl);
         }
     };
 }

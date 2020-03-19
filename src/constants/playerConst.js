@@ -2,11 +2,6 @@ export const BACKGROUND_VINYL_DEFAULT = 'url(src/static/images/default.png) no-r
 export const SOUND_LOW_BACKGROUND = 'url("src/static/images/panelsControls.png") -50px -104px';
 export const SOUND_LOUD_BACKGROUND = 'url("src/static/images/panelsControls.png") -59px -104px';
 
-export const SET_BACKGROUND = 'setBackground';
-export const START_ROTATE = 'startRotate';
-export const STOP_ROTATE = 'stopRotate';
-export const PAUSE_ROTATE = 'pauseRotate';
-
 export const TRACK_PLAY = 'trackPlay';
 export const TRACK_STOP = 'trackStop';
 export const TRACK_PAUSE = 'trackPause';

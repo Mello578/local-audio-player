@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { showImagesPlaylistAction } from '../../store/actions/imagesPlaylistAction';
-import { backgroundVinylAction } from '../../store/actions/backgroundVinylAction';
+import { playerVinylAction } from '../../store/actions/playerVinylAction';
 import { BACKGROUND_VINYL_DEFAULT } from '../../constants/playerConst';
 import { hidePlaylist } from '../../store/actions/playlistActions';
 
@@ -22,7 +22,7 @@ export class VinylData extends Component {
         }
 
         const showImagesAction = showImagesPlaylistAction(true);
-        const imagesVinylAction = backgroundVinylAction(BACKGROUND_VINYL_DEFAULT);
+        const imagesVinylAction = playerVinylAction(BACKGROUND_VINYL_DEFAULT);
         const hidePlayListAction = hidePlaylist(false);
         this.props.showImages(showImagesAction);
         this.props.setBackgroundVinyl(imagesVinylAction);
@@ -57,14 +57,14 @@ export const Vinyl = connect(
         data: vinylBackgroundReducer
     }),
     dispatch => ({
-        showImages(mode) {
-            dispatch({ type: mode.type, payload: mode.payload });
+        showImages(data) {
+            dispatch(data);
         },
-        setBackgroundVinyl(img) {
-            dispatch({ type: img.type, payload: img.background });
+        setBackgroundVinyl(background) {
+            dispatch(background);
         },
         hidePlaylist(mode) {
-            dispatch({ type: mode.type, payload: mode.data });
+            dispatch(mode);
         }
     })
 )(VinylData);

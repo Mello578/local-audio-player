@@ -18,8 +18,7 @@ class TracksOfPlaylist extends Component {
             startPauseStopPlay(audioController.characteristic, TRACK_STOP);
         }
         startPauseStopPlay(selectedTrack, TRACK_PLAY, this.props.data);
-        const playTrackAction = playTrack(selectedTrack);
-        this.props.played(playTrackAction);
+        this.props.played(playTrack(selectedTrack));
     }
 
     render() {
@@ -67,7 +66,7 @@ export const PlaylistTracks = connect(
     }),
     dispatch => ({
         played(track) {
-            dispatch({ type: track.type, payload: track.data });
+            dispatch(track);
         }
     })
 )(TracksOfPlaylist);

@@ -20,8 +20,18 @@ export interface AllInfoPlaylist {
 }
 
 export interface Playlist {
-    data: any;
+    data: PlayListInfo[];
     visible: boolean;
+}
+
+export interface PlayListInfo {
+    id: number;
+    namePlaylist: string;
+    track: string;
+    tracksDuration: number;
+    trackName: string;
+    trackArtist: string;
+    trackTitle: string;
 }
 
 export interface ImagesPlaylist {
