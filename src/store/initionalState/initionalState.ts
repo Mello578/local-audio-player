@@ -3,16 +3,14 @@ import { BACKGROUND_VINYL_DEFAULT } from '../../constants/playerConst';
 import { RootState } from './models';
 
 export const initialState: RootState = {
-    allInfoPlaylist: [],
+    allInfoPlaylist: null,
     playlist: {
         data: [],
         visible: false
     },
     imagesPlaylist: {
-        data: {
-            id: null,
-            images: []
-        },
+        id: null,
+        images: [],
         visible: true
     },
     playerVinyl: {

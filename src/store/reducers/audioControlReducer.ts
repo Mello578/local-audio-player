@@ -7,7 +7,7 @@ import { TypeKeys } from 'src/store/enums';
 export type VolumeControl = ReducerModel<TypeKeys.SOUND_LEVEL, number>;
 export type MuteControl = ReducerModel<TypeKeys.SOUND_MUTED, boolean>;
 
-function volumeControl(state = initialState.audioControl, action: VolumeControl): AudioControl {
+function volumeControl(state: AudioControl, action: VolumeControl): AudioControl {
     return {
         ...state,
         volume: action.payload

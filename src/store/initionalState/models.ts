@@ -1,7 +1,7 @@
 import { MetaData } from 'src/utils/getPlaylist';
 
 export interface RootState {
-    allInfoPlaylist: AllInfoPlaylist[];
+    allInfoPlaylist: AllInfoPlaylist;
     playlist: Playlist;
     imagesPlaylist: ImagesPlaylist;
     playerVinyl: PlayerVinyl;
@@ -25,8 +25,8 @@ export interface Playlist {
 }
 
 export interface ImagesPlaylist {
-    data: {
-        id: number;
+    imagesInfo: {
+        id: number[];
         images: string[];
     };
     visible: boolean;
@@ -39,7 +39,7 @@ export interface PlayerVinyl {
 }
 
 export interface PlayControl {
-    trackInfo: TrackInfoModel;
+    data: TrackInfoModel;
     repeated: boolean;
     buffered: number;
     currentTime: number;

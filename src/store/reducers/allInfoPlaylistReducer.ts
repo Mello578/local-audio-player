@@ -4,9 +4,9 @@ import { createReducer } from 'redux-create-reducer';
 
 import { TypeKeys } from '../enums';
 
-export type AllInfoPlaylistModel = ReducerModel<TypeKeys.ALL_INFO_PLAYLIST, AllInfoPlaylist[]>;
+export type AllInfoPlaylistModel = ReducerModel<TypeKeys.ALL_INFO_PLAYLIST, AllInfoPlaylist>;
 
-function setAllInfoPlaylist(state: AllInfoPlaylist[], action: AllInfoPlaylistModel): AllInfoPlaylist[] {
+function setAllInfoPlaylist(state: AllInfoPlaylist, action: AllInfoPlaylistModel): AllInfoPlaylist {
     return action.payload;
 }
 

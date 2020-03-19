@@ -1,22 +1,24 @@
-import { SHOW_IMG_PLAYLIST, MOVIE_IMGS_PLAYLIST, HIDE_IMG_PLAYLIST } from '../../constants/playListConst';
+import { TypeKeys } from 'src/store/enums';
+import { HideImage, MoveImage, MoveImages } from 'src/store/reducers/imagesPlaylistReducer';
+import { ImagesPlaylist } from 'src/store/initionalState/models';
 
-export function setImagesPlaylistActions(data) {
+export function setImagesPlaylistActions(payload: ImagesPlaylist): MoveImages {
     return {
-        type: MOVIE_IMGS_PLAYLIST,
-        payload: data
+        type: TypeKeys.MOVIE_IMGS_PLAYLIST,
+        payload
     };
 }
 
-export function showImagesPlaylistAction(data) {
+export function showImagesPlaylistAction(payload: boolean): HideImage {
     return {
-        type: SHOW_IMG_PLAYLIST,
-        data
+        type: TypeKeys.SHOW_IMG_PLAYLIST,
+        payload
     };
 }
 
-export function hideImagesPlaylistAction(data) {
+export function hideImagesPlaylistAction(payload: boolean): MoveImage {
     return {
-        type: HIDE_IMG_PLAYLIST,
-        data
+        type: TypeKeys.HIDE_IMG_PLAYLIST,
+        payload
     };
 }

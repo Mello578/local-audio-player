@@ -25,5 +25,5 @@ function setAllPlaylist(dataFormat: AllInfoPlaylist): void {
 }
 
 function setImagesPlaylist(id, images): void {
-    store.dispatch(setImagesPlaylistActions({ id, images }));
+    store.dispatch(setImagesPlaylistActions({ imagesInfo: { id, images }, visible: true }));
 }

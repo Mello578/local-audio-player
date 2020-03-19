@@ -58,7 +58,7 @@ export const Vinyl = connect(
     }),
     dispatch => ({
         showImages(mode) {
-            dispatch({ type: mode.type, payload: mode.data });
+            dispatch({ type: mode.type, payload: mode.payload });
         },
         setBackgroundVinyl(img) {
             dispatch({ type: img.type, payload: img.background });
