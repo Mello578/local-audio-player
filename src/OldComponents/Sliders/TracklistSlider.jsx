@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { audioController, currentTimeUpdate } from '../../../utils/startStopPlay';
-import { getElem } from '../../../utils/getElementById';
-import { setStyleWidthElement } from '../../../utils/setWidthElement';
-import { setWidthSlider } from '../../../utils/sliderWidth';
-import { getCurrentWidth } from '../../../utils/currentWidth';
-import { imagesPlaylistReducer } from '../../../store/reducers/imagesPlaylistReducer';
+import { audioController, currentTimeUpdate } from '../../utils/startStopPlay';
+import { getElem } from '../../utils/getElementById';
+import { setStyleWidthElement } from '../../utils/setWidthElement';
+import { setWidthSlider } from '../../utils/sliderWidth';
+import { getCurrentWidth } from '../../utils/currentWidth';
+import { imagesPlaylistReducer } from '../../store/reducers/imagesPlaylistReducer';
 
 class TrackSlider extends Component {
     checkTrack(clickSliderBar) {

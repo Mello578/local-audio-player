@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { shufflePlaylist } from '../../../store/actions/playlistActions';
-import { shuffle } from '../../../utils/shufflePlaylist';
+import { shufflePlaylist } from '../../store/actions/playlistActions';
+import { shuffle } from '../../utils/shufflePlaylist';
 
 export class ShuffleButton extends Component {
     shuffledPlaylist() {

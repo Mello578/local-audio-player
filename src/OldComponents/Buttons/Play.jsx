@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
-import { playTrack } from '../../../store/actions/playerControlAction';
-import { TRACK_PLAY } from '../../../constants/playerConst';
+import { audioController, startPauseStopPlay } from '../../utils/startStopPlay';
+import { playTrack } from '../../store/actions/playerControlAction';
+import { TRACK_PLAY } from '../../constants/playerConst';
 
 export class PlayButton extends Component {
     play() {

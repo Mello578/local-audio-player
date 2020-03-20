@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
-import { TRACK_PAUSE } from '../../../constants/playerConst';
+import { audioController, startPauseStopPlay } from '../../utils/startStopPlay';
+import { TRACK_PAUSE } from '../../constants/playerConst';
 
 export class Pause extends Component {
     pause() {

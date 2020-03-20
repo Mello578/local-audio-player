@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { playTrack } from '../../../store/actions/playerControlAction';
-import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
-import { TRACK_NEXT, TRACK_PLAY } from "../../../constants/playerConst";
+import { playTrack } from '../../store/actions/playerControlAction';
+import { audioController, startPauseStopPlay } from '../../utils/startStopPlay';
+import { TRACK_NEXT, TRACK_PLAY } from "../../constants/playerConst";
 
 class FollowingButton extends Component {
     nextTrack() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PlaylistTracks } from '../Components/PlaylistTracks';
+import { PlaylistTracks } from '../../OldComponents/PlaylistTracks';
 import { PlaylistImages } from '../PlaylistImages';
 
 import style from './PlaylistContainer.module.less';

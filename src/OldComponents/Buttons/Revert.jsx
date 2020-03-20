@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setRepeat } from '../../../store/actions/playerControlAction';
-import { audioController } from '../../../utils/startStopPlay';
-import { store } from '../../index';
+import { setRepeat } from '../../store/actions/playerControlAction';
+import { audioController } from '../../utils/startStopPlay';
+import { store } from '../../Components';
 
 export class Revert extends Component {
     revert() {

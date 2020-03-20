@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { soundMuted } from '../../../store/actions/audioControlAction';
-import { audioController, setVolumeForFirstTrack } from '../../../utils/startStopPlay';
+import { soundMuted } from '../../store/actions/audioControlAction';
+import { setVolumeForFirstTrack, audioController } from '../../utils/startStopPlay';
 
-class VolumeBigButton extends Component {
+class VolumeSmallButton extends Component {
     muted() {
         const { soundControl } = this.props;
 
@@ -19,11 +19,11 @@ class VolumeBigButton extends Component {
     }
 
     render() {
-        return <button className={'button button-volume-big'} onClick={() => this.muted()} />;
+        return <button className={'button button-volume-small'} onClick={() => this.muted()} />;
     }
 }
 
-export const VolumeBig = connect(
+export const VolumeSmall = connect(
     ({ soundControlReducer }) => ({
         soundControl: soundControlReducer
     }),
@@ -32,4 +32,4 @@ export const VolumeBig = connect(
             dispatch({ type: muted.type, payload: muted.data });
         }
     })
-)(VolumeBigButton);
+)(VolumeSmallButton);

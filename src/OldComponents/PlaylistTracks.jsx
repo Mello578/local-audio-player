@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { secondsFormat } from '../../utils/secondsFormat';
-import { playTrack } from '../../store/actions/playerControlAction';
-import { audioController, startPauseStopPlay } from '../../utils/startStopPlay';
-import { TRACK_PLAY, TRACK_STOP } from '../../constants/playerConst';
+import { secondsFormat } from '../utils/secondsFormat';
+import { playTrack } from '../store/actions/playerControlAction';
+import { audioController, startPauseStopPlay } from '../utils/startStopPlay';
+import { TRACK_PLAY, TRACK_STOP } from '../constants/playerConst';
 
 import { TracklistSlider } from './Sliders/TracklistSlider';
 

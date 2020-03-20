@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { audioController } from '../../../utils/startStopPlay';
-import { getElem } from '../../../utils/getElementById';
-import { getCurrentWidth } from '../../../utils/currentWidth';
-import { clamp } from '../../../utils/clamp';
-import { CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS } from '../../../constants/playerConst';
+import { audioController } from '../../utils/startStopPlay';
+import { getElem } from '../../utils/getElementById';
+import { getCurrentWidth } from '../../utils/currentWidth';
+import { clamp } from '../../utils/clamp';
+import { CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS } from '../../constants/playerConst';
 
 class Circle extends Component {
     setWidthSlider(e) {

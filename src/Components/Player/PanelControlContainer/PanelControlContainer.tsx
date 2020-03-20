@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Shuffle } from '../../Components/Buttons/Shuffle';
-import { Revert } from '../../Components/Buttons/Revert';
-import { Previous } from '../../Components/Buttons/Previous';
-import { Play } from '../../Components/Buttons/Play';
-import { Following } from '../../Components/Buttons/Following';
-import { VolumeSmall } from '../../Components/Buttons/VolumeSmall';
-import { VolumeIndicator } from '../../Components/VolumeIndicator';
-import { VolumeSlider } from '../../Components/Sliders/VolumeSlider';
-import { VolumeLevel } from '../../Components/VolumeLevel';
-import { VolumeBig } from '../../Components/Buttons/VolumeBig';
-import { Pause } from '../../Components/Buttons/Pause';
+import { Shuffle } from '../../../OldComponents/Buttons/Shuffle';
+import { Revert } from '../../../OldComponents/Buttons/Revert';
+import { Previous } from '../../../OldComponents/Buttons/Previous';
+import { Play } from '../../../OldComponents/Buttons/Play';
+import { Following } from '../../../OldComponents/Buttons/Following';
+import { VolumeSmall } from '../../../OldComponents/Buttons/VolumeSmall';
+import { VolumeIndicator } from '../../../OldComponents/VolumeIndicator';
+import { VolumeSlider } from '../../../OldComponents/Sliders/VolumeSlider';
+import { VolumeLevel } from '../../../OldComponents/VolumeLevel';
+import { VolumeBig } from '../../../OldComponents/Buttons/VolumeBig';
+import { Pause } from '../../../OldComponents/Buttons/Pause';
 
 import style from './PanelsControl.module.less';
 

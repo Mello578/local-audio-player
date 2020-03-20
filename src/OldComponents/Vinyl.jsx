@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { showImagesPlaylistAction } from '../../store/actions/imagesPlaylistAction';
-import { playerVinylAction } from '../../store/actions/playerVinylAction';
-import { BACKGROUND_VINYL_DEFAULT } from '../../constants/playerConst';
-import { hidePlaylist } from '../../store/actions/playlistActions';
+import { showImagesPlaylistAction } from '../store/actions/imagesPlaylistAction';
+import { playerVinylAction } from '../store/actions/playerVinylAction';
+import { BACKGROUND_VINYL_DEFAULT } from '../constants/playerConst';
+import { hidePlaylist } from '../store/actions/playlistActions';
 
 import { PlayerTime } from './PlayerTime';
 import { CircleSlider } from './Sliders/CircleSlider';

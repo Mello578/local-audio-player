@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { secondsFormat } from '../../utils/secondsFormat';
+import { secondsFormat } from '../utils/secondsFormat';
 
 class Time extends Component {
     trackDuration(time) {
