@@ -173,21 +173,6 @@ button:focus {
 	background: url('../images/panelsControls.png') -30px -104px;
 }
 
-.player--volume-controls--phone-level1,
-.player--volume-controls--phone-level2 {
-	height: 60px;
-	width: 4px;
-}
-
-.player--volume-controls--phone-level1 {
-	/*background: url('../images/panelsControls.png') -50px -104px;*/
-	margin: 0 1px;
-}
-
-/*.player--volume-controls--phone-level2 {*/
-/*background: url('../images/panelsControls.png') -59px -104px;*/
-/*}*/
-
 .player--sound-bar {
 	width: 190px;
 	margin: 0 auto;
