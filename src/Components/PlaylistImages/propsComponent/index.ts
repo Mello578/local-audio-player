@@ -1,7 +1,4 @@
-import { connect } from 'react-redux';
-import { PlaylistImages } from 'src/Components/PlaylistImages';
-
-function mapStateToProps({ allInfoPlaylistReducer, imagesPlaylistReducer }) {
+export function mapStateToPropsPlaylistImages({ allInfoPlaylistReducer, imagesPlaylistReducer }) {
     return {
         allInfoPlaylist: allInfoPlaylistReducer,
         imagesInfo: imagesPlaylistReducer.imagesInfo,
@@ -9,7 +6,7 @@ function mapStateToProps({ allInfoPlaylistReducer, imagesPlaylistReducer }) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToPropsPlaylistImages(dispatch) {
     return {
         moviePlaylist(playlist) {
             dispatch(playlist);
@@ -22,8 +19,3 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
-
-export const ConnectedPlaylistImages = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(PlaylistImages);

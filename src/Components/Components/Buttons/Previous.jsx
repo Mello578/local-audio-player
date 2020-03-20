@@ -9,8 +9,7 @@ class PreviousButton extends Component {
     previous() {
         const nextTrack = audioController.nextTrack(TRACK_PREVIOUS);
         if (nextTrack) {
-            const playTrackAction = playTrack(nextTrack);
-            this.props.played(playTrackAction);
+            this.props.played(playTrack(nextTrack));
 
             startPauseStopPlay(nextTrack, TRACK_PLAY, this.props.tracksPlaylist);
         }
@@ -27,7 +26,7 @@ export const Previous = connect(
     }),
     dispatch => ({
         played(track) {
-            dispatch({ type: track.type, payload: track.data });
+            dispatch(track);
         }
     })
 )(PreviousButton);

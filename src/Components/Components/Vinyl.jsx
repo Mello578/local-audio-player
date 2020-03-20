@@ -21,12 +21,9 @@ export class VinylData extends Component {
             allCurrentTimeSlider[i].style.width = 0;
         }
 
-        const showImagesAction = showImagesPlaylistAction(true);
-        const imagesVinylAction = playerVinylAction(BACKGROUND_VINYL_DEFAULT);
-        const hidePlayListAction = hidePlaylist(false);
-        this.props.showImages(showImagesAction);
-        this.props.setBackgroundVinyl(imagesVinylAction);
-        this.props.hidePlaylist(hidePlayListAction);
+        this.props.showImages(showImagesPlaylistAction(true));
+        this.props.setBackgroundVinyl(playerVinylAction(BACKGROUND_VINYL_DEFAULT));
+        this.props.hidePlaylist(hidePlaylist(false));
     }
 
     render() {

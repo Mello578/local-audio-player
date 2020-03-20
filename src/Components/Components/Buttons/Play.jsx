@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
 import { playTrack } from '../../../store/actions/playerControlAction';
-import { getName } from '../../../utils/getNameArtistAndNameTrack';
 import { TRACK_PLAY } from '../../../constants/playerConst';
 
 export class PlayButton extends Component {
@@ -31,7 +30,7 @@ export const Play = connect(
     }),
     dispatch => ({
         played(track) {
-            dispatch({ type: track.type, payload: track.data });
+            dispatch(track);
         }
     })
 )(PlayButton);

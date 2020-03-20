@@ -1,7 +1,7 @@
 import React from 'react';
+import { PlaylistContainer } from 'src/Components/PlaylistContainer';
 
 import { Player } from '../Player';
-import { Playlist } from '../Containers/Playlist';
 
 import { setPlaylist } from './utils/setPlaylist';
 import style from './Application.module.less';
@@ -12,7 +12,7 @@ export const Application: React.FC = () => {
     return (
         <div className={style.container}>
             <Player />
-            <Playlist />
+            <PlaylistContainer />
         </div>
     );
 };

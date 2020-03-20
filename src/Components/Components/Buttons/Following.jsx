@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { playTrack } from '../../../store/actions/playerControlAction';
 import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
-import { TRACK_NEXT } from '../../../constants/playerConst';
+import { TRACK_NEXT, TRACK_PLAY } from "../../../constants/playerConst";
 
 class FollowingButton extends Component {
     nextTrack() {
@@ -12,7 +12,7 @@ class FollowingButton extends Component {
             const playTrackAction = playTrack(nextTrack);
             this.props.played(playTrackAction);
 
-            startPauseStopPlay(nextTrack, TypeKeys.SET__PLAY, this.props.tracksPlaylist);
+            startPauseStopPlay(nextTrack, TRACK_PLAY, this.props.tracksPlaylist);
         }
     }
 
@@ -27,7 +27,7 @@ export const Following = connect(
     }),
     dispatch => ({
         played(track) {
-            dispatch({ type: track.type, payload: track.data });
+            dispatch(track);
         }
     })
 )(FollowingButton);

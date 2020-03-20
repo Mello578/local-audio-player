@@ -3,8 +3,12 @@ import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction
 import { AllInfoPlaylist, ImagesPlaylist } from 'src/store/initionalState/models';
 import { playerVinylAction } from 'src/store/actions/playerVinylAction';
 import { playlist } from 'src/store/actions/playlistActions';
+import { connect } from 'react-redux';
 
 import { getName } from '../../utils/getNameArtistAndNameTrack';
+
+import style from './PlaylistImages.module.less';
+import { mapDispatchToPropsPlaylistImages, mapStateToPropsPlaylistImages } from './propsComponent';
 
 interface PlaylistImagesModel extends ImagesPlaylist {
     moviePlaylist(moviePlaylist): void;
@@ -13,7 +17,7 @@ interface PlaylistImagesModel extends ImagesPlaylist {
     allInfoPlaylist: AllInfoPlaylist;
 }
 
-export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
+const PlaylistImagesComponent: React.FC<PlaylistImagesModel> = ({
     visible,
     imagesInfo,
     moviePlaylist,
@@ -46,11 +50,11 @@ export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
     };
 
     return visible && imagesInfo ? (
-        <div className="playlist-images">
+        <>
             {imagesInfo.images.map((item, key) => {
                 return (
                     <img
-                        className={'playlist--one-image'}
+                        className={style.playlistImage}
                         src={item}
                         key={key}
                         id={imagesInfo.id[key].toString()}
@@ -60,6 +64,11 @@ export const PlaylistImages: React.FC<PlaylistImagesModel> = ({
                     />
                 );
             })}
-        </div>
+        </>
     ) : null;
 };
+
+export const PlaylistImages = connect(
+    mapStateToPropsPlaylistImages,
+    mapDispatchToPropsPlaylistImages
+)(PlaylistImagesComponent);

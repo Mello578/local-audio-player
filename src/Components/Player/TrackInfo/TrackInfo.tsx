@@ -1,11 +1,15 @@
 import React from 'react';
 import { TrackInfoModel } from 'src/store/initionalState/models';
+import { connect } from 'react-redux';
 
+import { mapStateToPropsTrackInfo } from './propsComponent';
 import style from './TrackInfo.module.less';
 
-export const TrackInfo: React.FC<TrackInfoModel> = ({ trackArtist, trackTitle, trackName }) => (
+export const TrackInfoComponent: React.FC<TrackInfoModel> = ({ trackArtist, trackTitle, trackName }) => (
     <div>
         <span className={style.performerName}>{trackArtist}</span>
         <span className={style.trackName}>{trackTitle || trackName}</span>
     </div>
 );
+
+export const TrackInfo = connect(mapStateToPropsTrackInfo)(TrackInfoComponent);

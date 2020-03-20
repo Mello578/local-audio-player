@@ -163,6 +163,11 @@ button:focus {
 	width: 275px;
 	position: relative;
 	top: -275px;
+	pointer-events: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .player-body--vinyl-svg {
@@ -228,31 +233,6 @@ button:focus {
 	width: 100%;
 }
 
-.player--panel-control {
-	position: absolute;
-	width: 275px;
-	-ms-user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
-}
-
-.player--buttons-control {
-	margin-top: 45px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-
-.playlist {
-	margin-left: 80px;
-	height: 50px;
-	width: 100%;
-}
-
 .button {
 	border: none;
 	height: 60px;
@@ -290,14 +270,6 @@ button:focus {
 	background: url('../images/panelsControls.png') 58px -20px;
 }
 
-.player--volume-controls {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
 
 .button-volume-small {
 	background: url('../images/panelsControls.png') -30px -104px;
@@ -345,21 +317,9 @@ button:focus {
 	background: url('../images/panelsControls.png') -179px -114px;
 }
 
-.player--additionally-panel {
-	margin-top: 55px;
-}
-
-.playlist--one-image {
-	margin: 0 50px 50px 0;
-}
-
-.playlist--one-image,
-.playlist--tracks {
-	position: relative;
-}
-
 .playlist--tracks {
 	font-size: 15pt;
+	position: relative;
 }
 
 .playlist--one-track {
@@ -423,7 +383,6 @@ button:focus {
 	float: right;
 }
 
-.playlist--one-image:hover,
 .button:hover,
 .player-body--center-vinyl:hover,
 .playlist--one-track img:hover,
