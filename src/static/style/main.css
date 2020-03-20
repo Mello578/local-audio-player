@@ -118,19 +118,6 @@ button:focus {
 	stroke-dasharray: 0px 847px;
 }
 
-.player-time-manager {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	/**/
-	top: -598px;
-	position: relative;
-}
-
-.player-time__gap {
-	width: 100%;
-}
-
 .button {
 	border: none;
 	height: 60px;

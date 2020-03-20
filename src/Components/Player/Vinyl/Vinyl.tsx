@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { showImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
-import { playerVinylAction } from 'src/store/actions/playerVinylAction';
+import { vinylBackgroundAction } from 'src/store/actions/vinylBackgroundAction';
 import { BACKGROUND_VINYL_DEFAULT } from 'src/constants/playerConst';
 import { PlayerVinyl } from 'src/store/initionalState/models';
+import { hidePlaylistAction } from 'src/store/actions/playlistActions';
 
-import { PlayerTime } from '../../../OldComponents/PlayerTime';
+import { TrackTime } from '../TrackTime/TrackTime';
 import { CircleSlider } from '../../../OldComponents/Sliders/CircleSlider';
 
 import { mapDispatchFromPropsVinyl, mapStateToPropsVinyl, VinylDispatchModel } from './propsComponent';
@@ -35,8 +36,8 @@ const VinylComponent: React.FC<VinylModel> = ({
         }
 
         showImages(showImagesPlaylistAction(true));
-        setBackgroundVinyl(playerVinylAction(BACKGROUND_VINYL_DEFAULT));
-        hidePlaylist(hidePlaylist(false));
+        setBackgroundVinyl(vinylBackgroundAction(BACKGROUND_VINYL_DEFAULT));
+        hidePlaylist(hidePlaylistAction(false));
     };
 
     return (
@@ -55,7 +56,7 @@ const VinylComponent: React.FC<VinylModel> = ({
             <img src="/src/static/images/vinyl.png" alt="vinyl" className={style.vinyl} />
             <CircleSlider />
             <div className={style.hiddenTogglePlaylist} onClick={showImagesPlaylist} />
-            <PlayerTime />
+            <TrackTime />
         </div>
     );
 };

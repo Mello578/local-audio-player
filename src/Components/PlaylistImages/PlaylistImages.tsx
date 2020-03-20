@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
-import { playerVinylAction } from 'src/store/actions/playerVinylAction';
-import { playlist } from 'src/store/actions/playlistActions';
+import { vinylBackgroundAction } from 'src/store/actions/vinylBackgroundAction';
+import { playlistAction } from 'src/store/actions/playlistActions';
 
 import { getName } from '../../utils/getNameArtistAndNameTrack';
 
@@ -26,7 +26,7 @@ const PlaylistImagesComponent: React.FC<PlaylistImagesModel> = ({
 }) => {
     const openPlaylist = async e => {
         const idPlaylist = e.target.id;
-        const selectedPlayList = playlist(
+        const selectedPlayList = playlistAction(
             allInfoPlaylist.tracks[idPlaylist].map((item, key) => {
                 const meta = allInfoPlaylist.meta[idPlaylist][key];
                 return {
@@ -45,7 +45,7 @@ const PlaylistImagesComponent: React.FC<PlaylistImagesModel> = ({
 
         moviePlaylist(selectedPlayList);
         hideImagesPlaylist(hideImages);
-        setBackgroundVinyl(playerVinylAction(pathImagesVinyl));
+        setBackgroundVinyl(vinylBackgroundAction(pathImagesVinyl));
     };
 
     return visible && imagesInfo ? (

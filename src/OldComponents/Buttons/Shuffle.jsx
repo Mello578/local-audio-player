@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { shufflePlaylist } from '../../store/actions/playlistActions';
+import { shufflePlaylistAction } from '../../store/actions/playlistActions';
 import { shuffle } from '../../utils/shufflePlaylist';
 
 export class ShuffleButton extends Component {
@@ -9,7 +9,7 @@ export class ShuffleButton extends Component {
         if (this.props.visible) {
             const currentPlaylist = this.props.data.map(item => item);
             const shuffledCurrentPlaylist = currentPlaylist.length > 2 ? shuffle(currentPlaylist) : currentPlaylist;
-            const shuffleAction = shufflePlaylist(shuffledCurrentPlaylist);
+            const shuffleAction = shufflePlaylistAction(shuffledCurrentPlaylist);
             this.props.shuffled(shuffleAction);
         }
     }

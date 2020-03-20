@@ -3,11 +3,11 @@ import {
     SetBackgroundModel,
     StartRotateModel,
     StopRotateModel
-} from 'src/store/reducers/playerVinylReducer';
+} from 'src/store/reducers/vinylBackgroundReducer';
 
 import { TypeKeys } from '../enums';
 
-export function playerVinylAction(payload: string): SetBackgroundModel {
+export function vinylBackgroundAction(payload: string): SetBackgroundModel {
     return {
         type: TypeKeys.SET_BACKGROUND,
         payload

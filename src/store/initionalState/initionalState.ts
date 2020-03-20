@@ -1,4 +1,4 @@
-import { BACKGROUND_VINYL_DEFAULT } from '../../constants/playerConst';
+import { BACKGROUND_VINYL_DEFAULT } from 'src/constants/playerConst';
 
 import { RootState } from './models';
 
@@ -9,8 +9,10 @@ export const initialState: RootState = {
         visible: false
     },
     imagesPlaylist: {
-        id: null,
-        images: [],
+        imagesInfo: {
+            id: null,
+            images: []
+        },
         visible: true
     },
     playerVinyl: {
@@ -21,6 +23,8 @@ export const initialState: RootState = {
     playControl: {
         data: {
             id: null,
+            namePlaylist: '',
+            tracksDuration: null,
             track: null,
             trackArtist: 'Performer',
             trackTitle: 'Track name',

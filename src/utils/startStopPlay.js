@@ -2,7 +2,7 @@ import { TRACK_PAUSE, TRACK_PLAY, TRACK_STOP } from '../constants/playerConst';
 import { initialState } from '../store/initionalState/initionalState';
 import { store } from '../Components';
 import { setBuffered, setCurrentTime } from '../store/actions/playerControlAction';
-import { pauseRotate, startRotate, stopRotate } from '../store/actions/playerVinylAction';
+import { pauseRotate, startRotate, stopRotate } from '../store/actions/vinylBackgroundAction';
 
 import { AudioController } from './AudioController';
 
