@@ -1,8 +1,7 @@
 import React from 'react';
 import { TrackInfo } from 'src/Components/Player/TrackInfo';
 
-import { Vinyl } from '../../OldComponents/Vinyl';
-
+import { Vinyl } from './Vinyl/Vinyl';
 import { PanelsControlContainer } from './PanelControlContainer';
 import style from './Player.module.less';
 

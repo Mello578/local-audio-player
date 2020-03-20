@@ -73,8 +73,11 @@ class TrackSlider extends Component {
                 id={`slider-box${this.props.id}`}
                 onMouseDown={e => this.setWidthSlider(e)}
             >
-                <div className={'slider-buffering'} id={`slider-buffering${this.props.trackName}`}>
-                    <div className={'slider-currentTime'} id={`slider-currentTime${this.props.trackName}`} />
+                <div className={'slider-buffering js-sliderBuffering'} id={`slider-buffering${this.props.trackName}`}>
+                    <div
+                        className={'slider-currentTime js-sliderCurrentTime'}
+                        id={`slider-currentTime${this.props.trackName}`}
+                    />
                 </div>
             </div>
         );

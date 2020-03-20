@@ -1,21 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
-import { AllInfoPlaylist, ImagesPlaylist } from 'src/store/initionalState/models';
 import { playerVinylAction } from 'src/store/actions/playerVinylAction';
 import { playlist } from 'src/store/actions/playlistActions';
-import { connect } from 'react-redux';
 
 import { getName } from '../../utils/getNameArtistAndNameTrack';
 
 import style from './PlaylistImages.module.less';
-import { mapDispatchToPropsPlaylistImages, mapStateToPropsPlaylistImages } from './propsComponent';
+import {
+    mapDispatchToPropsPlaylistImages,
+    mapStateToPropsPlaylistImages,
+    PlaylistImagesDispatchModel,
+    PlaylistImagesStateModel
+} from './propsComponent';
 
-interface PlaylistImagesModel extends ImagesPlaylist {
-    moviePlaylist(moviePlaylist): void;
-    hideImagesPlaylist(hideImagesPlaylist): void;
-    setBackgroundVinyl(setBackgroundVinyl): void;
-    allInfoPlaylist: AllInfoPlaylist;
-}
+interface PlaylistImagesModel extends PlaylistImagesStateModel, PlaylistImagesDispatchModel {}
 
 const PlaylistImagesComponent: React.FC<PlaylistImagesModel> = ({
     visible,
