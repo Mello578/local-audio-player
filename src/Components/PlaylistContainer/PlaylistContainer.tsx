@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { PlaylistTracks } from '../../OldComponents/PlaylistTracks';
-import { PlaylistImages } from '../PlaylistImages';
-
+import { PlaylistImages } from './PlaylistImages';
+import { PlaylistTracks } from './PlaylistTracks';
 import style from './PlaylistContainer.module.less';
 
 export const PlaylistContainer: React.FC = () => {

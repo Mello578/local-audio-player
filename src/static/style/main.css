@@ -183,26 +183,6 @@ button:focus {
 	background: url('../images/panelsControls.png') -179px -114px;
 }
 
-.playlist--tracks {
-	font-size: 15pt;
-	position: relative;
-}
-
-.playlist--one-track {
-	margin-bottom: 20px;
-	border-bottom: 1px solid #ffffff0d;
-	padding: 10px 0 0;
-}
-
-.one-track--content {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
 .one-track--slider-box {
 	width: 100%;
 	height: 7px;
@@ -240,19 +220,8 @@ button:focus {
 	width: 0;
 }
 
-.playlist--track-name {
-	margin-left: 20px;
-	width: 100%;
-}
-
-.playlist--duration span {
-	float: right;
-}
-
 .button:hover,
 .player-body--center-vinyl:hover,
-.playlist--one-track img:hover,
-.playlist--track-name:hover,
 .player--sound-bar:hover {
 	cursor: pointer;
 }

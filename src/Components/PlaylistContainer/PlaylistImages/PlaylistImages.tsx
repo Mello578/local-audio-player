@@ -4,7 +4,7 @@ import { hideImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction
 import { vinylBackgroundAction } from 'src/store/actions/vinylBackgroundAction';
 import { playlistAction } from 'src/store/actions/playlistActions';
 
-import { getName } from '../../utils/getNameArtistAndNameTrack';
+import { getName } from '../../../utils/getNameArtistAndNameTrack';
 
 import style from './PlaylistImages.module.less';
 import {
