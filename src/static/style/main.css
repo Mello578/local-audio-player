@@ -187,10 +187,6 @@ button:focus {
 	background: linear-gradient(to right, #c12775, #7a36cf);
 }
 
-.volume-level {
-	width: 18px;
-}
-
 .button-volume-big {
 	background: url('../images/panelsControls.png') -100px -114px;
 	margin-right: 20px;

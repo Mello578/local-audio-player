@@ -7,11 +7,10 @@ import { Play } from '../../../OldComponents/Buttons/Play';
 import { Following } from '../../../OldComponents/Buttons/Following';
 import { VolumeSmall } from '../../../OldComponents/Buttons/VolumeSmall';
 import { VolumeSlider } from '../../../OldComponents/Sliders/VolumeSlider';
-import { VolumeLevel } from '../../../OldComponents/VolumeLevel';
 import { VolumeBig } from '../../../OldComponents/Buttons/VolumeBig';
 import { Pause } from '../../../OldComponents/Buttons/Pause';
 
-import { VolumeIndicator } from './Volume/VolumeIndicator/VolumeIndicator';
+import { VolumeNumber, VolumeIndicator } from './Volume';
 import style from './PanelsControl.module.less';
 
 export const PanelsControlContainer: React.FC = () => {
@@ -28,7 +27,7 @@ export const PanelsControlContainer: React.FC = () => {
                 <VolumeSmall />
                 <VolumeIndicator />
                 <VolumeSlider />
-                <VolumeLevel />
+                <VolumeNumber />
             </div>
             <div className={style.additionallyButtons}>
                 <VolumeBig />
