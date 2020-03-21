@@ -1,0 +1,36 @@
+.sliderContainer {
+  width: 100%;
+  height: 7px;
+  margin-top: 10px;
+}
+
+.sliderContainer:hover {
+  background: #ffffff0a;
+  cursor: pointer;
+}
+
+.sliderContainer div {
+  height: 7px;
+}
+
+.sliderBuffering {
+  background: -webkit-gradient(linear, left top, right top, from(#4e88b3), to(#41ac73));
+  background: -webkit-linear-gradient(left, #4e88b3, #41ac73);
+  background: -o-linear-gradient(left, #4e88b3, #41ac73);
+  background: linear-gradient(to right, #4e88b3, #41ac73);
+  -webkit-transition: width 2s ease-in-out 0ms;
+  -o-transition: width 2s ease-in-out 0ms;
+  transition: width 2s ease-in-out 0ms;
+}
+
+.sliderCurrentTime {
+  background: -webkit-gradient(linear, left top, right top, from(#c12775), to(#7a36cf));
+  background: -webkit-linear-gradient(left, #c12775, #7a36cf);
+  background: -o-linear-gradient(left, #c12775, #7a36cf);
+  background: linear-gradient(to right, #c12775, #7a36cf);
+}
+
+.sliderBuffering,
+.sliderCurrentTime {
+  width: 0;
+}

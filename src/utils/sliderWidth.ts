@@ -1,10 +1,9 @@
 import { clamp } from './clamp';
 import { getElem } from './getElementById';
 
-export function setWidthSlider(e, elem, setParameters, widthMaxAndMin, props) {
+export function setWidthSlider(e, elem, setParameters, widthMaxAndMin, props?) {
     const slider = getElem(elem);
     const indentElementX = Math.floor(e.target.getBoundingClientRect().left);
-    let widthElement;
     let indentClickX = e.clientX;
 
     document.addEventListener('mousemove', setWithToScroll);
@@ -20,8 +19,7 @@ export function setWidthSlider(e, elem, setParameters, widthMaxAndMin, props) {
     }
 
     function calculationAndRenderingSlider() {
-        widthElement = indentClickX - indentElementX;
-        widthElement = clamp(widthElement, widthMaxAndMin.min, widthMaxAndMin.max);
+        const widthElement = clamp(indentClickX - indentElementX, widthMaxAndMin.min, widthMaxAndMin.max);
         setParameters(widthElement, slider, props);
     }
 }

@@ -30,7 +30,7 @@ function setAudioController(dataTrack, playlist) {
     }
 }
 
-export function startPauseStopPlay(dataTrack, mode, playlist) {
+export function startPauseStopPlay(dataTrack, mode, playlist?) {
     if (mode === TRACK_PLAY) {
         if (audioController && audioController.audio.paused && audioController.characteristic.id === dataTrack.id) {
             //небольшая задержка для более приятного воспроизведения

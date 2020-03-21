@@ -4,9 +4,7 @@ import { secondsFormat } from 'src/utils/secondsFormat';
 import { playTrack } from 'src/store/actions/playerControlAction';
 import { TRACK_PLAY, TRACK_STOP } from 'src/constants/playerConst';
 import { Playlist } from 'src/store/initionalState/models';
-
-import { audioController, startPauseStopPlay } from '../../../utils/startStopPlay';
-import { TracklistSlider } from '../../../OldComponents/Sliders/TracklistSlider';
+import { audioController, startPauseStopPlay } from 'src/utils/startStopPlay';
 
 import {
     mapDispatchToPropsPlaylistTracks,
@@ -14,13 +12,14 @@ import {
     PlaylistTracksDispatchModel
 } from './propsComponent';
 import style from './PlaylistTracks.module.less';
+import { TrackSlider } from './TrackSlider';
 
 interface TracksOfPlaylistModel extends Playlist, PlaylistTracksDispatchModel {}
 
 const TracksOfPlaylist: React.FC<TracksOfPlaylistModel> = ({ data, visible, played }) => {
     const setPlayTrack = e => {
         const numbTrack = e.target.id.replace(/\D+/g, '');
-        const selectedTrack = data.find(item => parseInt(item.id) === parseInt(numbTrack));
+        const selectedTrack = data.find(item => item.id === parseInt(numbTrack));
         //остановка текущего трека при включении следующего трека
         const track = audioController ? audioController.characteristic : audioController;
         if (track && selectedTrack.id !== track.id) {
@@ -49,7 +48,7 @@ const TracksOfPlaylist: React.FC<TracksOfPlaylistModel> = ({ data, visible, play
                                 <span id={`track-duration_${item.id}`}>{secondsFormat(item.tracksDuration)}</span>
                             </div>
                         </div>
-                        <TracklistSlider trackName={item.trackName} id={item.id} />
+                        <TrackSlider trackName={item.trackName} id={item.id} />
                     </div>
                 );
             })}

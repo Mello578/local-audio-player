@@ -46,7 +46,7 @@ export interface PlayControl {
 }
 
 export interface TrackInfoModel {
-    id: string;
+    id: number;
     namePlaylist?: string;
     tracksDuration?: number;
     track: string;
