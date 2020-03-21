@@ -122,6 +122,7 @@ button:focus {
 	border: none;
 	height: 60px;
 	width: 60px;
+	cursor: pointer;
 }
 
 .button-play {
@@ -167,11 +168,6 @@ button:focus {
 
 .button-pause {
 	background: url('../images/panelsControls.png') -179px -114px;
-}
-
-.button:hover,
-.player-body--center-vinyl:hover {
-	cursor: pointer;
 }
 
 /*todo перетащить в модули, возможно убрать transform*/
