@@ -160,20 +160,6 @@ button:focus {
 	background: url('../images/panelsControls.png') -30px -104px;
 }
 
-.player--sound-bar {
-	width: 190px;
-	margin: 0 auto;
-	background: #636e80;
-}
-
-.sound-bar--slider-sound {
-	height: 7px;
-	background: -webkit-gradient(linear, left top, right top, from(#c12775), to(#7a36cf));
-	background: -webkit-linear-gradient(left, #c12775, #7a36cf);
-	background: -o-linear-gradient(left, #c12775, #7a36cf);
-	background: linear-gradient(to right, #c12775, #7a36cf);
-}
-
 .button-volume-big {
 	background: url('../images/panelsControls.png') -100px -114px;
 	margin-right: 20px;
@@ -184,8 +170,7 @@ button:focus {
 }
 
 .button:hover,
-.player-body--center-vinyl:hover,
-.player--sound-bar:hover {
+.player-body--center-vinyl:hover {
 	cursor: pointer;
 }
 

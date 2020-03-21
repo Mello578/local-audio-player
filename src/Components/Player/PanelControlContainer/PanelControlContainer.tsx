@@ -6,10 +6,10 @@ import { Previous } from '../../../OldComponents/Buttons/Previous';
 import { Play } from '../../../OldComponents/Buttons/Play';
 import { Following } from '../../../OldComponents/Buttons/Following';
 import { VolumeSmall } from '../../../OldComponents/Buttons/VolumeSmall';
-import { VolumeSlider } from '../../../OldComponents/Sliders/VolumeSlider';
 import { VolumeBig } from '../../../OldComponents/Buttons/VolumeBig';
 import { Pause } from '../../../OldComponents/Buttons/Pause';
 
+import { VolumeSlider } from './Volume/VolumeSlider';
 import { VolumeNumber, VolumeIndicator } from './Volume';
 import style from './PanelsControl.module.less';
 
