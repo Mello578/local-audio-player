@@ -1,0 +1,39 @@
+.vinylSvg {
+  position: relative;
+  top: -572px;
+  left: -10px;
+  cursor: pointer;
+
+  /*transform: rotate(-14deg);*/
+}
+
+.circleStart {
+  stroke-dashoffset: -332px;
+  stroke-width: 20px;
+  stroke-dasharray: 2px 883px;
+  stroke: #C12775;
+}
+
+.circleBuffer {
+  -webkit-transition: stroke-dasharray 2s ease-in-out 0ms;
+  -o-transition: stroke-dasharray 2s ease-in-out 0ms;
+  transition: stroke-dasharray 2s ease-in-out 0ms;
+}
+
+.circleBuffer,
+.circleCurrentTime,
+.circleStart {
+  fill: hsla(0, 0%, 0%, 0);
+  stroke-width: 7px;
+  stroke-dasharray: 0 847px;
+  stroke-dashoffset: -318px;
+}
+
+/*длина окружности индикатора 847*/
+.currentTimeIndicator{
+   fill: hsla(0, 0%, 0%, 0);
+   stroke-dashoffset: -318px;
+   stroke-width: 20px;
+   stroke-linecap: round;
+   stroke-dasharray: 0 847px;
+ }

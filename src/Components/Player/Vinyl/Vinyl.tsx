@@ -6,9 +6,9 @@ import { BACKGROUND_VINYL_DEFAULT } from 'src/constants/playerConst';
 import { PlayerVinyl } from 'src/store/initionalState/models';
 import { hidePlaylistAction } from 'src/store/actions/playlistActions';
 
-import { TrackTime } from '../TrackTime/TrackTime';
-import { CircleSlider } from '../../../OldComponents/Sliders/CircleSlider';
+import { TrackTime } from '../TrackTime';
 
+import { CircleSlider } from './CircleSlider';
 import { mapDispatchFromPropsVinyl, mapStateToPropsVinyl, VinylDispatchModel } from './propsComponent';
 import style from './Vinyl.module.less';
 

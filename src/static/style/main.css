@@ -78,46 +78,6 @@ button:focus {
 	opacity: 0.67;
 }
 
-.player-body--vinyl-svg {
-	position: relative;
-	top: -572px;
-	left: -10px;
-	cursor: pointer;
-
-	/*transform: rotate(-14deg);*/
-}
-
-/*длина окружности индикатора 847*/
-.vinyl-svg-circle-buffer {
-	-webkit-transition: stroke-dasharray 2s ease-in-out 0ms;
-	-o-transition: stroke-dasharray 2s ease-in-out 0ms;
-	transition: stroke-dasharray 2s ease-in-out 0ms;
-}
-
-.vinyl-svg-circle-buffer,
-.vinyl-svg-circle-currentTime,
-.vinyl-svg-circle-start {
-	fill: hsla(0, 0%, 0%, 0);
-	stroke-width: 7px;
-	stroke-dasharray: 0 847px;
-	stroke-dashoffset: -318px;
-}
-
-.vinyl-svg-circle-start {
-	stroke-dashoffset: -332px;
-	stroke-width: 20px;
-	stroke-dasharray: 2px 883px;
-	stroke: #C12775;
-}
-
-.vinyl-svg-circle-currentTime-indicator {
-	fill: hsla(0, 0%, 0%, 0);
-	stroke-dashoffset: -318px;
-	stroke-width: 20px;
-	stroke-linecap: round;
-	stroke-dasharray: 0px 847px;
-}
-
 .button {
 	border: none;
 	height: 60px;
