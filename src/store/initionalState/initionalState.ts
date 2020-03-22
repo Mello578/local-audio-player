@@ -5,7 +5,7 @@ import { RootState } from './models';
 export const initialState: RootState = {
     allInfoPlaylist: null,
     playlist: {
-        data: [],
+        tracksInfo: [],
         visible: false
     },
     imagesPlaylist: {
@@ -21,7 +21,7 @@ export const initialState: RootState = {
         pauseRotate: 'initial'
     },
     playControl: {
-        data: {
+        trackInfo: {
             id: null,
             namePlaylist: '',
             tracksDuration: null,

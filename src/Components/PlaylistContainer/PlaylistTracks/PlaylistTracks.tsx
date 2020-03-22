@@ -16,22 +16,22 @@ import { TrackSlider } from './TrackSlider';
 
 interface TracksOfPlaylistModel extends Playlist, PlaylistTracksDispatchModel {}
 
-const TracksOfPlaylist: React.FC<TracksOfPlaylistModel> = ({ data, visible, played }) => {
+const TracksOfPlaylist: React.FC<TracksOfPlaylistModel> = ({ tracksInfo, visible, played }) => {
     const setPlayTrack = e => {
         const numbTrack = e.target.id.replace(/\D+/g, '');
-        const selectedTrack = data.find(item => item.id === parseInt(numbTrack));
+        const selectedTrack = tracksInfo.find(item => item.id === parseInt(numbTrack));
         //остановка текущего трека при включении следующего трека
         const track = audioController ? audioController.characteristic : audioController;
         if (track && selectedTrack.id !== track.id) {
             startPauseStopPlay(audioController.characteristic, TRACK_STOP);
         }
-        startPauseStopPlay(selectedTrack, TRACK_PLAY, data);
+        startPauseStopPlay(selectedTrack, TRACK_PLAY, tracksInfo);
         played(playTrack(selectedTrack));
     };
 
     return !visible ? null : (
         <div className={style.tracks}>
-            {data.map((item, key) => {
+            {tracksInfo.map((item, key) => {
                 return (
                     <div key={key} className={style.trackContainer}>
                         <div className={style.track}>

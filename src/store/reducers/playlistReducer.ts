@@ -10,7 +10,7 @@ export type ShufflePlaylist = ReducerModel<TypeKeys.SHUFFLE_PLAYLIST, TrackInfoM
 
 function selectPlaylist(state: Playlist, action: SelectPlaylist): Playlist {
     return {
-        data: action.payload,
+        tracksInfo: action.payload,
         visible: true
     };
 }
@@ -24,7 +24,7 @@ function hidePlaylist(state: Playlist, action: HidePlaylist): Playlist {
 
 function shufflePlaylist(state: Playlist, action: ShufflePlaylist): Playlist {
     return {
-        data: action.payload,
+        tracksInfo: action.payload,
         visible: true
     };
 }

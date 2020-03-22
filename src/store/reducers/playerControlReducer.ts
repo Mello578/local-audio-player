@@ -12,7 +12,7 @@ export type TrackCurrentTime = ReducerModel<TypeKeys.SET_CURRENT_TIME, number>;
 function trackPlay(state: PlayControl, action: TrackPlay): PlayControl {
     return {
         ...state,
-        data: action.payload
+        trackInfo: action.payload
     };
 }
 

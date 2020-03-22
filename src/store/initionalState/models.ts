@@ -20,7 +20,7 @@ export interface AllInfoPlaylist {
 }
 
 export interface Playlist {
-    data: TrackInfoModel[];
+    tracksInfo: TrackInfoModel[];
     visible: boolean;
 }
 
@@ -39,7 +39,7 @@ export interface PlayerVinyl {
 }
 
 export interface PlayControl {
-    data: TrackInfoModel;
+    trackInfo: TrackInfoModel;
     repeated: boolean;
     buffered: number;
     currentTime: number;

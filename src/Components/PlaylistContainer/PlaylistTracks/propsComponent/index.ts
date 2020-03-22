@@ -6,7 +6,7 @@ export interface PlaylistTracksDispatchModel {
 
 export function mapStateToPropsPlaylistTracks({ playlistReducer }): Playlist {
     return {
-        data: playlistReducer.data,
+        tracksInfo: playlistReducer.data,
         visible: playlistReducer.visible
     };
 }
