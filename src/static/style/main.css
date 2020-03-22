@@ -93,37 +93,16 @@ button:focus {
 	background: url('../images/panelsControls.png') -77px -20px;
 }
 
-.button-following {
-	background: url('../images/panelsControls.png') 117px -20px;
-}
-
-.button-previous,
-.button-following {
+.button-previous {
 	width: 40px;
 }
 
-.button-revert,
-.button-shuffle,
-.button-volume-small {
+.button-shuffle {
 	width: 20px;
-}
-
-.button-revert {
-	background: url('../images/panelsControls.png') -37px -20px;
 }
 
 .button-shuffle {
 	background: url('../images/panelsControls.png') 58px -20px;
-}
-
-
-.button-volume-small {
-	background: url('../images/panelsControls.png') -30px -104px;
-}
-
-.button-volume-big {
-	background: url('../images/panelsControls.png') -100px -114px;
-	margin-right: 20px;
 }
 
 .button-pause {
