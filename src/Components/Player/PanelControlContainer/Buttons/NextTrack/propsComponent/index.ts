@@ -1,18 +1,18 @@
 import { TrackInfoModel } from 'src/store/initionalState/models';
 
-export interface FollowStateModel {
+export interface NextTrackStateModel {
     tracksPlaylist: TrackInfoModel[];
 }
 
-export interface FollowDispatchModel {
+export interface NextTrackDispatchModel {
     played(action): void;
 }
 
-export function mapStateToPropsFollowing({ playlistReducer }): FollowStateModel {
+export function mapStateToPropsNextTrack({ playlistReducer }): NextTrackStateModel {
     return { tracksPlaylist: playlistReducer.data };
 }
 
-export function mapDispatchToPropsFollowing(dispatch): FollowDispatchModel {
+export function mapDispatchToPropsNextTrack(dispatch): NextTrackDispatchModel {
     return {
         played(track) {
             dispatch(track);

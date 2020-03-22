@@ -1,11 +1,6 @@
 import React from 'react';
 
-import { Shuffle } from '../../../OldComponents/Buttons/Shuffle';
-import { Previous } from '../../../OldComponents/Buttons/Previous';
-import { Play } from '../../../OldComponents/Buttons/Play';
-import { Pause } from '../../../OldComponents/Buttons/Pause';
-
-import { Following, VolumeMute, Repeat } from './Buttons';
+import { NextTrack, VolumeMute, Repeat, Pause, Play, Shuffle } from './Buttons';
 import { VolumeSlider } from './Volume/VolumeSlider';
 import { VolumeNumber, VolumeIndicator } from './Volume';
 import style from './PanelsControl.module.less';
@@ -15,9 +10,9 @@ export const PanelsControlContainer: React.FC = () => {
         <div className={style.panelControl}>
             <div className={style.buttonsControl}>
                 <Repeat />
-                <Previous />
+                <NextTrack isPrevious={true} />
                 <Play />
-                <Following />
+                <NextTrack isPrevious={false} />
                 <Shuffle />
             </div>
             <div className={style.volumeControls}>

@@ -85,30 +85,6 @@ button:focus {
 	cursor: pointer;
 }
 
-.button-play {
-	background: url('../images/panelsControls.png') 202px -20px;
-}
-
-.button-previous {
-	background: url('../images/panelsControls.png') -77px -20px;
-}
-
-.button-previous {
-	width: 40px;
-}
-
-.button-shuffle {
-	width: 20px;
-}
-
-.button-shuffle {
-	background: url('../images/panelsControls.png') 58px -20px;
-}
-
-.button-pause {
-	background: url('../images/panelsControls.png') -179px -114px;
-}
-
 /*todo перетащить в модули, возможно убрать transform*/
 @-webkit-keyframes spin {
 	0% {
