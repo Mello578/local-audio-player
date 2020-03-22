@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shufflePlaylistAction } from 'src/store/actions/playlistActions';
+import { shufflePlaylistAction } from 'store';
 import { shuffle } from 'src/utils/shufflePlaylist';
 
 import {

@@ -1,6 +1,6 @@
 import { TypeKeys } from 'src/store/enums';
 import { HidePlaylist, SelectPlaylist, ShufflePlaylist } from 'src/store/reducers/playlistReducer';
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 
 export function playlistAction(payload: TrackInfoModel[]): SelectPlaylist {
     return {

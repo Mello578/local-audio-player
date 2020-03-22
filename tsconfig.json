@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "utils": ["./src/js/utils"],
+      "utils": ["./src/utils"],
       "src/*": ["./src/*"],
       "store": ["./src/store"]
     }

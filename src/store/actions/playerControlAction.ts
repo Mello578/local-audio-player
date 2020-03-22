@@ -1,6 +1,6 @@
 import { TypeKeys } from 'src/store/enums';
 import { TrackBuffered, TrackCurrentTime, TrackPlay, TrackRepeat } from 'src/store/reducers/playerControlReducer';
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 
 export function playTrack(payload: TrackInfoModel): TrackPlay {
     return {

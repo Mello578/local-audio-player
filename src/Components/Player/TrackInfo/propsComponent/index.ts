@@ -1,5 +1,5 @@
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 
 export function mapStateToPropsTrackInfo({ playerControlReducer }): TrackInfoModel {
-    return playerControlReducer.data;
+    return playerControlReducer.trackInfo;
 }

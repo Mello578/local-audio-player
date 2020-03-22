@@ -1,8 +1,6 @@
-import { AllInfoPlaylist, initialState } from 'store';
+import { AllInfoPlaylist, initialState, TypeKeys } from 'store';
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
 import { createReducer } from 'redux-create-reducer';
-
-import { TypeKeys } from '../enums';
 
 export type AllInfoPlaylistModel = ReducerModel<TypeKeys.ALL_INFO_PLAYLIST, AllInfoPlaylist>;
 

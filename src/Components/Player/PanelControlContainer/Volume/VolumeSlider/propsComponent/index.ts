@@ -1,5 +1,4 @@
-import { soundLevel } from 'src/store/actions/audioControlAction';
-import { AudioControl } from 'src/store/initionalState/models';
+import { AudioControl, soundLevel } from 'store';
 
 export interface VolumeSliderModel extends AudioControl, VolumeSliderDispatchModel {}
 

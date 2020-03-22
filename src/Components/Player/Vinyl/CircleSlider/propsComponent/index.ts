@@ -8,6 +8,6 @@ export function mapStateToPropsCircleSlider({ playerControlReducer }): CircleSli
     return {
         buffered: playerControlReducer.buffered,
         currentTime: playerControlReducer.currentTime,
-        trackName: playerControlReducer.data.trackName
+        trackName: playerControlReducer.trackInfo.trackName
     };
 }

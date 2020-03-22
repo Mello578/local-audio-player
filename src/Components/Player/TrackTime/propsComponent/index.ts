@@ -8,6 +8,6 @@ export interface TrackTimePropsModel {
 export function mapStateFromPropsTrackTime({ playerControlReducer }): TrackTimePropsModel {
     return {
         trackPlayed: secondsFormat(playerControlReducer.currentTime),
-        trackDuration: secondsFormat(playerControlReducer.data.tracksDuration)
+        trackDuration: secondsFormat(playerControlReducer.trackInfo.tracksDuration)
     };
 }

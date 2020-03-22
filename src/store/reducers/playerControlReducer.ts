@@ -1,8 +1,6 @@
-import { initialState } from 'store';
+import { initialState, PlayControl, TrackInfoModel, TypeKeys } from 'store';
 import { createReducer } from 'redux-create-reducer';
-import { PlayControl, TrackInfoModel } from 'src/store/initionalState/models';
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
-import { TypeKeys } from 'src/store/enums';
 
 export type TrackPlay = ReducerModel<TypeKeys.SET__PLAY, TrackInfoModel>;
 export type TrackRepeat = ReducerModel<TypeKeys.SET_REPEAT, boolean>;

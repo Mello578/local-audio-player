@@ -4,7 +4,7 @@ import { audioController } from 'src/utils/startStopPlay';
 import { getElem } from 'src/utils/getElementById';
 import { getCurrentWidth } from 'src/utils/currentWidth';
 import { clamp } from 'src/utils/clamp';
-import { CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS } from 'src/constants/playerConst';
+import { CIRCLE_INDICATOR_OFFSET, CIRCLE_LENGTH_RADIUS } from 'src/constants';
 
 import { CircleSliderPropsModel, mapStateToPropsCircleSlider } from './propsComponent';
 import style from './CircleSlider.module.less';

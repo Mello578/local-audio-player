@@ -1,6 +1,6 @@
 import React from 'react';
 import { audioController, startPauseStopPlay } from 'src/utils/startStopPlay';
-import { TRACK_PAUSE } from 'src/constants/playerConst';
+import { TRACK_PAUSE } from 'src/constants';
 
 import style from './Pause.module.less';
 

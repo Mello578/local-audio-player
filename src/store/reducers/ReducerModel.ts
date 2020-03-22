@@ -1,4 +1,4 @@
-import { TypeKeys } from 'src/store/enums';
+import { TypeKeys } from 'store';
 
 export interface ReducerModel<key, T> extends Action<TypeKeys> {
     readonly payload: T;

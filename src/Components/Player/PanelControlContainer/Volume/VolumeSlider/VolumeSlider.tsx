@@ -1,15 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-    mapDispatchToPropsVolumeSlider,
-    mapStateToPropsVolumeSlider,
-    VolumeSliderModel
-} from 'src/Components/Player/PanelControlContainer/Volume/VolumeSlider/propsComponent';
 import { audioController, setVolumeForFirstTrack } from 'src/utils/startStopPlay';
 import { setWidthSlider } from 'src/utils/sliderWidth';
 import { setStyleWidthElement } from 'src/utils/setWidthElement';
-import { WIDTH_SOUND_BAR } from 'src/constants/playerConst';
+import { WIDTH_SOUND_BAR } from 'src/constants';
 
+import { mapDispatchToPropsVolumeSlider, mapStateToPropsVolumeSlider, VolumeSliderModel } from './propsComponent';
 import style from './VolumeSlider.module.less';
 
 const VolumeSliderComponent: React.FC<VolumeSliderModel> = props => {

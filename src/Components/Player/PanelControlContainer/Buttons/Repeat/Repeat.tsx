@@ -1,5 +1,5 @@
 import React from 'react';
-import { setRepeat } from 'src/store/actions/playerControlAction';
+import { setRepeat } from 'store';
 import { audioController } from 'src/utils/startStopPlay';
 import { connect } from 'react-redux';
 

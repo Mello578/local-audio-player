@@ -1,4 +1,4 @@
-import { AudioControl } from 'src/store/initionalState/models';
+import { AudioControl } from 'store';
 
 export interface VolumeIndicatorStateModel {
     volume: AudioControl['volume'];

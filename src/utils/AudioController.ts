@@ -1,5 +1,6 @@
-import { TRACK_NEXT, TRACK_PLAY } from '../constants/playerConst';
-import { playTrack, setBuffered } from '../store/actions/playerControlAction';
+import { playTrack, setBuffered } from 'store';
+
+import { TRACK_NEXT, TRACK_PLAY } from '../constants';
 import { store } from '../Components';
 
 import { nextPreviousTrack } from './nextPreviousTrack';

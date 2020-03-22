@@ -8,6 +8,6 @@ export function mapStateToPropsTrackList({ playerControlReducer, playlistReducer
     return {
         buffered: playerControlReducer.buffered,
         currentTime: playerControlReducer.currentTime,
-        namePlaylist: playlistReducer.data[0].namePlaylist
+        namePlaylist: playlistReducer.tracksInfo[0].namePlaylist
     };
 }

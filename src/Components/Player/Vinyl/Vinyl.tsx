@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { showImagesPlaylistAction } from 'src/store/actions/imagesPlaylistAction';
-import { vinylBackgroundAction } from 'src/store/actions/vinylBackgroundAction';
-import { BACKGROUND_VINYL_DEFAULT } from 'src/constants/playerConst';
-import { PlayerVinyl } from 'src/store/initionalState/models';
-import { hidePlaylistAction } from 'src/store/actions/playlistActions';
+import { showImagesPlaylistAction, vinylBackgroundAction, PlayerVinyl, hidePlaylistAction } from 'store';
+import { BACKGROUND_VINYL_DEFAULT } from 'src/constants';
 
 import { TrackTime } from '../TrackTime';
 

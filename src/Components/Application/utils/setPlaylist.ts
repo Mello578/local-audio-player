@@ -1,8 +1,6 @@
 import { store } from 'src/Components';
-import { setImagesPlaylistActions } from 'src/store/actions/imagesPlaylistAction';
-import { setPlaylistAction } from 'src/store/actions/setPlaylistAction';
+import { setImagesPlaylistActions, AllInfoPlaylist, setPlaylistAction } from 'store';
 import { getPlaylist } from 'src/utils/getPlaylist';
-import { AllInfoPlaylist } from 'store';
 
 export async function setPlaylist(): Promise<void> {
     const dataRequest = await getPlaylist();

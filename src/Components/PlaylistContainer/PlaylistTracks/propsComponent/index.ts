@@ -1,4 +1,4 @@
-import { Playlist } from 'src/store/initionalState/models';
+import { Playlist } from 'store';
 
 export interface PlaylistTracksDispatchModel {
     played(action): void;
@@ -6,7 +6,7 @@ export interface PlaylistTracksDispatchModel {
 
 export function mapStateToPropsPlaylistTracks({ playlistReducer }): Playlist {
     return {
-        tracksInfo: playlistReducer.data,
+        tracksInfo: playlistReducer.tracksInfo,
         visible: playlistReducer.visible
     };
 }

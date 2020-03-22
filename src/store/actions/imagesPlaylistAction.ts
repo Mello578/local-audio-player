@@ -1,6 +1,6 @@
 import { TypeKeys } from 'src/store/enums';
 import { HideImage, MoveImage, MoveImages } from 'src/store/reducers/imagesPlaylistReducer';
-import { ImagesPlaylist } from 'src/store/initionalState/models';
+import { ImagesPlaylist } from 'store';
 
 export function setImagesPlaylistActions(payload: ImagesPlaylist): MoveImages {
     return {

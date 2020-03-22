@@ -1,5 +1,4 @@
-import { AllInfoPlaylist } from 'store';
-import { ImagesPlaylist } from 'src/store/initionalState/models';
+import { AllInfoPlaylist, ImagesPlaylist } from 'store';
 
 export interface PlaylistImagesStateModel extends ImagesPlaylist {
     allInfoPlaylist: AllInfoPlaylist;

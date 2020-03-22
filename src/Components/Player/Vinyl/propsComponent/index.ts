@@ -1,4 +1,4 @@
-import { PlayerVinyl } from 'src/store/initionalState/models';
+import { PlayerVinyl } from 'store';
 
 export interface VinylDispatchModel {
     showImages(action): void;

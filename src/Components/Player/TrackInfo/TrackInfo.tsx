@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 import { connect } from 'react-redux';
 
 import { mapStateToPropsTrackInfo } from './propsComponent';

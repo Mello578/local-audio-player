@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { soundMuted } from 'src/store/actions/audioControlAction';
+import { soundMuted } from 'store';
 import { audioController, setVolumeForFirstTrack } from 'src/utils/startStopPlay';
+
 import {
     mapDispatchToPropsVolumeMute,
     mapStateToPropsVolumeMute,
     VolumeMuteDispatchModel,
     VolumeMuteStateModel
-} from 'src/Components/Player/PanelControlContainer/Buttons/VolumeMute/propsComponent';
-
+} from './propsComponent';
 import style from './VolumeMute.module.less';
 
 interface VolumeMuteModel extends VolumeMuteStateModel, VolumeMuteDispatchModel {

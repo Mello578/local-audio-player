@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { playTrack } from 'src/store/actions/playerControlAction';
+import { playTrack } from 'store';
 import { audioController, startPauseStopPlay } from 'src/utils/startStopPlay';
-import { TRACK_NEXT, TRACK_PLAY, TRACK_PREVIOUS } from 'src/constants/playerConst';
+import { TRACK_NEXT, TRACK_PLAY, TRACK_PREVIOUS } from 'src/constants';
+
 import {
     NextTrackDispatchModel,
     NextTrackStateModel,
     mapDispatchToPropsNextTrack,
     mapStateToPropsNextTrack
-} from 'src/Components/Player/PanelControlContainer/Buttons/NextTrack/propsComponent';
-
+} from './propsComponent';
 import style from './NextTrack.module.less';
 
 interface FollowingModel extends NextTrackStateModel, NextTrackDispatchModel {

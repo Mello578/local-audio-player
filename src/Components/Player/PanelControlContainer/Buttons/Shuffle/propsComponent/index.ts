@@ -1,4 +1,4 @@
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 
 export interface ShuffleStateModel {
     trackList: TrackInfoModel[];
@@ -11,7 +11,7 @@ export interface ShuffleDispatchModel {
 
 export function mapStateToPropsShuffle({ playlistReducer }): ShuffleStateModel {
     return {
-        trackList: playlistReducer.data,
+        trackList: playlistReducer.tracksInfo,
         visible: playlistReducer.visible
     };
 }

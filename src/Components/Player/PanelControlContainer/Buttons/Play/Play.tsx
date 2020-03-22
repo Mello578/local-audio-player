@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { audioController, startPauseStopPlay } from 'src/utils/startStopPlay';
-import { playTrack } from 'src/store/actions/playerControlAction';
-import { TRACK_PLAY } from 'src/constants/playerConst';
+import { playTrack } from 'store';
+import { TRACK_PLAY } from 'src/constants';
 
 import { mapDispatchToPropsPlay, mapStateToPropsPlay, PlayDispatchModel, PlayStateModel } from './propsComponent';
 import style from './Play.module.less';

@@ -1,7 +1,5 @@
-import { initialState } from 'store';
+import { initialState, TypeKeys, Playlist, TrackInfoModel } from 'store';
 import { createReducer } from 'redux-create-reducer';
-import { TypeKeys } from 'src/store/enums';
-import { Playlist, TrackInfoModel } from 'src/store/initionalState/models';
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
 
 export type SelectPlaylist = ReducerModel<TypeKeys.SELECT_PLAYLIST, TrackInfoModel[]>;

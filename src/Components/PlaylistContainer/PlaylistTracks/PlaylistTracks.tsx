@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { secondsFormat } from 'src/utils/secondsFormat';
-import { playTrack } from 'src/store/actions/playerControlAction';
-import { TRACK_PLAY, TRACK_STOP } from 'src/constants/playerConst';
-import { Playlist } from 'src/store/initionalState/models';
+import { playTrack, Playlist } from 'store';
+import { TRACK_PLAY, TRACK_STOP } from 'src/constants';
 import { audioController, startPauseStopPlay } from 'src/utils/startStopPlay';
 
 import {
@@ -19,7 +18,7 @@ interface TracksOfPlaylistModel extends Playlist, PlaylistTracksDispatchModel {}
 const TracksOfPlaylist: React.FC<TracksOfPlaylistModel> = ({ tracksInfo, visible, played }) => {
     const setPlayTrack = e => {
         const numbTrack = e.target.id.replace(/\D+/g, '');
-        const selectedTrack = tracksInfo.find(item => item.id === parseInt(numbTrack));
+        const selectedTrack = tracksInfo.find(item => item.id === parseInt(numbTrack, 10));
         //остановка текущего трека при включении следующего трека
         const track = audioController ? audioController.characteristic : audioController;
         if (track && selectedTrack.id !== track.id) {

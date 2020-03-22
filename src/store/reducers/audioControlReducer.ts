@@ -1,8 +1,6 @@
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
-import { AudioControl } from 'src/store/initionalState/models';
-import { initialState } from 'store';
+import { AudioControl, initialState, TypeKeys } from 'store';
 import { createReducer } from 'redux-create-reducer';
-import { TypeKeys } from 'src/store/enums';
 
 export type VolumeControl = ReducerModel<TypeKeys.SOUND_LEVEL, number>;
 export type MuteControl = ReducerModel<TypeKeys.SOUND_MUTED, boolean>;

@@ -1,8 +1,6 @@
 import { createReducer } from 'redux-create-reducer';
-import { ImagesPlaylist } from 'src/store/initionalState/models';
+import { ImagesPlaylist, initialState, TypeKeys } from 'store';
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
-import { TypeKeys } from 'src/store/enums';
-import { initialState } from 'store';
 
 export type MoveImages = ReducerModel<TypeKeys.MOVIE_IMGS_PLAYLIST, ImagesPlaylist>;
 export type HideImage = ReducerModel<TypeKeys.HIDE_IMG_PLAYLIST, boolean>;

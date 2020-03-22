@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { RootState } from 'src/store/initionalState/models';
+import { RootState } from 'store';
 
 import { playlistReducer } from './playlistReducer';
 import { imagesPlaylistReducer } from './imagesPlaylistReducer';

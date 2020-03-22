@@ -1,8 +1,6 @@
 import { createReducer } from 'redux-create-reducer';
 import { ReducerModel } from 'src/store/reducers/ReducerModel';
-import { TypeKeys } from 'src/store/enums';
-import { PlayerVinyl } from 'src/store/initionalState/models';
-import { initialState } from 'store';
+import { TypeKeys, PlayerVinyl, initialState } from 'store';
 
 export type SetBackgroundModel = ReducerModel<TypeKeys.SET_BACKGROUND, string>;
 export type StartRotateModel = ReducerModel<TypeKeys.START_ROTATE, number>;

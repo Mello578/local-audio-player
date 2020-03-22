@@ -1,4 +1,4 @@
-import { TrackInfoModel } from 'src/store/initionalState/models';
+import { TrackInfoModel } from 'store';
 
 export interface PlayStateModel {
     tracksPlaylist: TrackInfoModel[];
@@ -9,7 +9,7 @@ export interface PlayDispatchModel {
 }
 
 export function mapStateToPropsPlay({ playlistReducer }): PlayStateModel {
-    return { tracksPlaylist: playlistReducer.data };
+    return { tracksPlaylist: playlistReducer.tracksInfo };
 }
 
 export function mapDispatchToPropsPlay(dispatch): PlayDispatchModel {

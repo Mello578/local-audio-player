@@ -4,11 +4,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import 'babel-polyfill';
 
-import reducer from '../store/reducers';
+import combineReducers from '../store/reducers';
 
 import { Application } from './Application';
 
-export const store = createStore(reducer, window.devToolsExtension && window.devToolsExtension());
+export const store = createStore(combineReducers, window.devToolsExtension && window.devToolsExtension());
 
 ReactDOM.render(
     <Provider store={store}>
